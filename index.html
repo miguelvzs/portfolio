@@ -18,7 +18,6 @@
       --heading:   #edf0f7;
       --accent:    #3B82F6;
       --accent-lo: rgba(59,130,246,.10);
-      --accent-md: rgba(59,130,246,.25);
       --radius:    8px;
       --font-sans: 'Inter', system-ui, sans-serif;
       --font-mono: 'DM Mono', 'Fira Code', monospace;
@@ -40,37 +39,24 @@
 
     /* ── CURSOR ── */
     #cursor-dot {
-      position: fixed;
-      width: 8px; height: 8px;
-      background: var(--accent);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9999;
+      position: fixed; width: 8px; height: 8px;
+      background: var(--accent); border-radius: 50%;
+      pointer-events: none; z-index: 9999;
       transform: translate(-50%,-50%);
-      transition: width .15s, height .15s, opacity .15s;
+      transition: width .15s, height .15s;
     }
     #cursor-ring {
-      position: fixed;
-      width: 32px; height: 32px;
-      border: 1.5px solid rgba(59,130,246,.5);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9998;
+      position: fixed; width: 32px; height: 32px;
+      border: 1.5px solid rgba(59,130,246,.5); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
       transform: translate(-50%,-50%);
-      transition: transform .08s linear, width .2s, height .2s, opacity .2s;
+      transition: width .2s, height .2s, opacity .2s;
     }
     .cursor-particle {
-      position: fixed;
-      width: 5px; height: 5px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 9997;
+      position: fixed; border-radius: 50%;
+      pointer-events: none; z-index: 9997;
       transform: translate(-50%,-50%);
     }
-    body:has(a:hover) #cursor-dot,
-    body:has(button:hover) #cursor-dot { width: 12px; height: 12px; }
-    body:has(a:hover) #cursor-ring,
-    body:has(button:hover) #cursor-ring { width: 44px; height: 44px; opacity: .6; }
 
     /* ── NAV ── */
     nav {
@@ -81,22 +67,21 @@
     }
     .nav-inner {
       display: flex; align-items: center; justify-content: space-between;
-      height: 56px; max-width: 920px; margin: 0 auto; padding: 0 28px;
+      height: 56px; max-width: 1100px; margin: 0 auto; padding: 0 28px;
     }
     .nav-logo { font-family: var(--font-mono); font-size: 13px; color: var(--accent); letter-spacing: .06em; }
-    .nav-links { display: flex; gap: 32px; align-items: center; }
-    .nav-links a { font-size: 13px; color: var(--muted); letter-spacing: .03em; transition: color .2s; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { font-size: 13px; color: var(--muted); transition: color .2s; }
     .nav-links a:hover { color: var(--heading); }
     #mode-btn {
       font-family: var(--font-mono); font-size: 11px; color: var(--muted);
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 5px; padding: 5px 10px; cursor: none;
-      transition: all .2s; letter-spacing: .04em;
+      border-radius: 5px; padding: 5px 10px; cursor: none; transition: all .2s;
     }
     #mode-btn:hover { color: var(--accent); border-color: var(--accent); }
 
     /* ── LAYOUT ── */
-    .container { max-width: 920px; margin: 0 auto; padding: 0 28px; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
     section { padding: 88px 0; border-bottom: 1px solid var(--border); }
     .section-label {
       font-family: var(--font-mono); font-size: 11px; color: var(--accent);
@@ -107,49 +92,39 @@
       letter-spacing: -.015em; margin-bottom: 40px;
     }
 
-    /* ── HERO / TERMINAL ── */
-    #hero { padding: 100px 0 90px; border-bottom: 1px solid var(--border); }
+    /* ── HERO ── */
+    #hero { padding: 100px 0 90px; }
     .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .hero-name {
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
-      font-weight: 600; color: var(--heading);
-      letter-spacing: -.025em; line-height: 1.1; margin-bottom: 16px;
+      font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 600;
+      color: var(--heading); letter-spacing: -.025em; line-height: 1.1; margin-bottom: 16px;
     }
-    .hero-sub {
-      font-family: var(--font-mono); font-size: 14px; color: var(--muted);
-      margin-bottom: 36px; line-height: 1.6;
-    }
+    .hero-sub { font-family: var(--font-mono); font-size: 14px; color: var(--muted); margin-bottom: 36px; }
     .hero-sub span { color: var(--accent); }
     .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 7px;
-      padding: 10px 20px; border-radius: var(--radius); font-size: 13px;
-      font-weight: 500; cursor: none; transition: all .2s; border: 1px solid transparent;
+      padding: 10px 20px; border-radius: var(--radius);
+      font-size: 13px; font-weight: 500; cursor: none;
+      transition: all .2s; border: 1px solid transparent;
     }
     .btn-primary { background: var(--accent); color: #fff; }
     .btn-primary:hover { background: #2563eb; }
     .btn-ghost { border-color: var(--border); color: var(--body); }
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-    /* ── TERMINAL WIDGET ── */
+    /* ── TERMINAL ── */
     .terminal {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
-      font-family: var(--font-mono);
-      font-size: 13px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      font-family: var(--font-mono); font-size: 13px;
     }
     .terminal-bar {
-      background: var(--surface2);
-      border-bottom: 1px solid var(--border);
-      padding: 10px 14px;
-      display: flex; align-items: center; gap: 8px;
+      background: var(--surface2); border-bottom: 1px solid var(--border);
+      padding: 10px 14px; display: flex; align-items: center; gap: 8px;
     }
     .t-dot { width: 12px; height: 12px; border-radius: 50%; }
-    .t-red   { background: #ff5f57; }
-    .t-yellow{ background: #ffbd2e; }
-    .t-green { background: #28c840; }
+    .t-red{background:#ff5f57}.t-yellow{background:#ffbd2e}.t-green{background:#28c840}
     .terminal-body { padding: 16px 18px; min-height: 200px; }
     .t-line { margin-bottom: 4px; line-height: 1.6; }
     .t-prompt { color: var(--accent); }
@@ -157,34 +132,103 @@
     .t-out    { color: var(--body); padding-left: 2px; }
     .t-out.dim{ color: var(--muted); }
     .t-out.hi { color: var(--accent); }
-    .t-caret {
+    .t-caret  {
       display: inline-block; width: 8px; height: 14px;
       background: var(--accent); vertical-align: middle;
       animation: blink 1s step-end infinite; margin-left: 2px;
     }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    @keyframes blink { 0%,100%{opacity:1}50%{opacity:0} }
 
     /* ── SKILL GRAPH ── */
     #skills-canvas { width: 100%; height: 420px; display: block; }
 
     /* ── PROJECTS ── */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 16px; }
-    .project-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 24px;
-      display: flex; flex-direction: column; gap: 12px;
-      transition: border-color .2s, transform .2s;
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
-    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-    .project-top { display: flex; justify-content: space-between; align-items: flex-start; }
-    .folder-icon { color: var(--accent); }
-    .folder-icon svg { width: 22px; height: 22px; fill: var(--accent); }
-    .project-links { display: flex; gap: 10px; }
-    .project-links a { color: var(--muted); transition: color .2s; }
-    .project-links a:hover { color: var(--heading); }
-    .project-links svg { width: 17px; height: 17px; fill: currentColor; }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color .25s, transform .25s;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    /* iframe preview */
+    .project-preview {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+    }
+    .project-preview iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 200%;
+      height: 200%;
+      transform: scale(0.5);
+      transform-origin: top left;
+      border: none;
+      pointer-events: none;
+    }
+    /* overlay clicável por cima do iframe */
+    .preview-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10,11,13,0);
+      transition: background .2s;
+    }
+    .project-card:hover .preview-overlay { background: rgba(10,11,13,.45); }
+    .preview-open {
+      opacity: 0;
+      font-size: 12px;
+      font-weight: 500;
+      color: #fff;
+      background: var(--accent);
+      border-radius: var(--radius);
+      padding: 8px 18px;
+      transition: opacity .2s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .project-card:hover .preview-open { opacity: 1; }
+    .preview-open svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* fallback quando iframe bloqueia */
+    .preview-fallback {
+      display: none;
+      width: 100%; height: 100%;
+      align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px;
+      color: var(--muted); font-size: 12px;
+      font-family: var(--font-mono);
+    }
+    .preview-fallback svg { width: 28px; height: 28px; fill: var(--muted); opacity: .5; }
+
+    .project-info { padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .project-top { display: flex; justify-content: space-between; align-items: center; }
     .project-name { font-size: 15px; font-weight: 600; color: var(--heading); }
-    .project-desc { font-size: 13px; color: var(--muted); line-height: 1.65; flex: 1; }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 12px; color: var(--muted); transition: color .2s;
+    }
+    .project-link:hover { color: var(--accent); }
+    .project-link svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .project-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
     .techs { display: flex; flex-wrap: wrap; gap: 6px; }
     .tag {
       font-family: var(--font-mono); font-size: 10px; color: var(--accent);
@@ -213,7 +257,7 @@
     footer p { font-family: var(--font-mono); font-size: 11px; color: var(--muted); }
     footer span { color: var(--accent); }
 
-    /* ── CODE-SOURCE MODE ── */
+    /* ── CODE MODE ── */
     body.code-mode * { font-family: var(--font-mono) !important; }
     body.code-mode .hero-name::before { content: "// "; color: var(--muted); }
     body.code-mode .project-name::before { content: "fn "; color: var(--accent); }
@@ -221,34 +265,32 @@
     body.code-mode .section-title::after  { content: " */"; color: var(--muted); }
     body.code-mode .btn-primary { background: transparent; border-color: var(--accent); color: var(--accent); }
     body.code-mode .project-card { border-style: dashed; }
-    body.code-mode nav { border-bottom-style: dashed; }
 
     /* ── EASTER EGG ── */
     #egg-overlay {
-      display: none;
-      position: fixed; inset: 0; z-index: 9000;
+      display: none; position: fixed; inset: 0; z-index: 9000;
       background: rgba(10,11,13,.96);
       align-items: center; justify-content: center;
       flex-direction: column; gap: 16px;
-      font-family: var(--font-mono); color: var(--accent);
-      text-align: center;
+      font-family: var(--font-mono); text-align: center;
     }
     #egg-overlay.show { display: flex; }
     #egg-overlay h2 { font-size: 1.6rem; color: var(--heading); }
     #egg-overlay p  { font-size: 13px; color: var(--muted); max-width: 340px; }
-    #egg-overlay .egg-close {
-      margin-top: 20px; font-size: 12px; color: var(--muted);
-      cursor: none; border: 1px solid var(--border); padding: 8px 20px;
+    .egg-ascii { font-size: 11px; line-height: 1.4; color: var(--accent); white-space: pre; }
+    .egg-close {
+      margin-top: 20px; font-size: 12px; color: var(--muted); cursor: none;
+      border: 1px solid var(--border); padding: 8px 20px;
       border-radius: var(--radius); transition: all .2s;
     }
-    #egg-overlay .egg-close:hover { color: var(--accent); border-color: var(--accent); }
-    .egg-ascii { font-size: 11px; line-height: 1.4; color: var(--accent); white-space: pre; }
+    .egg-close:hover { color: var(--accent); border-color: var(--accent); }
 
     /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity .5s ease, transform .5s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
-    @media (max-width: 700px) {
+    @media (max-width: 860px) {
+      .projects-grid { grid-template-columns: 1fr; }
       .hero-layout { grid-template-columns: 1fr; }
       .terminal { display: none; }
       #hero { padding: 72px 0 60px; }
@@ -264,11 +306,10 @@
 </head>
 <body>
 
-<!-- CURSOR -->
 <div id="cursor-dot"></div>
 <div id="cursor-ring"></div>
 
-<!-- EASTER EGG OVERLAY -->
+<!-- EASTER EGG -->
 <div id="egg-overlay">
   <pre class="egg-ascii">
   ╔══════════════════════════════╗
@@ -276,7 +317,7 @@
   ╚══════════════════════════════╝</pre>
   <h2>Achievement unlocked 🎮</h2>
   <p>Só um dev de verdade tentaria o Konami Code num portfólio.<br>Bem-vindo ao clube.</p>
-  <p style="font-size:11px; color:var(--muted);">↑ ↑ ↓ ↓ ← → ← → B A</p>
+  <p style="font-size:11px;color:var(--muted);">↑ ↑ ↓ ↓ ← → ← → B A</p>
   <span class="egg-close" id="egg-close">fechar [ESC]</span>
 </div>
 
@@ -311,7 +352,7 @@
           <span class="t-dot t-red"></span>
           <span class="t-dot t-yellow"></span>
           <span class="t-dot t-green"></span>
-          <span style="font-size:11px; color:var(--muted); margin-left:6px;">miguel@portfolio ~ </span>
+          <span style="font-size:11px;color:var(--muted);margin-left:6px;">miguel@portfolio ~</span>
         </div>
         <div class="terminal-body" id="terminal-body">
           <div class="t-caret" id="t-caret"></div>
@@ -321,7 +362,7 @@
   </div>
 </section>
 
-<!-- SKILLS GRAPH -->
+<!-- SKILLS -->
 <section id="skills">
   <div class="container">
     <p class="section-label reveal">habilidades</p>
@@ -337,42 +378,100 @@
     <h2 class="section-title reveal">o que tenho construído</h2>
     <div class="projects-grid">
 
+      <!-- MVCorp -->
       <div class="project-card reveal">
-        <div class="project-top">
-          <div class="folder-icon"><svg viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/></svg></div>
-          <div class="project-links">
-            <a href="https://github.com/seu-usuario" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-            <a href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="project-preview">
+          <iframe src="https://mvcorpsolutions.netlify.app/" loading="lazy" title="MVCorp" scrolling="no" tabindex="-1"></iframe>
+          <div class="preview-overlay">
+            <a href="https://mvcorpsolutions.netlify.app/" target="_blank" rel="noopener" class="preview-open">
+              abrir site
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
           </div>
         </div>
-        <p class="project-name">Projeto Alpha</p>
-        <p class="project-desc">Descreva aqui o que este projeto faz, que problema resolve e o que você aprendeu.</p>
-        <div class="techs"><span class="tag">C#</span><span class="tag">.NET</span><span class="tag">SQL Server</span></div>
+        <div class="project-info">
+          <div class="project-top">
+            <p class="project-name">MVCorp</p>
+            <a href="https://mvcorpsolutions.netlify.app/" target="_blank" rel="noopener" class="project-link">
+              mvcorpsolutions.netlify.app
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+          <p class="project-desc">Site institucional de agência de software — serviços, portfólio, processo de trabalho e formulário de contato via WhatsApp.</p>
+          <div class="techs"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+        </div>
       </div>
 
+      <!-- KSS Mídia -->
       <div class="project-card reveal">
-        <div class="project-top">
-          <div class="folder-icon"><svg viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/></svg></div>
-          <div class="project-links">
-            <a href="https://github.com/seu-usuario" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+        <div class="project-preview">
+          <iframe src="https://kssmidia.netlify.app/" loading="lazy" title="KSS Mídia" scrolling="no" tabindex="-1"></iframe>
+          <div class="preview-overlay">
+            <a href="https://kssmidia.netlify.app/" target="_blank" rel="noopener" class="preview-open">
+              abrir site
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
           </div>
         </div>
-        <p class="project-name">Projeto Beta</p>
-        <p class="project-desc">Outro projeto incrível. Fale sobre a motivação, as decisões técnicas e o resultado alcançado.</p>
-        <div class="techs"><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span></div>
+        <div class="project-info">
+          <div class="project-top">
+            <p class="project-name">KSS Mídia</p>
+            <a href="https://kssmidia.netlify.app/" target="_blank" rel="noopener" class="project-link">
+              kssmidia.netlify.app
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+          <p class="project-desc">Landing page para empresa de marketing indoor e TV digital do sul de Minas — planos, depoimentos, mapa de telas e CTAs via WhatsApp.</p>
+          <div class="techs"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+        </div>
       </div>
 
+      <!-- Modus -->
       <div class="project-card reveal">
-        <div class="project-top">
-          <div class="folder-icon"><svg viewBox="0 0 24 24"><path d="M10 4H4c-1.11 0-2 .89-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.11-.89-2-2-2h-8l-2-2z"/></svg></div>
-          <div class="project-links">
-            <a href="https://github.com/seu-usuario" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
-            <a href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="project-preview">
+          <iframe src="https://modusgestao.netlify.app/" loading="lazy" title="Modus" scrolling="no" tabindex="-1"></iframe>
+          <div class="preview-overlay">
+            <a href="https://modusgestao.netlify.app/" target="_blank" rel="noopener" class="preview-open">
+              abrir site
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
           </div>
         </div>
-        <p class="project-name">Projeto Gamma</p>
-        <p class="project-desc">Um projeto feito com Python para automatizar tarefas repetitivas e ganhar tempo no dia a dia.</p>
-        <div class="techs"><span class="tag">Python</span><span class="tag">Docker</span></div>
+        <div class="project-info">
+          <div class="project-top">
+            <p class="project-name">Modus</p>
+            <a href="https://modusgestao.netlify.app/" target="_blank" rel="noopener" class="project-link">
+              modusgestao.netlify.app
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+          <p class="project-desc">Sistema web de gestão de manutenção — controle de ordens de serviço, ativos e equipes operacionais.</p>
+          <div class="techs"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+        </div>
+      </div>
+
+      <!-- ELOS -->
+      <div class="project-card reveal">
+        <div class="project-preview">
+          <iframe src="https://elosgestao.netlify.app/" loading="lazy" title="ELOS" scrolling="no" tabindex="-1"></iframe>
+          <div class="preview-overlay">
+            <a href="https://elosgestao.netlify.app/" target="_blank" rel="noopener" class="preview-open">
+              abrir site
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="project-info">
+          <div class="project-top">
+            <p class="project-name">ELOS</p>
+            <a href="https://elosgestao.netlify.app/" target="_blank" rel="noopener" class="project-link">
+              elosgestao.netlify.app
+              <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+            </a>
+          </div>
+          <p class="project-desc">Sistema de gestão com cadastro de usuários, endereços e estabelecimentos, mapa interativo via Leaflet e busca de CEP pela API ViaCEP. Dados em LocalStorage.</p>
+          <div class="techs"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Leaflet.js</span><span class="tag">ViaCEP</span></div>
+        </div>
       </div>
 
     </div>
@@ -385,13 +484,10 @@
     <p class="section-label reveal">contato</p>
     <h2 class="section-title reveal">bora conversar?</h2>
     <div class="contact-wrap reveal">
-      <p class="contact-text">
-        Estou aberto a oportunidades, projetos freelance e conversas sobre tecnologia.
-        Se você tem algo em mente — manda uma mensagem, respondo sempre.
-      </p>
+      <p class="contact-text">Estou aberto a oportunidades, projetos freelance e conversas sobre tecnologia. Se você tem algo em mente — manda uma mensagem, respondo sempre.</p>
       <div class="social-links">
         <a class="social-link" href="https://github.com/seu-usuario" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           GitHub
         </a>
         <a class="social-link" href="https://linkedin.com/in/seu-usuario" target="_blank" rel="noopener">
@@ -415,252 +511,175 @@
 
 <script>
 /* ══ CURSOR + PARTICLES ══ */
-const dot  = document.getElementById('cursor-dot');
+const dot = document.getElementById('cursor-dot');
 const ring = document.getElementById('cursor-ring');
-let mx = 0, my = 0, rx = 0, ry = 0;
-const particles = [];
-
+let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left = mx+'px'; dot.style.top = my+'px';
-  spawnParticle(mx, my);
+  mx=e.clientX; my=e.clientY;
+  dot.style.left=mx+'px'; dot.style.top=my+'px';
+  spawnParticle(mx,my);
 });
-
-function lerp(a,b,t){ return a+(b-a)*t; }
-function animRing(){
-  rx = lerp(rx, mx, 0.18);
-  ry = lerp(ry, my, 0.18);
-  ring.style.left = rx+'px'; ring.style.top = ry+'px';
+function lerp(a,b,t){return a+(b-a)*t;}
+(function animRing(){
+  rx=lerp(rx,mx,.18); ry=lerp(ry,my,.18);
+  ring.style.left=rx+'px'; ring.style.top=ry+'px';
   requestAnimationFrame(animRing);
-}
-animRing();
-
-const COLORS = ['#3B82F6','#60A5FA','#93C5FD','#BFDBFE'];
-function spawnParticle(x, y){
-  if(Math.random() > 0.35) return;
-  const p = document.createElement('div');
-  p.className = 'cursor-particle';
-  const c = COLORS[Math.floor(Math.random()*COLORS.length)];
-  const size = 3 + Math.random()*4;
-  p.style.cssText = `left:${x}px;top:${y}px;width:${size}px;height:${size}px;background:${c};opacity:0.7;`;
+})();
+const PC=['#3B82F6','#60A5FA','#93C5FD','#BFDBFE'];
+function spawnParticle(x,y){
+  if(Math.random()>.35)return;
+  const p=document.createElement('div');
+  p.className='cursor-particle';
+  const s=3+Math.random()*4;
+  p.style.cssText=`left:${x}px;top:${y}px;width:${s}px;height:${s}px;background:${PC[Math.floor(Math.random()*PC.length)]};opacity:0.7;`;
   document.body.appendChild(p);
-  const vx = (Math.random()-0.5)*2.5;
-  const vy = (Math.random()-0.5)*2.5 - 1;
-  let life = 1;
-  function fade(){
-    life -= 0.04;
-    p.style.opacity = life * 0.7;
-    p.style.left = (parseFloat(p.style.left)+vx)+'px';
-    p.style.top  = (parseFloat(p.style.top)+vy+0.5)+'px';
-    if(life > 0) requestAnimationFrame(fade);
-    else p.remove();
-  }
-  requestAnimationFrame(fade);
+  const vx=(Math.random()-.5)*2.5,vy=(Math.random()-.5)*2.5-1;
+  let life=1;
+  (function fade(){
+    life-=.04;
+    p.style.opacity=life*.7;
+    p.style.left=(parseFloat(p.style.left)+vx)+'px';
+    p.style.top=(parseFloat(p.style.top)+vy+.5)+'px';
+    life>0?requestAnimationFrame(fade):p.remove();
+  })();
 }
 
-/* ══ TERMINAL ANIMATION ══ */
-const body = document.getElementById('terminal-body');
-const caret= document.getElementById('t-caret');
-const lines = [
-  { type:'cmd', text:'whoami' },
-  { type:'out', text:'miguel vaz', cls:'hi' },
-  { type:'cmd', text:'cat skills.txt' },
-  { type:'out', text:'→ C# · .NET · TypeScript · Python', cls:'dim' },
-  { type:'out', text:'→ SQL · Docker · Git', cls:'dim' },
-  { type:'cmd', text:'echo $STATUS' },
-  { type:'out', text:'"a developing dev" 🚀' },
-  { type:'cmd', text:'uptime --human' },
-  { type:'out', text:'dev há alguns anos, curioso há sempre', cls:'dim' },
-  { type:'cmd', text:'_' },
+/* ══ TERMINAL ══ */
+const tbody=document.getElementById('terminal-body');
+const caret=document.getElementById('t-caret');
+const lines=[
+  {type:'cmd',text:'whoami'},
+  {type:'out',text:'miguel vaz',cls:'hi'},
+  {type:'cmd',text:'cat skills.txt'},
+  {type:'out',text:'→ C# · .NET · TypeScript · Python',cls:'dim'},
+  {type:'out',text:'→ SQL · Docker · Git · Leaflet.js',cls:'dim'},
+  {type:'cmd',text:'ls projetos/'},
+  {type:'out',text:'MVCorp  KSS-Midia  Modus  ELOS',cls:''},
+  {type:'cmd',text:'echo $STATUS'},
+  {type:'out',text:'"a developing dev" 🚀'},
+  {type:'cmd',text:'_'},
 ];
-let li = 0, ci = 0;
-
+let li=0,ci=0;
 function typeChar(){
-  if(li >= lines.length) return;
-  const l = lines[li];
-  if(l.type === 'cmd'){
-    if(ci === 0){
-      const row = document.createElement('div');
-      row.className = 't-line';
-      row.innerHTML = `<span class="t-prompt">❯ </span><span class="t-cmd" id="cur-cmd"></span>`;
-      body.insertBefore(row, caret);
+  if(li>=lines.length)return;
+  const l=lines[li];
+  if(l.type==='cmd'){
+    if(ci===0){
+      const row=document.createElement('div');
+      row.className='t-line';
+      row.innerHTML=`<span class="t-prompt">❯ </span><span class="t-cmd" id="cur-cmd"></span>`;
+      tbody.insertBefore(row,caret);
     }
-    const el = body.querySelector('#cur-cmd');
-    if(ci < l.text.length){
-      el.textContent += l.text[ci];
-      ci++;
-      setTimeout(typeChar, 60 + Math.random()*40);
-    } else {
-      el.removeAttribute('id');
-      li++; ci = 0;
-      setTimeout(typeChar, 120);
-    }
+    const el=tbody.querySelector('#cur-cmd');
+    if(ci<l.text.length){el.textContent+=l.text[ci];ci++;setTimeout(typeChar,60+Math.random()*40);}
+    else{el.removeAttribute('id');li++;ci=0;setTimeout(typeChar,120);}
   } else {
-    const row = document.createElement('div');
-    row.className = 't-line t-out' + (l.cls ? ' '+l.cls : '');
-    row.textContent = l.text;
-    body.insertBefore(row, caret);
-    li++; ci = 0;
-    setTimeout(typeChar, 80);
+    const row=document.createElement('div');
+    row.className='t-line t-out'+(l.cls?' '+l.cls:'');
+    row.textContent=l.text;
+    tbody.insertBefore(row,caret);
+    li++;ci=0;setTimeout(typeChar,80);
   }
-  body.scrollTop = body.scrollHeight;
+  tbody.scrollTop=tbody.scrollHeight;
 }
-setTimeout(typeChar, 800);
+setTimeout(typeChar,800);
 
 /* ══ SKILL GRAPH ══ */
-const canvas = document.getElementById('skills-canvas');
-const ctx = canvas.getContext('2d');
-const ACCENT = '#3B82F6';
-
-const nodes = [
-  { id:0, label:'C#',         group:0, x:0, y:0, vx:0, vy:0 },
-  { id:1, label:'.NET',       group:0, x:0, y:0, vx:0, vy:0 },
-  { id:2, label:'TypeScript', group:1, x:0, y:0, vx:0, vy:0 },
-  { id:3, label:'JavaScript', group:1, x:0, y:0, vx:0, vy:0 },
-  { id:4, label:'Node.js',    group:1, x:0, y:0, vx:0, vy:0 },
-  { id:5, label:'Python',     group:2, x:0, y:0, vx:0, vy:0 },
-  { id:6, label:'Docker',     group:3, x:0, y:0, vx:0, vy:0 },
-  { id:7, label:'PostgreSQL', group:3, x:0, y:0, vx:0, vy:0 },
-  { id:8, label:'SQL Server', group:3, x:0, y:0, vx:0, vy:0 },
-  { id:9, label:'Git',        group:3, x:0, y:0, vx:0, vy:0 },
+const canvas=document.getElementById('skills-canvas');
+const ctx=canvas.getContext('2d');
+const nodes=[
+  {id:0,label:'C#',group:0,x:0,y:0,vx:0,vy:0},
+  {id:1,label:'.NET',group:0,x:0,y:0,vx:0,vy:0},
+  {id:2,label:'TypeScript',group:1,x:0,y:0,vx:0,vy:0},
+  {id:3,label:'JavaScript',group:1,x:0,y:0,vx:0,vy:0},
+  {id:4,label:'Node.js',group:1,x:0,y:0,vx:0,vy:0},
+  {id:5,label:'Python',group:2,x:0,y:0,vx:0,vy:0},
+  {id:6,label:'Docker',group:3,x:0,y:0,vx:0,vy:0},
+  {id:7,label:'PostgreSQL',group:3,x:0,y:0,vx:0,vy:0},
+  {id:8,label:'SQL Server',group:3,x:0,y:0,vx:0,vy:0},
+  {id:9,label:'Git',group:3,x:0,y:0,vx:0,vy:0},
+  {id:10,label:'Leaflet.js',group:1,x:0,y:0,vx:0,vy:0},
 ];
-const edges = [
-  [0,1],[0,2],[1,4],[2,3],[3,4],[4,7],[5,6],[5,7],[6,9],[7,8],[1,6],[9,0],[9,2]
-];
-const COLORS_G = ['#3B82F6','#8B5CF6','#10B981','#F59E0B'];
-const RADIUS = 28;
-
+const edges=[[0,1],[0,2],[1,4],[2,3],[3,4],[4,7],[5,6],[5,7],[6,9],[7,8],[1,6],[9,0],[9,2],[3,10],[10,7]];
+const CG=['#3B82F6','#8B5CF6','#10B981','#F59E0B'];
+const R=28;
 function resizeCanvas(){
-  const rect = canvas.parentElement.getBoundingClientRect();
-  canvas.width  = rect.width;
-  canvas.height = 420;
-  nodes.forEach((n,i) => {
-    if(n.x === 0 && n.y === 0){
-      n.x = 80 + Math.random() * (canvas.width - 160);
-      n.y = 50 + Math.random() * (canvas.height - 100);
-    }
-  });
+  const rect=canvas.parentElement.getBoundingClientRect();
+  canvas.width=rect.width; canvas.height=420;
+  nodes.forEach(n=>{if(n.x===0&&n.y===0){n.x=80+Math.random()*(canvas.width-160);n.y=50+Math.random()*(canvas.height-100);}});
 }
 resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-let hovered = null;
-canvas.addEventListener('mousemove', e => {
-  const r = canvas.getBoundingClientRect();
-  const mx = e.clientX - r.left, my = e.clientY - r.top;
-  hovered = nodes.find(n => Math.hypot(n.x-mx, n.y-my) < RADIUS) || null;
-  canvas.style.cursor = hovered ? 'none' : 'none';
+window.addEventListener('resize',resizeCanvas);
+let hovered=null;
+canvas.addEventListener('mousemove',e=>{
+  const r=canvas.getBoundingClientRect();
+  const hx=e.clientX-r.left,hy=e.clientY-r.top;
+  hovered=nodes.find(n=>Math.hypot(n.x-hx,n.y-hy)<R)||null;
 });
-
 function tick(){
-  const W = canvas.width, H = canvas.height;
-  const cx = W/2, cy = H/2;
-
-  nodes.forEach(n => {
-    let fx = (cx - n.x) * 0.003;
-    let fy = (cy - n.y) * 0.003;
-
-    nodes.forEach(m => {
-      if(m===n) return;
-      const dx = n.x-m.x, dy = n.y-m.y;
-      const d = Math.max(Math.hypot(dx,dy), 1);
-      const rep = 2800 / (d*d);
-      fx += (dx/d)*rep;
-      fy += (dy/d)*rep;
+  const W=canvas.width,H=canvas.height,cx=W/2,cy=H/2;
+  nodes.forEach(n=>{
+    let fx=(cx-n.x)*.003,fy=(cy-n.y)*.003;
+    nodes.forEach(m=>{
+      if(m===n)return;
+      const dx=n.x-m.x,dy=n.y-m.y,d=Math.max(Math.hypot(dx,dy),1),rep=2800/(d*d);
+      fx+=(dx/d)*rep;fy+=(dy/d)*rep;
     });
-
-    edges.forEach(([a,b]) => {
-      const other = a===n.id ? nodes[b] : b===n.id ? nodes[a] : null;
-      if(!other) return;
-      const dx = other.x-n.x, dy = other.y-n.y;
-      const d = Math.hypot(dx,dy);
-      const target = 140;
-      const f = (d-target)*0.015;
-      fx += (dx/d)*f;
-      fy += (dy/d)*f;
+    edges.forEach(([a,b])=>{
+      const o=a===n.id?nodes[b]:b===n.id?nodes[a]:null;
+      if(!o)return;
+      const dx=o.x-n.x,dy=o.y-n.y,d=Math.hypot(dx,dy),f=(d-140)*.015;
+      fx+=(dx/d)*f;fy+=(dy/d)*f;
     });
-
-    n.vx = (n.vx+fx)*0.85;
-    n.vy = (n.vy+fy)*0.85;
-    n.x = Math.max(RADIUS+4, Math.min(W-RADIUS-4, n.x+n.vx));
-    n.y = Math.max(RADIUS+4, Math.min(H-RADIUS-4, n.y+n.vy));
+    n.vx=(n.vx+fx)*.85;n.vy=(n.vy+fy)*.85;
+    n.x=Math.max(R+4,Math.min(W-R-4,n.x+n.vx));
+    n.y=Math.max(R+4,Math.min(H-R-4,n.y+n.vy));
   });
 }
-
 function draw(){
-  const W = canvas.width, H = canvas.height;
+  const W=canvas.width,H=canvas.height;
   ctx.clearRect(0,0,W,H);
-
-  edges.forEach(([a,b]) => {
-    const na = nodes[a], nb = nodes[b];
-    const isHi = hovered && (hovered.id===a || hovered.id===b);
-    ctx.beginPath();
-    ctx.moveTo(na.x, na.y);
-    ctx.lineTo(nb.x, nb.y);
-    ctx.strokeStyle = isHi ? 'rgba(59,130,246,.55)' : 'rgba(59,130,246,.12)';
-    ctx.lineWidth = isHi ? 1.5 : 1;
-    ctx.stroke();
+  edges.forEach(([a,b])=>{
+    const na=nodes[a],nb=nodes[b];
+    const hi=hovered&&(hovered.id===a||hovered.id===b);
+    ctx.beginPath();ctx.moveTo(na.x,na.y);ctx.lineTo(nb.x,nb.y);
+    ctx.strokeStyle=hi?'rgba(59,130,246,.55)':'rgba(59,130,246,.12)';
+    ctx.lineWidth=hi?1.5:1;ctx.stroke();
   });
-
-  nodes.forEach(n => {
-    const isHi = hovered && hovered.id===n.id;
-    const col = COLORS_G[n.group];
-    ctx.beginPath();
-    ctx.arc(n.x, n.y, isHi ? RADIUS+4 : RADIUS, 0, Math.PI*2);
-    ctx.fillStyle = isHi ? col+'33' : '#13151a';
-    ctx.fill();
-    ctx.strokeStyle = isHi ? col : col+'66';
-    ctx.lineWidth = isHi ? 2 : 1.5;
-    ctx.stroke();
-
-    ctx.font = `500 12px 'DM Mono', monospace`;
-    ctx.fillStyle = isHi ? '#edf0f7' : '#b8bfd4';
-    ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(n.label, n.x, n.y);
+  nodes.forEach(n=>{
+    const hi=hovered&&hovered.id===n.id,col=CG[n.group];
+    ctx.beginPath();ctx.arc(n.x,n.y,hi?R+4:R,0,Math.PI*2);
+    ctx.fillStyle=hi?col+'33':'#13151a';ctx.fill();
+    ctx.strokeStyle=hi?col:col+'66';ctx.lineWidth=hi?2:1.5;ctx.stroke();
+    ctx.font=`500 12px 'DM Mono',monospace`;
+    ctx.fillStyle=hi?'#edf0f7':'#b8bfd4';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(n.label,n.x,n.y);
   });
 }
-
-function loop(){
-  tick(); draw();
-  requestAnimationFrame(loop);
-}
-loop();
+(function loop(){tick();draw();requestAnimationFrame(loop);})();
 
 /* ══ CODE MODE ══ */
-document.getElementById('mode-btn').addEventListener('click', () => {
+document.getElementById('mode-btn').addEventListener('click',()=>{
   document.body.classList.toggle('code-mode');
-  const btn = document.getElementById('mode-btn');
-  btn.textContent = document.body.classList.contains('code-mode') ? '◎ normal' : '</> código';
+  document.getElementById('mode-btn').textContent=document.body.classList.contains('code-mode')?'◎ normal':'</> código';
 });
 
-/* ══ KONAMI CODE EASTER EGG ══ */
-const KONAMI = [38,38,40,40,37,39,37,39,66,65];
-let ki = 0;
-document.addEventListener('keydown', e => {
-  if(e.keyCode === KONAMI[ki]) {
-    ki++;
-    if(ki === KONAMI.length){
-      document.getElementById('egg-overlay').classList.add('show');
-      ki = 0;
-    }
-  } else { ki = 0; }
-  if(e.key === 'Escape') document.getElementById('egg-overlay').classList.remove('show');
+/* ══ KONAMI CODE ══ */
+const KONAMI=[38,38,40,40,37,39,37,39,66,65];
+let ki=0;
+document.addEventListener('keydown',e=>{
+  if(e.keyCode===KONAMI[ki]){ki++;if(ki===KONAMI.length){document.getElementById('egg-overlay').classList.add('show');ki=0;}}
+  else ki=0;
+  if(e.key==='Escape')document.getElementById('egg-overlay').classList.remove('show');
 });
-document.getElementById('egg-close').addEventListener('click', () => {
-  document.getElementById('egg-overlay').classList.remove('show');
-});
+document.getElementById('egg-close').addEventListener('click',()=>document.getElementById('egg-overlay').classList.remove('show'));
 
 /* ══ SCROLL REVEAL ══ */
-const observer = new IntersectionObserver(
-  entries => entries.forEach(e => {
-    if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); }
-  }), { threshold: 0.1 }
-);
-document.querySelectorAll('.reveal').forEach((el, i) => {
-  el.style.transitionDelay = `${(i%5)*70}ms`;
-  observer.observe(el);
-});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=`${(i%5)*70}ms`;obs.observe(el);});
 </script>
 </body>
 </html>
