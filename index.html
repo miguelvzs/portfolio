@@ -6,14 +6,14 @@
   <title>Portfólio - Miguel Vaz</title>
 
   <!-- ══ OG / META SOCIAL ══ -->
-  <meta name="description" content="Miguel Vaz — desenvolvedor focado em C#, .NET, TypeScript e soluções web. Confira meu portfólio de projetos." />
+  <meta name="description" content="Miguel Vaz, desenvolvedor focado em C#, .NET, TypeScript e soluções web. Confira meu portfólio de projetos." />
   <meta name="author" content="Miguel Vaz" />
   <meta name="theme-color" content="#0a0b0d" />
 
   <!-- Open Graph -->
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://miguelvzs.dev/" />
-  <meta property="og:title"       content="Miguel Vaz — a developing dev" />
+  <meta property="og:title"       content="Miguel Vaz · a developing dev" />
   <meta property="og:description" content="Desenvolvedor focado em C#, .NET, TypeScript e soluções web. Veja meus projetos e entre em contato." />
   <meta property="og:image"       content="https://miguelvzs.dev/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -22,7 +22,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:title"       content="Miguel Vaz — a developing dev" />
+  <meta name="twitter:title"       content="Miguel Vaz · a developing dev" />
   <meta name="twitter:description" content="Desenvolvedor focado em C#, .NET, TypeScript e soluções web." />
   <meta name="twitter:image"       content="https://miguelvzs.dev/og-image.png" />
 
@@ -31,7 +31,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     /* ══ TOKENS ══ */
     :root {
@@ -45,8 +45,8 @@
       --accent:    #3B82F6;
       --accent-lo: rgba(59,130,246,.10);
       --radius:    8px;
-      --font-sans: 'Inter', system-ui, sans-serif;
-      --font-mono: 'DM Mono', 'Fira Code', monospace;
+      --font-sans: 'Geist', system-ui, sans-serif;
+      --font-mono: 'Geist Mono', 'DM Mono', monospace;
 
       /* theme transition */
       --theme-transition: background .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease;
@@ -74,44 +74,30 @@
       font-size: 15px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      cursor: none;
       overflow-x: hidden;
       transition: var(--theme-transition);
     }
     a { color: inherit; text-decoration: none; }
     ul { list-style: none; }
 
-    /* ══ SCROLL PROGRESS ══ */
+    /* ══ SCROLL PROGRESS (CSS scroll-driven, no JS listener) ══ */
     #scroll-progress {
       position: fixed;
       top: 0; left: 0;
       height: 2px;
-      width: 0%;
+      width: 100%;
       background: var(--accent);
       z-index: 9999;
-      transition: width .1s linear;
+      transform: scaleX(0);
+      transform-origin: 0 50%;
     }
-
-    /* ══ CURSOR ══ */
-    #cursor-dot {
-      position: fixed; width: 8px; height: 8px;
-      background: var(--cursor-color, var(--accent)); border-radius: 50%;
-      pointer-events: none; z-index: 9998;
-      transform: translate(-50%,-50%);
-      transition: width .15s, height .15s, background .3s;
+    @supports (animation-timeline: scroll()) {
+      #scroll-progress {
+        animation: progress-grow linear both;
+        animation-timeline: scroll(root);
+      }
     }
-    #cursor-ring {
-      position: fixed; width: 32px; height: 32px;
-      border: 1.5px solid var(--cursor-ring-color, rgba(59,130,246,.5)); border-radius: 50%;
-      pointer-events: none; z-index: 9997;
-      transform: translate(-50%,-50%);
-      transition: width .2s, height .2s, opacity .2s, border-color .3s;
-    }
-    .cursor-particle {
-      position: fixed; border-radius: 50%;
-      pointer-events: none; z-index: 9996;
-      transform: translate(-50%,-50%);
-    }
+    @keyframes progress-grow { to { transform: scaleX(1); } }
 
     /* ══ NAV ══ */
     nav {
@@ -134,7 +120,7 @@
     #mode-btn, #theme-btn {
       font-family: var(--font-mono); font-size: 11px; color: var(--muted);
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 5px; padding: 5px 10px; cursor: none; transition: all .2s;
+      border-radius: 5px; padding: 5px 10px; cursor: pointer; transition: all .2s;
     }
     #mode-btn:hover, #theme-btn:hover { color: var(--accent); border-color: var(--accent); }
 
@@ -166,19 +152,13 @@
     }
     .status-dot {
       width: 7px; height: 7px; border-radius: 50%; background: #10b981;
-      box-shadow: 0 0 0 0 rgba(16,185,129,.5);
-      animation: pulse-dot 2s ease infinite;
-    }
-    @keyframes pulse-dot {
-      0%   { box-shadow: 0 0 0 0 rgba(16,185,129,.5); }
-      70%  { box-shadow: 0 0 0 6px rgba(16,185,129,0); }
-      100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+      flex-shrink: 0;
     }
     .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 7px;
       padding: 10px 20px; border-radius: var(--radius);
-      font-size: 13px; font-weight: 500; cursor: none;
+      font-size: 13px; font-weight: 500; cursor: pointer;
       transition: all .2s; border: 1px solid transparent;
     }
     .btn-primary { background: var(--accent); color: #fff; }
@@ -319,7 +299,7 @@
       position: absolute;
       inset: 0;
       z-index: 2;
-      cursor: none;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -331,7 +311,7 @@
       opacity: 0;
       font-size: 12px; font-weight: 500; color: #fff;
       background: var(--accent); border-radius: var(--radius);
-      padding: 8px 18px; cursor: none;
+      padding: 8px 18px; cursor: pointer;
       transition: opacity .2s;
       display: flex; align-items: center; gap: 6px;
       border: none;
@@ -365,7 +345,7 @@
     #modal-close {
       font-family: var(--font-mono); font-size: 11px; color: var(--muted);
       background: var(--surface); border: 1px solid var(--border);
-      border-radius: 5px; padding: 5px 12px; cursor: none; transition: all .2s;
+      border-radius: 5px; padding: 5px 12px; cursor: pointer; transition: all .2s;
     }
     #modal-close:hover { color: var(--accent); border-color: var(--accent); }
     #modal-iframe {
@@ -433,7 +413,7 @@
     #egg-overlay p  { font-size: 13px; color: var(--muted); max-width: 340px; }
     .egg-ascii { font-size: 11px; line-height: 1.4; color: var(--accent); white-space: pre; }
     .egg-close {
-      margin-top: 20px; font-size: 12px; color: var(--muted); cursor: none;
+      margin-top: 20px; font-size: 12px; color: var(--muted); cursor: pointer;
       border: 1px solid var(--border); padding: 8px 20px;
       border-radius: var(--radius); transition: all .2s;
     }
@@ -465,9 +445,6 @@
 <!-- SCROLL PROGRESS -->
 <div id="scroll-progress"></div>
 
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
-
 <!-- SITE MODAL -->
 <div id="site-modal">
   <div class="modal-chrome">
@@ -491,7 +468,7 @@
   ╔══════════════════════════════╗
   ║  você encontrou o easter egg ║
   ╚══════════════════════════════╝</pre>
-  <h2>Achievement unlocked 🎮</h2>
+  <h2>Achievement unlocked</h2>
   <p>Só um dev de verdade tentaria o Konami Code num portfólio.<br>Bem-vindo ao clube.</p>
   <p style="font-size:11px;color:var(--muted);">↑ ↑ ↓ ↓ ← → ← → B A</p>
   <span class="egg-close" id="egg-close">fechar [ESC]</span>
@@ -519,7 +496,6 @@
   <div class="container">
     <div class="hero-layout">
       <div>
-        <p class="section-label reveal">olá, mundo</p>
         <h1 class="hero-name reveal">Miguel Vaz</h1>
         <p class="hero-sub reveal"><span>// </span>a developing dev</p>
         <div class="hero-status reveal">
@@ -549,20 +525,19 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <p class="section-label reveal">sobre</p>
     <h2 class="section-title reveal">quem está por trás do código</h2>
     <div class="about-layout">
       <div class="about-text reveal">
-        <p>Oi, sou o Miguel — desenvolvedor com foco em construir soluções web que realmente funcionam. Comecei a programar por curiosidade e hoje transformo isso em produtos.</p>
-        <p>Meu stack principal gira em torno de <span class="about-highlight">HTML, CSS e JavaScript</span>. Tenho fascínio por interfaces bem feitas — aquelas que o usuário usa sem nem perceber o quanto foi pensado em cada detalhe.</p>
-        <p>Quando não estou codando, provavelmente estou explorando algum projeto freelance, estudando arquitetura de software ou tentando encontrar easter eggs em produtos que admiro.</p>
+        <p>Oi, sou o Miguel. Desenvolvedor que gosta de construir coisas web que funcionam de verdade. Comecei a programar por curiosidade e acabei ficando.</p>
+        <p>Meu dia a dia gira em torno de <span class="about-highlight">HTML, CSS e JavaScript</span>. Tenho um fraco por interface bem feita, daquelas que a pessoa usa sem perceber o trabalho que deu por trás.</p>
+        <p>Fora do editor, costumo estar mexendo em algum freela, lendo sobre arquitetura de software ou caçando easter egg em produto que eu curto.</p>
       </div>
       <div class="timeline reveal">
         <div class="tl-item">
           <span class="tl-dot"></span>
-          <p class="tl-year">2026 — presente</p>
+          <p class="tl-year">desde 2026</p>
           <p class="tl-title">Projetos freelance & portfólio</p>
-          <p class="tl-desc">Cortex, MV Financing, Modus e ELOS — construindo soluções reais para clientes reais.</p>
+          <p class="tl-desc">Cortex, MV Financing, Modus e ELOS. Produto real, cliente real, prazo real.</p>
         </div>
         <div class="tl-item">
           <span class="tl-dot"></span>
@@ -584,7 +559,6 @@
 <!-- SKILLS -->
 <section id="skills">
   <div class="container">
-    <p class="section-label reveal">habilidades</p>
     <h2 class="section-title reveal">tecnologias & conexões</h2>
     <canvas id="skills-canvas" class="reveal"></canvas>
   </div>
@@ -593,7 +567,6 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="container">
-    <p class="section-label reveal">projetos</p>
     <h2 class="section-title reveal">o que tenho construído</h2>
     <div class="projects-grid">
 
@@ -627,7 +600,7 @@
               <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
             </a>
           </div>
-          <p class="project-desc">Cortex é um painel administrativo desenvolvido para um buffet a fim de suprir as necessidades de gerenciamento de suas operações.</p>
+          <p class="project-desc">Painel administrativo para um buffet tocar o dia a dia: pedidos, eventos e controle da operação em um só lugar.</p>
           <div class="techs"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
         </div>
       </div>
@@ -697,7 +670,7 @@
               <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
             </a>
           </div>
-          <p class="project-desc">Sistema web de gestão de manutenção — controle de ordens de serviço, ativos e equipes operacionais.</p>
+          <p class="project-desc">Sistema de gestão de manutenção: ordens de serviço, ativos e equipes operacionais reunidos num lugar só.</p>
           <div class="techs"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
         </div>
       </div>
@@ -744,10 +717,9 @@
 <!-- CONTACT -->
 <section id="contact">
   <div class="container">
-    <p class="section-label reveal">contato</p>
     <h2 class="section-title reveal">bora conversar?</h2>
     <div class="contact-wrap reveal">
-      <p class="contact-text">Estou aberto a oportunidades, projetos freelance e conversas sobre tecnologia. Se você tem algo em mente — manda uma mensagem, respondo sempre.</p>
+      <p class="contact-text">Estou aberto a oportunidades, projetos freelance e boas conversas sobre tecnologia. Tem algo em mente? Manda mensagem que eu respondo.</p>
       <div class="social-links">
         <a class="social-link" href="https://github.com/miguelvzs" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
@@ -774,109 +746,10 @@
 
 <script>
 /* ══════════════════════════════════════════
-   SCROLL PROGRESS BAR
-══════════════════════════════════════════ */
-const progressBar = document.getElementById('scroll-progress');
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  progressBar.style.width = pct + '%';
-}, { passive: true });
-
-/* ══════════════════════════════════════════
-   CURSOR + PARTICLES + SECTION COLOR
-══════════════════════════════════════════ */
-const dot  = document.getElementById('cursor-dot');
-const ring = document.getElementById('cursor-ring');
-let mx=0,my=0,rx=0,ry=0;
-
-// Section cursor colors
-const SECTION_COLORS = {
-  hero:     { dot: '#3B82F6', ring: 'rgba(59,130,246,.5)'  },
-  about:    { dot: '#10b981', ring: 'rgba(16,185,129,.5)'  },
-  skills:   { dot: '#8B5CF6', ring: 'rgba(139,92,246,.5)'  },
-  projects: { dot: '#F59E0B', ring: 'rgba(245,158,11,.5)'  },
-  contact:  { dot: '#EC4899', ring: 'rgba(236,72,153,.5)'  },
-};
-
-function updateCursorForSection() {
-  const sections = ['hero','about','skills','projects','contact'];
-  let active = 'hero';
-  for (const id of sections) {
-    const el = document.getElementById(id);
-    if (!el) continue;
-    const rect = el.getBoundingClientRect();
-    if (rect.top <= window.innerHeight / 2) active = id;
-  }
-  const c = SECTION_COLORS[active] || SECTION_COLORS.hero;
-  document.documentElement.style.setProperty('--cursor-color', c.dot);
-  document.documentElement.style.setProperty('--cursor-ring-color', c.ring);
-}
-window.addEventListener('scroll', updateCursorForSection, { passive: true });
-updateCursorForSection();
-
-document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  dot.style.left = mx+'px'; dot.style.top = my+'px';
-  spawnParticle(mx, my);
-});
-function lerp(a,b,t){ return a+(b-a)*t; }
-(function animRing(){
-  rx = lerp(rx,mx,.18); ry = lerp(ry,my,.18);
-  ring.style.left = rx+'px'; ring.style.top = ry+'px';
-  requestAnimationFrame(animRing);
-})();
-
-const PC = ['#3B82F6','#60A5FA','#93C5FD','#BFDBFE'];
-function spawnParticle(x,y){
-  if (Math.random() > .35) return;
-  const p = document.createElement('div');
-  p.className = 'cursor-particle';
-  const s = 3 + Math.random()*4;
-  p.style.cssText = `left:${x}px;top:${y}px;width:${s}px;height:${s}px;background:${PC[Math.floor(Math.random()*PC.length)]};opacity:0.7;`;
-  document.body.appendChild(p);
-  const vx = (Math.random()-.5)*2.5, vy = (Math.random()-.5)*2.5-1;
-  let life = 1;
-  (function fade(){
-    life -= .04;
-    p.style.opacity = life*.7;
-    p.style.left = (parseFloat(p.style.left)+vx)+'px';
-    p.style.top  = (parseFloat(p.style.top)+vy+.5)+'px';
-    life > 0 ? requestAnimationFrame(fade) : p.remove();
-  })();
-}
-
-/* ══════════════════════════════════════════
-   TERMINAL — with keyboard sounds
+   TERMINAL (typed intro)
 ══════════════════════════════════════════ */
 const tbody = document.getElementById('terminal-body');
 const caret = document.getElementById('t-caret');
-
-// Web Audio synth click
-let audioCtx = null;
-function getAudioCtx(){
-  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  return audioCtx;
-}
-function playKeyClick(){
-  try {
-    const ctx = getAudioCtx();
-    const buf = ctx.createBuffer(1, ctx.sampleRate * 0.04, ctx.sampleRate);
-    const data = buf.getChannelData(0);
-    for (let i = 0; i < data.length; i++) {
-      data[i] = (Math.random()*2-1) * Math.exp(-i / (ctx.sampleRate * 0.008));
-    }
-    const src = ctx.createBufferSource();
-    src.buffer = buf;
-    const gain = ctx.createGain();
-    gain.gain.setValueAtTime(0.12, ctx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.04);
-    src.connect(gain);
-    gain.connect(ctx.destination);
-    src.start();
-  } catch(e){}
-}
 
 const lines = [
   {type:'cmd',text:'whoami'},
@@ -887,7 +760,7 @@ const lines = [
   {type:'cmd',text:'ls projetos/'},
   {type:'out',text:'MVCorp  MV-Financing  Modus  ELOS',cls:''},
   {type:'cmd',text:'echo $STATUS'},
-  {type:'out',text:'"a developing dev" 🚀'},
+  {type:'out',text:'"a developing dev"'},
   {type:'cmd',text:'_'},
 ];
 let li=0,ci=0;
@@ -904,7 +777,6 @@ function typeChar(){
     const el = tbody.querySelector('#cur-cmd');
     if (ci < l.text.length){
       el.textContent += l.text[ci];
-      playKeyClick();
       ci++; setTimeout(typeChar, 60+Math.random()*40);
     } else {
       el.removeAttribute('id'); li++; ci=0; setTimeout(typeChar, 120);
