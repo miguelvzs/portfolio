@@ -138,7 +138,7 @@
 
     /* ══ HERO ══ */
     #hero { padding: 100px 0 90px; }
-    .hero-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .hero-layout { display: block; }
     .hero-name {
       font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 600;
       color: var(--heading); letter-spacing: -.025em; line-height: 1.1; margin-bottom: 16px;
@@ -166,34 +166,6 @@
     body.light .btn-primary:hover { background: #1d4ed8; }
     .btn-ghost { border-color: var(--border); color: var(--body); }
     .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ══ TERMINAL ══ */
-    .terminal {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; overflow: hidden;
-      font-family: var(--font-mono); font-size: 13px;
-      transition: var(--theme-transition);
-    }
-    .terminal-bar {
-      background: var(--surface2); border-bottom: 1px solid var(--border);
-      padding: 10px 14px; display: flex; align-items: center; gap: 8px;
-      transition: var(--theme-transition);
-    }
-    .t-dot { width: 12px; height: 12px; border-radius: 50%; }
-    .t-red{background:#ff5f57}.t-yellow{background:#ffbd2e}.t-green{background:#28c840}
-    .terminal-body { padding: 16px 18px; min-height: 200px; }
-    .t-line { margin-bottom: 4px; line-height: 1.6; }
-    .t-prompt { color: var(--accent); }
-    .t-cmd    { color: var(--heading); }
-    .t-out    { color: var(--body); padding-left: 2px; }
-    .t-out.dim{ color: var(--muted); }
-    .t-out.hi { color: var(--accent); }
-    .t-caret  {
-      display: inline-block; width: 8px; height: 14px;
-      background: var(--accent); vertical-align: middle;
-      animation: blink 1s step-end infinite; margin-left: 2px;
-    }
-    @keyframes blink { 0%,100%{opacity:1}50%{opacity:0} }
 
     /* ══ SKILL GRAPH ══ */
     #skills-canvas { width: 100%; height: 420px; display: block; }
@@ -425,9 +397,7 @@
 
     @media (max-width: 860px) {
       .projects-grid { grid-template-columns: 1fr; }
-      .hero-layout { grid-template-columns: 1fr; }
       .about-layout { grid-template-columns: 1fr; }
-      .terminal { display: none; }
       #hero { padding: 72px 0 60px; }
       section { padding: 60px 0; }
       .contact-wrap { padding: 24px; }
@@ -435,7 +405,6 @@
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
       .project-card:hover { transform: none; }
-      .t-caret { animation: none; }
       .status-dot { animation: none; }
     }
   </style>
@@ -505,17 +474,6 @@
         <div class="hero-cta reveal">
           <a href="#projects" class="btn btn-primary">ver projetos</a>
           <a href="#contact"  class="btn btn-ghost">contato</a>
-        </div>
-      </div>
-      <div class="terminal reveal" id="terminal">
-        <div class="terminal-bar">
-          <span class="t-dot t-red"></span>
-          <span class="t-dot t-yellow"></span>
-          <span class="t-dot t-green"></span>
-          <span style="font-size:11px;color:var(--muted);margin-left:6px;">miguel@portfolio ~</span>
-        </div>
-        <div class="terminal-body" id="terminal-body">
-          <div class="t-caret" id="t-caret"></div>
         </div>
       </div>
     </div>
@@ -745,53 +703,6 @@
 </footer>
 
 <script>
-/* ══════════════════════════════════════════
-   TERMINAL (typed intro)
-══════════════════════════════════════════ */
-const tbody = document.getElementById('terminal-body');
-const caret = document.getElementById('t-caret');
-
-const lines = [
-  {type:'cmd',text:'whoami'},
-  {type:'out',text:'miguel vaz',cls:'hi'},
-  {type:'cmd',text:'cat skills.txt'},
-  {type:'out',text:'→ C# · .NET · TypeScript · Python',cls:'dim'},
-  {type:'out',text:'→ SQL · Docker · Git · Leaflet.js',cls:'dim'},
-  {type:'cmd',text:'ls projetos/'},
-  {type:'out',text:'MVCorp  MV-Financing  Modus  ELOS',cls:''},
-  {type:'cmd',text:'echo $STATUS'},
-  {type:'out',text:'"a developing dev"'},
-  {type:'cmd',text:'_'},
-];
-let li=0,ci=0;
-function typeChar(){
-  if (li >= lines.length) return;
-  const l = lines[li];
-  if (l.type === 'cmd'){
-    if (ci === 0){
-      const row = document.createElement('div');
-      row.className = 't-line';
-      row.innerHTML = `<span class="t-prompt">❯ </span><span class="t-cmd" id="cur-cmd"></span>`;
-      tbody.insertBefore(row, caret);
-    }
-    const el = tbody.querySelector('#cur-cmd');
-    if (ci < l.text.length){
-      el.textContent += l.text[ci];
-      ci++; setTimeout(typeChar, 60+Math.random()*40);
-    } else {
-      el.removeAttribute('id'); li++; ci=0; setTimeout(typeChar, 120);
-    }
-  } else {
-    const row = document.createElement('div');
-    row.className = 't-line t-out'+(l.cls?' '+l.cls:'');
-    row.textContent = l.text;
-    tbody.insertBefore(row, caret);
-    li++; ci=0; setTimeout(typeChar, 80);
-  }
-  tbody.scrollTop = tbody.scrollHeight;
-}
-setTimeout(typeChar, 800);
-
 /* ══════════════════════════════════════════
    SKILL GRAPH
 ══════════════════════════════════════════ */
