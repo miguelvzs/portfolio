@@ -11,7 +11,7 @@ export function ProjectCard({ project, index }: { project: WebProject; index: nu
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.45, delay: (index % 2) * 0.08 }}
     >
-      <Card className="group h-full gap-0 py-0 ring-border transition-all duration-300 hover:-translate-y-1 hover:ring-brand/50">
+      <Card className="group h-full gap-0 py-0 ring-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10 hover:ring-brand/50">
         <div className="border-b border-border bg-muted/40 px-3 py-2.5">
           <div className="flex items-center gap-2">
             <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />

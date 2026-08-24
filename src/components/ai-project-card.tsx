@@ -12,7 +12,7 @@ export function AiProjectCard({ project, index }: { project: AiProject; index: n
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.45, delay: index * 0.08 }}
     >
-      <Card className="h-full gap-0 py-0 ring-border transition-all duration-300 hover:-translate-y-1 hover:ring-brand/50">
+      <Card className="h-full gap-0 py-0 ring-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10 hover:ring-brand/50">
         <div className="flex flex-1 flex-col gap-3 p-5">
           <div className="flex items-center justify-between gap-2">
             <h3 className="flex items-center gap-2 text-base font-semibold text-foreground">
