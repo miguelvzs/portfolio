@@ -1,14 +1,26 @@
 import { motion } from "framer-motion"
 import { SectionHeading } from "@/components/section-heading"
 import { Reveal } from "@/components/reveal"
+import { BackgroundGrid } from "@/components/background-grid"
 import { skillGroups } from "@/lib/content"
 
 export function Skills() {
   return (
-    <section id="skills" className="border-t border-border py-20 md:py-28">
-      <div className="mx-auto max-w-5xl px-6">
+    <section id="skills" className="relative overflow-hidden border-t border-border py-24 md:py-32">
+      <BackgroundGrid className="opacity-70" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(ellipse_60%_60%_at_50%_0%,var(--color-brand)_0%,transparent_70%)] opacity-[0.08]"
+      />
+
+      <div className="relative mx-auto max-w-5xl px-6">
         <Reveal>
-          <SectionHeading eyebrow="Skills" title="Tecnologias que uso no dia a dia" id="skills-heading" />
+          <SectionHeading
+            eyebrow="Skills"
+            title="Tecnologias que uso no dia a dia"
+            id="skills-heading"
+            size="lg"
+          />
         </Reveal>
 
         <div className="grid gap-10 sm:grid-cols-2">

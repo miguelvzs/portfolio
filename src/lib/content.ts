@@ -11,8 +11,8 @@ export const profile = {
 export const nav = [
   { label: "Sobre", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Formação", href: "#credentials" },
   { label: "Projetos", href: "#projects" },
+  { label: "Formação", href: "#credentials" },
   { label: "Contato", href: "#contact" },
 ]
 
