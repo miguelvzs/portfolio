@@ -10,7 +10,6 @@ export const profile = {
 
 export const nav = [
   { label: "Sobre", href: "#about" },
-  { label: "Experiência", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Formação", href: "#credentials" },
   { label: "Projetos", href: "#projects" },
