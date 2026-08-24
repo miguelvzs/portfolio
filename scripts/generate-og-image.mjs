@@ -34,9 +34,9 @@ const svg = `
   <text x="120" y="132" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="700" fill="#f5f7fb" text-anchor="middle">MV</text>
 
   <text x="120" y="270" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" fill="#edf0f7">Miguel Vaz</text>
-  <text x="120" y="330" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="400" fill="#9aa3b8">Desenvolvedor C# &#183; .NET &#183; TypeScript</text>
+  <text x="120" y="330" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="400" fill="#9aa3b8">Desenvolvedor Fullstack J&#250;nior &#183; Foco em IA</text>
 
-  <text x="120" y="392" font-family="Consolas, 'Courier New', monospace" font-size="22" fill="#3B82F6">// construindo interfaces e sistemas de verdade</text>
+  <text x="120" y="392" font-family="Consolas, 'Courier New', monospace" font-size="22" fill="#3B82F6">// agentes de IA integrados a sistemas reais</text>
 
   <text x="120" y="560" font-family="Consolas, 'Courier New', monospace" font-size="24" fill="#5a6278">miguelvzs.dev</text>
 </svg>

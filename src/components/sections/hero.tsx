@@ -47,12 +47,21 @@ export function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.6 }}
+            className="mb-4 font-mono text-sm text-brand md:text-base"
+          >
+            {profile.role}
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.6 }}
             className="mx-auto mb-4 max-w-3xl text-xl text-muted-foreground md:text-2xl"
           >
-            Desenvolvedor focado em C#, .NET e TypeScript. Construo interfaces e sistemas que
-            funcionam de verdade, do back-end à experiência que a pessoa usa sem perceber o
-            trabalho que teve por trás.
+            Desenvolvedor fullstack com foco em inteligência artificial. Construo o front-end em
+            React, o back-end em Python e Node.js, e uso essa base pra integrar agentes de IA a
+            sistemas reais.
           </motion.p>
 
           <motion.div

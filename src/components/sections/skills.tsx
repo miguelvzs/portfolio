@@ -11,7 +11,7 @@ export function Skills() {
           <SectionHeading eyebrow="Skills" title="Tecnologias que uso no dia a dia" id="skills-heading" />
         </Reveal>
 
-        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid gap-10 sm:grid-cols-2">
           {skillGroups.map((group, gi) => (
             <Reveal key={group.label} delay={gi * 0.08}>
               <h3 className="mb-4 font-mono text-xs tracking-widest text-muted-foreground uppercase">
