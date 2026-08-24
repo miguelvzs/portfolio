@@ -5,8 +5,6 @@ import { ProjectCard } from "@/components/project-card"
 import { AiProjectCard } from "@/components/ai-project-card"
 import { webProjects, aiProjects } from "@/lib/content"
 
-const total = webProjects.length + aiProjects.length
-
 export function Projects() {
   return (
     <section id="projects" className="relative overflow-hidden border-t border-border py-24 md:py-32">
@@ -18,17 +16,12 @@ export function Projects() {
 
       <div className="relative mx-auto max-w-5xl px-6">
         <Reveal>
-          <div className="mb-10 flex items-end justify-between gap-4 md:mb-14">
-            <SectionHeading
-              eyebrow="Projetos"
-              title="O que tenho construído"
-              id="projects-heading"
-              size="lg"
-            />
-            <span className="mb-1 hidden shrink-0 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 font-mono text-xs text-brand sm:inline-block">
-              {total} projetos
-            </span>
-          </div>
+          <SectionHeading
+            eyebrow="Projetos"
+            title="O que tenho construído"
+            id="projects-heading"
+            size="lg"
+          />
         </Reveal>
 
         <Reveal>
