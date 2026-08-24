@@ -70,11 +70,6 @@ export const education: EducationItem[] = [
     title: "Técnico em Desenvolvimento de Sistemas",
     org: "SENAI CFP Janez Hlebanja",
   },
-  {
-    period: "abr/2024 — nov/2025",
-    title: "FAEX Tech",
-    org: "Faculdade de Extrema",
-  },
 ]
 
 export type Award = {
