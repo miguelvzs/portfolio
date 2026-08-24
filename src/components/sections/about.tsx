@@ -14,8 +14,7 @@ export function About() {
           <Reveal>
             <div className="space-y-4 text-[15px] leading-relaxed text-muted-foreground">
               {aboutParagraphs.map((paragraph, i) => (
-                // eslint-disable-next-line react/no-danger
-                <p key={i} dangerouslySetInnerHTML={{ __html: paragraph }} className="[&_strong]:font-medium [&_strong]:text-foreground" />
+                <p key={i}>{paragraph}</p>
               ))}
             </div>
           </Reveal>

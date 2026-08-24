@@ -17,7 +17,7 @@ export const nav = [
 
 export const aboutParagraphs = [
   "Sou o Miguel: desenvolvedor focado em construir coisas web que funcionam de verdade, não só que parecem funcionar em vídeo de demonstração.",
-  "No dia a dia trabalho com <strong>C#, .NET e TypeScript</strong>, do back-end à interface. Gosto de detalhe — daquela UI que a pessoa usa sem perceber o trabalho que teve por trás.",
+  "No dia a dia trabalho com C#, .NET e TypeScript, do back-end à interface. Gosto de detalhe — daquela UI que a pessoa usa sem perceber o trabalho que teve por trás.",
   "Fora do editor, estou mexendo em algum freela, lendo sobre arquitetura de software ou testando produto novo pra ver como foi construído.",
 ]
 
