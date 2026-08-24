@@ -3,6 +3,7 @@ import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { BackgroundGrid } from "@/components/background-grid"
 import { profile } from "@/lib/content"
+import avatar from "@/assets/avatar.webp"
 
 const socials = [
   { icon: Github, href: profile.github, label: "GitHub" },
@@ -30,9 +31,13 @@ export function Hero() {
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
             className="mb-6 inline-block"
           >
-            <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full border-4 border-background bg-gradient-to-br from-brand to-muted shadow-lg">
-              <span className="font-mono text-xl font-semibold text-brand-foreground">MV</span>
-            </div>
+            <img
+              src={avatar}
+              alt="Miguel Vaz"
+              width={96}
+              height={96}
+              className="mx-auto h-24 w-24 rounded-full border-4 border-background object-cover shadow-lg"
+            />
           </motion.div>
 
           <motion.h1
