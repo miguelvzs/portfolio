@@ -34,9 +34,9 @@ export function Hero() {
             <img
               src={avatar}
               alt="Miguel Vaz"
-              width={96}
-              height={96}
-              className="mx-auto h-24 w-24 rounded-full border-4 border-background object-cover shadow-lg"
+              width={160}
+              height={160}
+              className="mx-auto h-28 w-28 rounded-full border-4 border-background object-cover shadow-lg md:h-40 md:w-40"
             />
           </motion.div>
 
