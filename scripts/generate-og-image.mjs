@@ -41,7 +41,7 @@ const svg = `
 
   <text x="120" y="392" font-family="Consolas, 'Courier New', monospace" font-size="22" fill="#3B82F6">// agentes de IA integrados a sistemas reais</text>
 
-  <text x="120" y="560" font-family="Consolas, 'Courier New', monospace" font-size="24" fill="#5a6278">miguelvzs.dev</text>
+  <text x="120" y="560" font-family="Consolas, 'Courier New', monospace" font-size="24" fill="#5a6278">miguelvaz.vercel.app</text>
 </svg>
 `.trim()
 
