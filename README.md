@@ -18,7 +18,3 @@ npm run lint      # oxlint
 - **shadcn/ui** (base Radix, preset Nova/Geist) — primitivos em `src/components/ui`
 - **framer-motion** — animações de entrada e scroll reveal
 - **lucide-react** — ícones
-
-## Deploy
-
-Site estático — `npm run build` gera `dist/`, publicável direto no Vercel/Netlify (build command `npm run build`, output `dist`).
