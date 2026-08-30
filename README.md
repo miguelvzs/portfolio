@@ -1,5 +1,3 @@
-# miguelvzs.dev
-
 Portfólio pessoal de Miguel Vaz. React + TypeScript + Tailwind CSS v4 + shadcn/ui + framer-motion, com Vite.
 
 ## Rodando localmente
