@@ -11,6 +11,8 @@ import { localeMeta, LOCALES, type Locale, type Messages } from "@/lib/i18n-type
 import { dictionaries } from "@/lib/messages"
 import { buildContent, type LocalizedContent } from "@/lib/content"
 
+const STORAGE_KEY = "locale"
+
 type LocaleContextValue = {
   locale: Locale
   setLocale: (locale: Locale) => void
