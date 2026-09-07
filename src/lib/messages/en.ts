@@ -2,14 +2,14 @@ import type { Messages } from "@/lib/i18n-types"
 
 export const en: Messages = {
   meta: {
-    title: "Miguel Vaz · Junior Fullstack Developer · Focus on AI",
+    title: "Miguel Vaz · Full-Stack Developer & AI Engineer",
     description:
-      "Miguel Vaz, junior fullstack developer focused on artificial intelligence: React, Python, Node.js, and AI agents integrated via the Anthropic API. See my project portfolio.",
+      "Miguel Vaz, full-stack developer and AI engineer: React, Python, Node.js, and AI agents integrated via the Anthropic API. See my project portfolio.",
     ogDescription:
-      "Junior fullstack developer focused on artificial intelligence. See my projects and get in touch.",
-    twitterDescription: "Junior fullstack developer focused on artificial intelligence.",
+      "Full-stack developer and AI engineer. See my projects and get in touch.",
+    twitterDescription: "Full-stack developer and AI engineer.",
     siteName: "Miguel Vaz Portfolio",
-    jobTitle: "Junior Fullstack Developer · Focus on Artificial Intelligence",
+    jobTitle: "Full-Stack Developer & AI Engineer",
     knowsAboutAi: "Artificial Intelligence",
   },
   aria: {
@@ -32,7 +32,7 @@ export const en: Messages = {
     contact: "Contact",
   },
   profile: {
-    role: "Junior Fullstack Developer · Focus on Artificial Intelligence",
+    role: "Full-Stack Developer & AI Engineer",
   },
   hero: {
     subtitle:

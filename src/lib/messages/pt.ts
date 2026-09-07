@@ -2,14 +2,14 @@ import type { Messages } from "@/lib/i18n-types"
 
 export const pt: Messages = {
   meta: {
-    title: "Miguel Vaz · Desenvolvedor Fullstack Júnior · Foco em IA",
+    title: "Miguel Vaz · Desenvolvedor Fullstack & AI Engineer",
     description:
-      "Miguel Vaz, desenvolvedor fullstack júnior com foco em inteligência artificial: React, Python, Node.js e agentes de IA integrados via API da Anthropic. Confira meu portfólio de projetos.",
+      "Miguel Vaz, desenvolvedor fullstack e AI engineer: React, Python, Node.js e agentes de IA integrados via API da Anthropic. Confira meu portfólio de projetos.",
     ogDescription:
-      "Desenvolvedor fullstack júnior com foco em inteligência artificial. Veja meus projetos e entre em contato.",
-    twitterDescription: "Desenvolvedor fullstack júnior com foco em inteligência artificial.",
+      "Desenvolvedor fullstack e AI engineer. Veja meus projetos e entre em contato.",
+    twitterDescription: "Desenvolvedor fullstack e AI engineer.",
     siteName: "Portfólio Miguel Vaz",
-    jobTitle: "Desenvolvedor Fullstack Júnior · Foco em Inteligência Artificial",
+    jobTitle: "Desenvolvedor Fullstack & AI Engineer",
     knowsAboutAi: "Inteligência Artificial",
   },
   aria: {
@@ -32,7 +32,7 @@ export const pt: Messages = {
     contact: "Contato",
   },
   profile: {
-    role: "Desenvolvedor Fullstack Júnior · Foco em Inteligência Artificial",
+    role: "Desenvolvedor Fullstack & AI Engineer",
   },
   hero: {
     subtitle:
