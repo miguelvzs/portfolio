@@ -3,28 +3,28 @@ import { SectionHeading } from "@/components/section-heading"
 import { Reveal } from "@/components/reveal"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { profile } from "@/lib/content"
-
-const links = [
-  { icon: Github, label: "GitHub", href: profile.github },
-  { icon: Linkedin, label: "LinkedIn", href: profile.linkedin },
-  { icon: Mail, label: "Email", href: `mailto:${profile.email}` },
-]
+import { useI18n } from "@/lib/i18n"
 
 export function Contact() {
+  const { t, content } = useI18n()
+  const { profile } = content
+
+  const links = [
+    { icon: Github, label: "GitHub", href: profile.github },
+    { icon: Linkedin, label: "LinkedIn", href: profile.linkedin },
+    { icon: Mail, label: "Email", href: `mailto:${profile.email}` },
+  ]
+
   return (
     <section id="contact" className="border-t border-border py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
-          <SectionHeading eyebrow="Contato" title="Bora conversar?" id="contact-heading" />
+          <SectionHeading eyebrow={t.contact.eyebrow} title={t.contact.title} id="contact-heading" />
         </Reveal>
 
         <Reveal delay={0.1}>
           <Card className="gap-6 p-8 ring-border md:p-11">
-            <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">
-              Estou aberto a oportunidades, projetos freelance e boas conversas sobre tecnologia.
-              Tem algo em mente? Manda mensagem que eu respondo.
-            </p>
+            <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">{t.contact.body}</p>
             <div className="flex flex-wrap gap-3">
               {links.map((link) => (
                 <Button key={link.label} variant="outline" className="h-10 gap-2 px-4" asChild>

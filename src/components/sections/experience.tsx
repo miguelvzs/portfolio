@@ -1,18 +1,24 @@
 import { motion } from "framer-motion"
 import { SectionHeading } from "@/components/section-heading"
 import { Reveal } from "@/components/reveal"
-import { experience } from "@/lib/content"
+import { useI18n } from "@/lib/i18n"
 
 export function Experience() {
+  const { t, content } = useI18n()
+
   return (
     <section id="experience" className="border-t border-border py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
-          <SectionHeading eyebrow="Experiência" title="Onde já botei a mão" id="experience-heading" />
+          <SectionHeading
+            eyebrow={t.experience.eyebrow}
+            title={t.experience.title}
+            id="experience-heading"
+          />
         </Reveal>
 
         <ol className="relative max-w-3xl border-l border-border pl-6">
-          {experience.map((item, i) => (
+          {content.experience.map((item, i) => (
             <motion.li
               key={item.org}
               className="relative mb-8 last:mb-0"

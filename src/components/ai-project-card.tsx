@@ -3,8 +3,10 @@ import { motion } from "framer-motion"
 import { Card } from "@/components/ui/card"
 import { PipelineDiagram } from "@/components/pipeline-diagram"
 import type { AiProject } from "@/lib/content"
+import { useI18n } from "@/lib/i18n"
 
 export function AiProjectCard({ project, index }: { project: AiProject; index: number }) {
+  const { t } = useI18n()
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -26,7 +28,7 @@ export function AiProjectCard({ project, index }: { project: AiProject; index: n
               className="inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-brand"
             >
               <Github className="size-3.5" aria-hidden="true" />
-              ver repositório
+              {t.projects.viewRepo}
               <ArrowUpRight className="size-3.5" />
             </a>
           </div>
@@ -46,7 +48,10 @@ export function AiProjectCard({ project, index }: { project: AiProject; index: n
             ))}
           </ul>
 
-          <ul className="mt-1 flex flex-wrap gap-1.5" aria-label={`Stack usada em ${project.name}`}>
+          <ul
+            className="mt-1 flex flex-wrap gap-1.5"
+            aria-label={t.aria.stackUsedIn.replace("{name}", project.name)}
+          >
             {project.stack.map((tech) => (
               <li
                 key={tech}

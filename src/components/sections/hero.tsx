@@ -2,16 +2,19 @@ import { motion } from "framer-motion"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { BackgroundGrid } from "@/components/background-grid"
-import { profile } from "@/lib/content"
+import { useI18n } from "@/lib/i18n"
 import avatar from "@/assets/avatar.webp"
 
-const socials = [
-  { icon: Github, href: profile.github, label: "GitHub" },
-  { icon: Linkedin, href: profile.linkedin, label: "LinkedIn" },
-  { icon: Mail, href: `mailto:${profile.email}`, label: "Email" },
-]
-
 export function Hero() {
+  const { t, content } = useI18n()
+  const { profile } = content
+
+  const socials = [
+    { icon: Github, href: profile.github, label: "GitHub" },
+    { icon: Linkedin, href: profile.linkedin, label: "LinkedIn" },
+    { icon: Mail, href: `mailto:${profile.email}`, label: "Email" },
+  ]
+
   return (
     <section
       id="hero"
@@ -64,9 +67,7 @@ export function Hero() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="mx-auto mb-4 max-w-3xl text-xl text-muted-foreground md:text-2xl"
           >
-            Desenvolvedor fullstack com foco em inteligência artificial. Construo o front-end em
-            React, o back-end em Python e Node.js, e uso essa base pra integrar agentes de IA a
-            sistemas reais.
+            {t.hero.subtitle}
           </motion.p>
 
           <motion.div
@@ -79,7 +80,7 @@ export function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75 motion-reduce:animate-none" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
-            disponível para novos projetos
+            {t.hero.available}
           </motion.div>
 
           <motion.div
@@ -91,12 +92,12 @@ export function Hero() {
             <Button size="lg" className="h-11 gap-2 px-6" asChild>
               <a href={`mailto:${profile.email}`}>
                 <Mail className="h-4 w-4" />
-                Entrar em contato
+                {t.hero.contactCta}
               </a>
             </Button>
             <Button size="lg" variant="outline" className="h-11 gap-2 px-6" asChild>
               <a href="#projects">
-                Ver projetos
+                {t.hero.projectsCta}
                 <ArrowDown className="h-4 w-4" />
               </a>
             </Button>
@@ -128,7 +129,7 @@ export function Hero() {
 
       <motion.a
         href="#about"
-        aria-label="Rolar para a seção sobre"
+        aria-label={t.aria.scrollToAbout}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{

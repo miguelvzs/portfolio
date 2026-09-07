@@ -3,9 +3,11 @@ import { Reveal } from "@/components/reveal"
 import { BackgroundGrid } from "@/components/background-grid"
 import { ProjectCard } from "@/components/project-card"
 import { AiProjectCard } from "@/components/ai-project-card"
-import { webProjects, aiProjects } from "@/lib/content"
+import { useI18n } from "@/lib/i18n"
 
 export function Projects() {
+  const { t, content } = useI18n()
+
   return (
     <section id="projects" className="relative overflow-hidden border-t border-border py-24 md:py-32">
       <BackgroundGrid className="opacity-70" />
@@ -17,8 +19,8 @@ export function Projects() {
       <div className="relative mx-auto max-w-5xl px-6">
         <Reveal>
           <SectionHeading
-            eyebrow="Projetos"
-            title="O que tenho construído"
+            eyebrow={t.projects.eyebrow}
+            title={t.projects.title}
             id="projects-heading"
             size="lg"
           />
@@ -26,22 +28,22 @@ export function Projects() {
 
         <Reveal>
           <h3 className="mb-5 font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            Web
+            {t.projects.webHeading}
           </h3>
         </Reveal>
         <div className="mb-16 grid gap-6 sm:grid-cols-2">
-          {webProjects.map((project, i) => (
+          {content.webProjects.map((project, i) => (
             <ProjectCard key={project.slug} project={project} index={i} />
           ))}
         </div>
 
         <Reveal>
           <h3 className="mb-5 font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            IA & automação
+            {t.projects.aiHeading}
           </h3>
         </Reveal>
         <div className="grid gap-6 sm:grid-cols-2">
-          {aiProjects.map((project, i) => (
+          {content.aiProjects.map((project, i) => (
             <AiProjectCard key={project.slug} project={project} index={i} />
           ))}
         </div>

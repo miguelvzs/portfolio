@@ -9,11 +9,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { LanguageSwitcher } from "@/components/language-switcher"
 import { useTheme } from "@/lib/theme"
-import { nav, profile } from "@/lib/content"
+import { useI18n } from "@/lib/i18n"
 
 export function Navbar() {
   const { theme, toggleTheme } = useTheme()
+  const { t, content } = useI18n()
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -40,8 +42,8 @@ export function Navbar() {
           miguelvzs
         </a>
 
-        <nav aria-label="Navegação principal" className="hidden items-center gap-6 md:flex">
-          {nav.map((item) => (
+        <nav aria-label={t.aria.mainNav} className="hidden items-center gap-6 md:flex">
+          {content.nav.map((item) => (
             <a
               key={item.href}
               href={item.href}
@@ -52,28 +54,30 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 md:gap-2">
+          <LanguageSwitcher />
+
           <Button
             variant="ghost"
             size="icon-sm"
             onClick={toggleTheme}
-            aria-label={theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"}
+            aria-label={theme === "dark" ? t.aria.themeLight : t.aria.themeDark}
           >
             {theme === "dark" ? <Sun className="size-4" /> : <Moon className="size-4" />}
           </Button>
 
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon-sm" className="md:hidden" aria-label="Abrir menu">
+              <Button variant="ghost" size="icon-sm" className="md:hidden" aria-label={t.aria.openMenu}>
                 <Menu className="size-4" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent side="right" closeLabel={t.aria.closeMenu}>
               <SheetHeader>
-                <SheetTitle>{profile.name}</SheetTitle>
+                <SheetTitle>{content.profile.name}</SheetTitle>
               </SheetHeader>
-              <nav aria-label="Navegação móvel" className="flex flex-col gap-1 px-4 pb-4">
-                {nav.map((item) => (
+              <nav aria-label={t.aria.mobileNav} className="flex flex-col gap-1 px-4 pb-4">
+                {content.nav.map((item) => (
                   <SheetClose asChild key={item.href}>
                     <a
                       href={item.href}
