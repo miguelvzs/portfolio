@@ -2,8 +2,10 @@ import { ArrowUpRight, Lock } from "lucide-react"
 import { motion } from "framer-motion"
 import { Card } from "@/components/ui/card"
 import type { WebProject } from "@/lib/content"
+import { useI18n } from "@/lib/i18n"
 
 export function ProjectCard({ project, index }: { project: WebProject; index: number }) {
+  const { t } = useI18n()
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -35,14 +37,17 @@ export function ProjectCard({ project, index }: { project: WebProject; index: nu
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-brand"
             >
-              abrir site
+              {t.projects.openSite}
               <ArrowUpRight className="size-3.5" />
             </a>
           </div>
 
           <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>
 
-          <ul className="mt-1 flex flex-wrap gap-1.5" aria-label={`Stack usada em ${project.name}`}>
+          <ul
+            className="mt-1 flex flex-wrap gap-1.5"
+            aria-label={t.aria.stackUsedIn.replace("{name}", project.name)}
+          >
             {project.stack.map((tech) => (
               <li
                 key={tech}

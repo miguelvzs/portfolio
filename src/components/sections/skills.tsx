@@ -2,9 +2,11 @@ import { motion } from "framer-motion"
 import { SectionHeading } from "@/components/section-heading"
 import { Reveal } from "@/components/reveal"
 import { BackgroundGrid } from "@/components/background-grid"
-import { skillGroups } from "@/lib/content"
+import { useI18n } from "@/lib/i18n"
 
 export function Skills() {
+  const { t, content } = useI18n()
+
   return (
     <section id="skills" className="relative overflow-hidden border-t border-border py-24 md:py-32">
       <BackgroundGrid className="opacity-70" />
@@ -16,15 +18,15 @@ export function Skills() {
       <div className="relative mx-auto max-w-5xl px-6">
         <Reveal>
           <SectionHeading
-            eyebrow="Skills"
-            title="Tecnologias que uso no dia a dia"
+            eyebrow={t.skills.eyebrow}
+            title={t.skills.title}
             id="skills-heading"
             size="lg"
           />
         </Reveal>
 
         <div className="grid gap-10 sm:grid-cols-2">
-          {skillGroups.map((group, gi) => (
+          {content.skillGroups.map((group, gi) => (
             <Reveal key={group.label} delay={gi * 0.08}>
               <h3 className="mb-4 font-mono text-xs tracking-widest text-muted-foreground uppercase">
                 {group.label}

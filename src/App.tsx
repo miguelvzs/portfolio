@@ -1,5 +1,6 @@
 import { MotionConfig } from "framer-motion"
 import { ThemeProvider } from "@/lib/theme"
+import { LocaleProvider, useI18n } from "@/lib/i18n"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -10,31 +11,41 @@ import { Credentials } from "@/components/sections/credentials"
 import { Projects } from "@/components/sections/projects"
 import { Contact } from "@/components/sections/contact"
 
+function AppShell() {
+  const { t } = useI18n()
+
+  return (
+    <MotionConfig reducedMotion="user">
+      <a
+        href="#main-content"
+        className="sr-only rounded-md bg-brand px-4 py-2 text-sm font-medium text-brand-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
+      >
+        {t.aria.skipToContent}
+      </a>
+
+      <ScrollProgress />
+      <Navbar />
+
+      <main id="main-content">
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Credentials />
+        <Contact />
+      </main>
+
+      <Footer />
+    </MotionConfig>
+  )
+}
+
 export default function App() {
   return (
     <ThemeProvider>
-      <MotionConfig reducedMotion="user">
-        <a
-          href="#main-content"
-          className="sr-only rounded-md bg-brand px-4 py-2 text-sm font-medium text-brand-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
-        >
-          Pular para o conteúdo
-        </a>
-
-        <ScrollProgress />
-        <Navbar />
-
-        <main id="main-content">
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Credentials />
-          <Contact />
-        </main>
-
-        <Footer />
-      </MotionConfig>
+      <LocaleProvider>
+        <AppShell />
+      </LocaleProvider>
     </ThemeProvider>
   )
 }
