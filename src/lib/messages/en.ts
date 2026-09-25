@@ -197,7 +197,7 @@ export const en: Messages = {
     ],
     awards: [
       {
-        year: "2026 — present",
+        year: "2026",
         title: "SAGA SENAI Ambassador — Innovation Projects",
         desc: "Only student selected on performance to represent the institution, present projects, and mentor other students.",
       },

@@ -197,7 +197,7 @@ export const es: Messages = {
     ],
     awards: [
       {
-        year: "2026 — actualidad",
+        year: "2026",
         title: "Embajador SAGA SENAI — Proyectos de Innovación",
         desc: "Único alumno seleccionado por desempeño para representar a la institución, presentar proyectos y mentorear a otros alumnos.",
       },
