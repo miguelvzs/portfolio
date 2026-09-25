@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Do Dokploy ao Cloud Run: migrando uma plataforma de RH para o Google Cloud · Miguel Vaz</title>
+    <meta
+      name="description"
+      content="Como migrei uma plataforma de RH em produção de uma VPS com Dokploy para Cloud Run, Cloud SQL e Cloud Storage, com deploy sem chaves, portão de CI e rollback por revisão."
+    />
+    <meta name="author" content="Miguel Vaz" />
+    <link rel="canonical" href="https://miguelvaz.vercel.app/artigos/migracao-cloud-run/" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://miguelvaz.vercel.app/artigos/migracao-cloud-run/" />
+    <meta property="og:title" content="Do Dokploy ao Cloud Run: migrando uma plataforma de RH para o Google Cloud" />
+    <meta
+      property="og:description"
+      content="Deploy sem chaves com Workload Identity Federation, portão de CI, migrations no start e rollback por revisão."
+    />
+    <meta property="og:image" content="https://miguelvaz.vercel.app/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      try {
+        var t = localStorage.getItem("theme")
+        if (t === "light" || t === "dark") document.documentElement.dataset.theme = t
+      } catch (e) {}
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+    <style>
+      :root {
+        --bg: #fafafa;
+        --fg: #16181d;
+        --muted: #555c6b;
+        --border: #e2e4e9;
+        --brand: #1d4ed8;
+        --code-bg: #eef0f4;
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0a0b0d;
+          --fg: #edf0f7;
+          --muted: #a3abbd;
+          --border: #22262e;
+          --brand: #7aa7ff;
+          --code-bg: #15181e;
+          color-scheme: dark;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #0a0b0d;
+        --fg: #edf0f7;
+        --muted: #a3abbd;
+        --border: #22262e;
+        --brand: #7aa7ff;
+        --code-bg: #15181e;
+        color-scheme: dark;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font: 17px/1.7 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      }
+      main { max-width: 700px; margin: 0 auto; padding: 48px 16px 80px; }
+      a { color: var(--brand); }
+      .back { font: 13px ui-monospace, Consolas, monospace; text-decoration: none; }
+      .meta { color: var(--muted); font: 13px ui-monospace, Consolas, monospace; margin-top: 8px; }
+      h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.2; letter-spacing: -0.02em; margin: 24px 0 0; }
+      h2 { font-size: 22px; margin: 44px 0 8px; letter-spacing: -0.01em; }
+      p, li { color: var(--fg); }
+      li { margin: 6px 0; }
+      .lead { color: var(--muted); font-size: 19px; }
+      code { background: var(--code-bg); padding: 1px 6px; border-radius: 4px; font-size: 0.9em; }
+      pre { background: var(--code-bg); padding: 16px; border-radius: 8px; overflow-x: auto; font-size: 14px; line-height: 1.5; }
+      pre code { background: none; padding: 0; }
+      .note { border-left: 3px solid var(--brand); padding: 4px 0 4px 16px; color: var(--muted); }
+      footer { border-top: 1px solid var(--border); margin-top: 56px; padding-top: 20px; color: var(--muted); font-size: 15px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <a class="back" href="/#cases">← voltar ao portfólio</a>
+      <article>
+        <h1>Do Dokploy ao Cloud Run: migrando uma plataforma de RH para o Google Cloud</h1>
+        <p class="meta">Miguel Vaz · setembro de 2026</p>
+
+        <p class="lead">
+          Uma plataforma de RH em produção rodava numa VPS com Dokploy, build por Nixpacks e arquivos num MinIO.
+          Este texto conta como levei esse sistema para uma infraestrutura gerenciada no Google Cloud e as
+          decisões que mais pesaram no caminho.
+        </p>
+
+        <h2>O desenho de destino</h2>
+        <ul>
+          <li><strong>Cloud Run</strong> para backend (Fastify) e frontend (Next.js), na região de São Paulo. O backend de produção fica com uma instância sempre ligada; o frontend escala de zero.</li>
+          <li><strong>Cloud SQL (PostgreSQL)</strong> com backup diário, recuperação point-in-time de 7 dias e proteção contra exclusão. Nenhuma rede liberada no IP público: a conexão passa pelo conector do Cloud SQL.</li>
+          <li><strong>Cloud Storage</strong> no lugar do MinIO, com buckets privados. Documentos sensíveis só saem por URL assinada de 60 segundos.</li>
+          <li><strong>Secret Manager</strong> com segredos separados por ambiente, e <strong>Artifact Registry</strong> para as imagens.</li>
+          <li><strong>Load Balancer HTTPS</strong> com certificado gerenciado, porque o Cloud Run não oferece mapeamento de domínio nessa região.</li>
+        </ul>
+
+        <h2>Deploy sem chave de conta de serviço</h2>
+        <p>
+          O GitHub Actions se autentica no Google Cloud por <strong>Workload Identity Federation</strong>: o runner
+          troca o token OIDC do próprio GitHub por uma credencial de curta duração. Nenhuma chave JSON existe para vazar.
+          Isso deixou de ser só boa prática quando descobri que a política da organização bloqueava a criação de chaves.
+        </p>
+        <p>O fluxo ficou assim:</p>
+        <ul>
+          <li><strong>Staging</strong> publica sozinho a cada push no branch de desenvolvimento, depois que os checks de backend e frontend passam.</li>
+          <li><strong>Produção</strong> é um disparo manual que só aceita o <code>main</code>, consulta a API de checks e recusa commit sem CI verde, com um deploy por vez.</li>
+        </ul>
+        <p class="note">
+          Por que um portão dentro do workflow? No plano gratuito do GitHub, repositório privado não tem proteção de branch.
+          Em vez de depender disso, o próprio job verifica o estado do commit antes de publicar.
+        </p>
+
+        <h2>Ordem do deploy e rollback</h2>
+        <p>
+          O backend sobe primeiro e roda <code>prisma migrate deploy</code> no start. Se a revisão nova não fica saudável,
+          o Cloud Run mantém o tráfego na anterior e o frontend nem é publicado. No fim, o job confere o endpoint
+          <code>/health</code>.
+        </p>
+        <pre><code>backend (migrate + start) → saudável? → frontend → /health
+                     └─ não → tráfego continua na revisão anterior</code></pre>
+        <p>
+          Rollback é mandar 100% do tráfego para a revisão anterior. O runbook deixa claro o limite: se uma migration já
+          alterou o banco, voltar só o código pode não bastar.
+        </p>
+
+        <h2>Restrições que mudaram o plano</h2>
+        <ul>
+          <li><strong>Chave de conta de serviço bloqueada:</strong> além do Workload Identity no CI, troquei o acesso a arquivos via API S3 (que exigiria chave HMAC) pelo cliente nativo do Cloud Storage.</li>
+          <li><strong>Acesso público bloqueado:</strong> o serviço foi exposto com a verificação de invoker desligada e protegido pela própria aplicação.</li>
+          <li><strong>Build no Cloud Build pedia criar bucket:</strong> as imagens passaram a ser construídas no runner e enviadas ao Artifact Registry.</li>
+          <li><strong>Nome de bucket é único no mundo:</strong> um prefixo configurável mapeia o nome lógico para o real, e as URLs de mídia já gravadas no banco não precisaram mudar.</li>
+          <li><strong>Proxy na frente:</strong> configurei os ranges do Google como proxy confiável para o rate limit enxergar o IP real de quem acessa.</li>
+        </ul>
+
+        <h2>Virada em fases</h2>
+        <p>
+          A migração entrou em etapas: primeiro a preparação (imagens e storage prontos, com a infraestrutura antiga ainda
+          no ar), depois a virada e, por fim, a remoção do deploy antigo. O banco veio de um dump com políticas de RLS
+          herdadas, que exigiram recriar papéis antes do restore.
+        </p>
+        <p>
+          Um detalhe que só aparece em produção: durante a troca de revisão, as duas versões rodam juntas por alguns
+          segundos e jobs agendados executam em dobro. Como as gravações usam <code>ON CONFLICT</code>, a duplicação é inofensiva.
+        </p>
+
+        <h2>Observabilidade e custo</h2>
+        <ul>
+          <li>Uptime checks a cada 5 minutos na API e no site, com alerta quando a falha aparece em mais de uma região.</li>
+          <li>Alerta de orçamento em 50%, 90% e 100% e sobre a previsão do mês. Ele avisa, mas não desliga nada.</li>
+          <li>Custo estimado por ambiente, com o staging dimensionado para escalar até zero.</li>
+        </ul>
+
+        <h2>O que eu levaria para a próxima migração</h2>
+        <ul>
+          <li>Descobrir as políticas da organização antes de desenhar a solução. Três delas mudaram o plano.</li>
+          <li>Tratar migration de banco como parte do rollback, não como detalhe.</li>
+          <li>Colocar o portão de qualidade no próprio pipeline, em vez de depender da configuração do repositório.</li>
+          <li>Escrever o runbook durante a migração. Ele virou a documentação de operação.</li>
+        </ul>
+      </article>
+
+      <footer>
+        Escrito por <a href="/">Miguel Vaz</a>, desenvolvedor full stack.
+        <a href="https://linkedin.com/in/miguelvzs" rel="noopener noreferrer">LinkedIn</a> ·
+        <a href="https://github.com/miguelvzs" rel="noopener noreferrer">GitHub</a>
+      </footer>
+    </main>
+  </body>
+</html>

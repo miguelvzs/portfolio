@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react"
+import { Download, Github, Linkedin, Mail } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { Reveal } from "@/components/reveal"
 import { Card } from "@/components/ui/card"
@@ -13,6 +13,7 @@ export function Contact() {
     { icon: Github, label: "GitHub", href: profile.github },
     { icon: Linkedin, label: "LinkedIn", href: profile.linkedin },
     { icon: Mail, label: "Email", href: `mailto:${profile.email}` },
+    { icon: Download, label: t.hero.cvCta, href: t.hero.cvHref },
   ]
 
   return (

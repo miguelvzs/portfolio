@@ -1,4 +1,3 @@
-import { motion } from "framer-motion"
 import { SectionHeading } from "@/components/section-heading"
 import { Reveal } from "@/components/reveal"
 import { useI18n } from "@/lib/i18n"
@@ -19,14 +18,7 @@ export function Experience() {
 
         <ol className="relative max-w-3xl border-l border-border pl-6">
           {content.experience.map((item, i) => (
-            <motion.li
-              key={item.org}
-              className="relative mb-8 last:mb-0"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
-            >
+            <Reveal as="li" key={item.org} delay={i * 0.08} className="relative mb-8 last:mb-0">
               <span
                 aria-hidden="true"
                 className="absolute -left-[29px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-background bg-brand"
@@ -45,7 +37,7 @@ export function Experience() {
                   ))}
                 </ul>
               )}
-            </motion.li>
+            </Reveal>
           ))}
         </ol>
       </div>

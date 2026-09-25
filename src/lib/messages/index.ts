@@ -1,6 +1,9 @@
 import type { Locale, Messages } from "@/lib/i18n-types"
-import { en } from "@/lib/messages/en"
-import { es } from "@/lib/messages/es"
 import { pt } from "@/lib/messages/pt"
 
-export const dictionaries: Record<Locale, Messages> = { pt, en, es }
+// pt ships in the main bundle; en/es are split out and loaded on demand.
+export const loadMessages: Record<Locale, () => Promise<Messages>> = {
+  pt: () => Promise.resolve(pt),
+  en: () => import("@/lib/messages/en").then((m) => m.en),
+  es: () => import("@/lib/messages/es").then((m) => m.es),
+}

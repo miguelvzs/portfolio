@@ -8,7 +8,7 @@ import {
   type ReactNode,
 } from "react"
 import { localeMeta, LOCALES, type Locale, type Messages } from "@/lib/i18n-types"
-import { dictionaries } from "@/lib/messages"
+import { loadMessages } from "@/lib/messages"
 import { buildContent, type LocalizedContent } from "@/lib/content"
 
 const STORAGE_KEY = "locale"
@@ -105,9 +105,20 @@ function applyDocumentMeta(locale: Locale, t: Messages) {
   }
 }
 
+let initial: { locale: Locale; t: Messages } | null = null
+
+// Resolve the first locale's messages before the first render (avoids a flash of pt).
+export async function preloadLocale() {
+  const locale = getInitialLocale()
+  initial = { locale, t: await loadMessages[locale]() }
+}
+
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(getInitialLocale)
-  const t = dictionaries[locale]
+  const [state, setState] = useState(() => {
+    if (!initial) throw new Error("call preloadLocale() before rendering LocaleProvider")
+    return initial
+  })
+  const { locale, t } = state
   const content = useMemo(() => buildContent(t), [t])
 
   useEffect(() => {
@@ -120,7 +131,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   }, [locale, t])
 
   const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next)
+    void loadMessages[next]().then((messages) => setState({ locale: next, t: messages }))
   }, [])
 
   const value = useMemo(

@@ -1,5 +1,4 @@
-import { motion } from "framer-motion"
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { BackgroundGrid } from "@/components/background-grid"
 import { useI18n } from "@/lib/i18n"
@@ -23,17 +22,8 @@ export function Hero() {
       <BackgroundGrid />
 
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="mb-6 inline-block"
-          >
+        <div className="rise">
+          <div className="pop mb-6 inline-block">
             <img
               src={avatar}
               alt="Miguel Vaz"
@@ -41,53 +31,40 @@ export function Hero() {
               height={160}
               className="mx-auto h-28 w-28 rounded-full border-4 border-background object-cover shadow-lg md:h-40 md:w-40"
             />
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="mb-6 text-5xl font-bold tracking-tight text-foreground md:text-7xl"
+          <h1
+            className="rise mb-6 text-5xl font-bold tracking-tight text-foreground md:text-7xl"
           >
             {profile.name}
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35, duration: 0.6 }}
-            className="mb-4 font-mono text-sm text-brand md:text-base"
+          <p
+            className="rise mb-4 font-mono text-sm text-brand md:text-base"
           >
             {profile.role}
-          </motion.p>
+          </p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="mx-auto mb-4 max-w-3xl text-xl text-muted-foreground md:text-2xl"
+          <p
+            className="rise mx-auto mb-4 max-w-3xl text-xl text-muted-foreground md:text-2xl"
           >
             {t.hero.subtitle}
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45, duration: 0.6 }}
-            className="mb-8 inline-flex items-center gap-2 font-mono text-xs text-muted-foreground"
+          <div
+            style={{ animationDelay: "0.45s" }}
+            className="rise mb-8 inline-flex items-center gap-2 font-mono text-xs text-muted-foreground"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75 motion-reduce:animate-none" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
             {t.hero.available}
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="mb-12 flex flex-wrap justify-center gap-4"
+          <div
+            style={{ animationDelay: "0.5s" }}
+            className="rise mb-12 flex flex-wrap justify-center gap-4"
           >
             <Button size="lg" className="h-11 gap-2 px-6" asChild>
               <a href={`mailto:${profile.email}`}>
@@ -101,45 +78,38 @@ export function Hero() {
                 <ArrowDown className="h-4 w-4" />
               </a>
             </Button>
-          </motion.div>
+            <Button size="lg" variant="outline" className="h-11 gap-2 px-6" asChild>
+              <a href={t.hero.cvHref} download>
+                <Download className="h-4 w-4" />
+                {t.hero.cvCta}
+              </a>
+            </Button>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="flex justify-center gap-4"
-          >
+          <div style={{ animationDelay: "0.6s" }} className="rise flex justify-center gap-4">
             {socials.map((social) => (
-              <motion.a
+              <a
                 key={social.label}
                 href={social.href}
                 target={social.href.startsWith("http") ? "_blank" : undefined}
                 rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 aria-label={social.label}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-foreground transition hover:-translate-y-0.5 hover:scale-110 hover:bg-primary hover:text-primary-foreground active:scale-95"
               >
                 <social.icon className="h-5 w-5" />
-              </motion.a>
+              </a>
             ))}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
 
-      <motion.a
+      <a
         href="#about"
         aria-label={t.aria.scrollToAbout}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{
-          opacity: { delay: 1, duration: 0.6 },
-          y: { delay: 1.5, duration: 1.5, repeat: Infinity },
-        }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 transform text-muted-foreground motion-reduce:animate-none"
+        className="nudge absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground"
       >
         <ArrowDown className="h-6 w-6" />
-      </motion.a>
+      </a>
     </section>
   )
 }

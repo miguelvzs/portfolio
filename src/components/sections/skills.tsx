@@ -1,4 +1,3 @@
-import { motion } from "framer-motion"
 import { SectionHeading } from "@/components/section-heading"
 import { Reveal } from "@/components/reveal"
 import { BackgroundGrid } from "@/components/background-grid"
@@ -32,18 +31,12 @@ export function Skills() {
                 {group.label}
               </h3>
               <ul className="flex flex-wrap gap-2">
-                {group.skills.map((skill, si) => (
-                  <motion.li
-                    key={skill}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: gi * 0.08 + si * 0.03, duration: 0.3 }}
-                  >
+                {group.skills.map((skill) => (
+                  <li key={skill}>
                     <span className="inline-flex items-center rounded-full border border-border bg-secondary/50 px-3 py-1.5 text-sm text-foreground transition-colors hover:border-brand hover:text-brand">
                       {skill}
                     </span>
-                  </motion.li>
+                  </li>
                 ))}
               </ul>
             </Reveal>

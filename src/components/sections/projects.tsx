@@ -1,8 +1,10 @@
+import { ChevronDown } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { Reveal } from "@/components/reveal"
 import { BackgroundGrid } from "@/components/background-grid"
 import { ProjectCard } from "@/components/project-card"
 import { AiProjectCard } from "@/components/ai-project-card"
+import { ValidatorDemo } from "@/components/validator-demo"
 import { useI18n } from "@/lib/i18n"
 
 export function Projects() {
@@ -28,17 +30,6 @@ export function Projects() {
 
         <Reveal>
           <h3 className="mb-5 font-mono text-xs tracking-widest text-muted-foreground uppercase">
-            {t.projects.webHeading}
-          </h3>
-        </Reveal>
-        <div className="mb-16 grid gap-6 sm:grid-cols-2">
-          {content.webProjects.map((project, i) => (
-            <ProjectCard key={project.slug} project={project} index={i} />
-          ))}
-        </div>
-
-        <Reveal>
-          <h3 className="mb-5 font-mono text-xs tracking-widest text-muted-foreground uppercase">
             {t.projects.aiHeading}
           </h3>
         </Reveal>
@@ -47,6 +38,23 @@ export function Projects() {
             <AiProjectCard key={project.slug} project={project} index={i} />
           ))}
         </div>
+
+        <ValidatorDemo />
+
+        <details className="group mt-12">
+          <summary className="inline-flex cursor-pointer list-none items-center gap-2 rounded-full border border-border px-4 py-2 font-mono text-xs tracking-widest text-muted-foreground uppercase transition-colors hover:border-brand hover:text-brand [&::-webkit-details-marker]:hidden">
+            <ChevronDown aria-hidden="true" className="size-3.5 transition-transform group-open:rotate-180" />
+            {t.projects.showOlder}
+          </summary>
+          <h3 className="mt-8 mb-5 font-mono text-xs tracking-widest text-muted-foreground uppercase">
+            {t.projects.webHeading}
+          </h3>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {content.webProjects.map((project, i) => (
+              <ProjectCard key={project.slug} project={project} index={i} />
+            ))}
+          </div>
+        </details>
       </div>
     </section>
   )

@@ -1,5 +1,5 @@
 import { ArrowUpRight, Lock } from "lucide-react"
-import { motion } from "framer-motion"
+import { Reveal } from "@/components/reveal"
 import { Card } from "@/components/ui/card"
 import type { WebProject } from "@/lib/content"
 import { useI18n } from "@/lib/i18n"
@@ -7,12 +7,7 @@ import { useI18n } from "@/lib/i18n"
 export function ProjectCard({ project, index }: { project: WebProject; index: number }) {
   const { t } = useI18n()
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.45, delay: (index % 2) * 0.08 }}
-    >
+    <Reveal delay={(index % 2) * 0.08}>
       <Card className="group h-full gap-0 py-0 ring-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10 hover:ring-brand/50">
         <div className="border-b border-border bg-muted/40 px-3 py-2.5">
           <div className="flex items-center gap-2">
@@ -59,6 +54,6 @@ export function ProjectCard({ project, index }: { project: WebProject; index: nu
           </ul>
         </div>
       </Card>
-    </motion.div>
+    </Reveal>
   )
 }

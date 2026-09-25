@@ -1,3 +1,5 @@
+import type { ReasonCode } from "@/lib/validator"
+
 export const LOCALES = ["pt", "en", "es"] as const
 
 export type Locale = (typeof LOCALES)[number]
@@ -30,7 +32,7 @@ export const localeMeta: Record<Locale, LocaleMeta> = {
   },
 }
 
-export type NavId = "about" | "experience" | "skills" | "projects" | "credentials" | "contact"
+export type NavId = "about" | "experience" | "cases" | "skills" | "projects" | "credentials" | "contact"
 
 export type WebProjectCopy = {
   description: string
@@ -75,6 +77,8 @@ export type Messages = {
     available: string
     contactCta: string
     projectsCta: string
+    cvCta: string
+    cvHref: string
   }
   about: {
     eyebrow: string
@@ -90,9 +94,11 @@ export type Messages = {
     eyebrow: string
     title: string
     webHeading: string
+    showOlder: string
     aiHeading: string
     openSite: string
     viewRepo: string
+    tryDemo: string
     web: {
       cortex: WebProjectCopy
       modus: WebProjectCopy
@@ -120,6 +126,55 @@ export type Messages = {
       desc: string
     }[]
   }
+  stats: {
+    label: string
+    items: { value: string; label: string }[]
+  }
+  demo: {
+    eyebrow: string
+    title: string
+    intro: string
+    editLabel: string
+    validate: string
+    recover: string
+    recovering: string
+    reset: string
+    valid: string
+    rejected: string
+    recovered: string
+    order: string
+    reasonsCol: string
+    corrections: string
+    noCorrections: string
+    aiNote: string
+    unavailable: string
+    rateLimited: string
+    error: string
+    reasons: Record<ReasonCode, string>
+  }
+  cases: {
+    eyebrow: string
+    title: string
+    subtitle: string
+    context: string
+    did: string
+    result: string
+    readArticle: string
+    items: {
+      slug: string
+      title: string
+      context: string
+      points: string[]
+      result: string
+      stack: string[]
+      diagram: string[]
+    }[]
+  }
+  process: {
+    eyebrow: string
+    title: string
+    items: { title: string; desc: string }[]
+  }
   experience: {
     eyebrow: string
     title: string
@@ -137,6 +192,6 @@ export type Messages = {
     body: string
   }
   footer: {
-    by: string
+    source: string
   }
 }

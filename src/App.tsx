@@ -1,4 +1,3 @@
-import { MotionConfig } from "framer-motion"
 import { ThemeProvider } from "@/lib/theme"
 import { LocaleProvider, useI18n } from "@/lib/i18n"
 import { ScrollProgress } from "@/components/scroll-progress"
@@ -7,6 +6,9 @@ import { Footer } from "@/components/footer"
 import { Hero } from "@/components/sections/hero"
 import { About } from "@/components/sections/about"
 import { Experience } from "@/components/sections/experience"
+import { Stats } from "@/components/sections/stats"
+import { Cases } from "@/components/sections/cases"
+import { Process } from "@/components/sections/process"
 import { Skills } from "@/components/sections/skills"
 import { Credentials } from "@/components/sections/credentials"
 import { Projects } from "@/components/sections/projects"
@@ -16,7 +18,7 @@ function AppShell() {
   const { t } = useI18n()
 
   return (
-    <MotionConfig reducedMotion="user">
+    <>
       <a
         href="#main-content"
         className="sr-only rounded-md bg-brand px-4 py-2 text-sm font-medium text-brand-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
@@ -29,8 +31,11 @@ function AppShell() {
 
       <main id="main-content">
         <Hero />
+        <Stats />
         <About />
         <Experience />
+        <Cases />
+        <Process />
         <Skills />
         <Projects />
         <Credentials />
@@ -38,7 +43,7 @@ function AppShell() {
       </main>
 
       <Footer />
-    </MotionConfig>
+    </>
   )
 }
 

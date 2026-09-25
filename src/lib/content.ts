@@ -2,7 +2,6 @@ import type { Messages, NavId } from "@/lib/i18n-types"
 
 export const profile = {
   name: "Miguel Vaz",
-  location: "Extrema/MG",
   email: "miguelsouza7970@gmail.com",
   github: "https://github.com/miguelvzs",
   linkedin: "https://linkedin.com/in/miguelvzs",
@@ -12,6 +11,7 @@ export const profile = {
 export const navItems: { id: NavId; href: string }[] = [
   { id: "about", href: "#about" },
   { id: "experience", href: "#experience" },
+  { id: "cases", href: "#cases" },
   { id: "skills", href: "#skills" },
   { id: "projects", href: "#projects" },
   { id: "credentials", href: "#credentials" },
