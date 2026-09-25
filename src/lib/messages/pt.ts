@@ -2,14 +2,14 @@ import type { Messages } from "@/lib/i18n-types"
 
 export const pt: Messages = {
   meta: {
-    title: "Miguel Vaz · Desenvolvedor Fullstack & AI Engineer",
+    title: "Miguel Vaz · Desenvolvedor Full Stack · AI Engineering",
     description:
-      "Miguel Vaz, desenvolvedor fullstack e AI engineer: React, Python, Node.js e agentes de IA integrados via API da Anthropic. Confira meu portfólio de projetos.",
+      "Miguel Vaz, desenvolvedor full stack na Enviagora: TypeScript, Node.js, React, Next.js, PostgreSQL e Google Cloud, com IA aplicada a sistemas reais. Veja experiência e projetos.",
     ogDescription:
-      "Desenvolvedor fullstack e AI engineer. Veja meus projetos e entre em contato.",
-    twitterDescription: "Desenvolvedor fullstack e AI engineer.",
+      "Desenvolvedor full stack na Enviagora, com IA aplicada a sistemas reais. Veja experiência e projetos.",
+    twitterDescription: "Desenvolvedor full stack na Enviagora · AI Engineering.",
     siteName: "Portfólio Miguel Vaz",
-    jobTitle: "Desenvolvedor Fullstack & AI Engineer",
+    jobTitle: "Desenvolvedor Full Stack",
     knowsAboutAi: "Inteligência Artificial",
   },
   aria: {
@@ -26,18 +26,19 @@ export const pt: Messages = {
   },
   nav: {
     about: "Sobre",
+    experience: "Experiência",
     skills: "Skills",
     projects: "Projetos",
     credentials: "Formação",
     contact: "Contato",
   },
   profile: {
-    role: "Desenvolvedor Fullstack & AI Engineer",
+    role: "Desenvolvedor Full Stack @ Enviagora · AI Engineering",
   },
   hero: {
     subtitle:
-      "Desenvolvedor fullstack com foco em inteligência artificial. Construo o front-end em React, o back-end em Python e Node.js, e uso essa base pra integrar agentes de IA a sistemas reais.",
-    available: "disponível para novos projetos",
+      "Levo sistemas internos à produção de ponta a ponta: arquitetura, nuvem, segurança e deploy, com IA integrada onde ela resolve problema de verdade.",
+    available: "aberto a boas conversas",
     contactCta: "Entrar em contato",
     projectsCta: "Ver projetos",
   },
@@ -45,8 +46,8 @@ export const pt: Messages = {
     eyebrow: "Sobre",
     title: "Quem está por trás do código",
     paragraphs: [
-      "Sou o Miguel: desenvolvo aplicações fullstack, do front-end em React ao back-end em Python e Node.js, e uso isso como base pra construir e testar agentes de IA de verdade.",
-      "No dia a dia integro LLMs a sistemas reais pela API da Anthropic (Claude), escrevo e itero prompt medindo resultado, e já implementei um servidor MCP pra expor ferramentas a um agente. Cubro o que escrevo com teste automatizado e publico em nuvem com contêiner.",
+      "Sou o Miguel, desenvolvedor full stack na Enviagora. Construo sistemas internos de ponta a ponta: converso com a área de negócio, desenho a arquitetura, escrevo front e back em TypeScript e cuido da nuvem, da segurança e do deploy.",
+      "IA faz parte de como eu trabalho e do que entrego: integro LLMs a sistemas reais pela API da Anthropic (Claude), já implementei um servidor MCP e uso agentes de IA no desenvolvimento, sempre com teste automatizado e revisão.",
       "Sou Técnico em Desenvolvimento de Sistemas pelo SENAI e curso Análise e Desenvolvimento de Sistemas no IFSP. Fora do código, gosto de entender como um produto foi construído por trás.",
     ],
   },
@@ -56,24 +57,29 @@ export const pt: Messages = {
     groups: [
       {
         label: "Front-end",
-        skills: ["JavaScript", "React", "HTML", "CSS", "Leaflet.js", "APIs REST"],
+        skills: [
+          "TypeScript",
+          "React",
+          "Next.js",
+          "Tailwind CSS",
+          "TanStack Query",
+          "three.js",
+          "HTML/CSS",
+        ],
       },
       {
         label: "Back-end & dados",
         skills: [
+          "Node.js",
+          "Fastify",
+          "Prisma",
+          "Zod",
+          "PostgreSQL",
           "Python",
           "FastAPI",
-          "Flask",
           "Pandas",
-          "NumPy",
-          "Node.js",
-          "C",
-          "C#",
-          "JSON",
-          "Webhooks",
-          "JWT",
-          "SQL (MySQL, PostgreSQL)",
           "Redis",
+          "APIs REST",
         ],
       },
       {
@@ -81,22 +87,25 @@ export const pt: Messages = {
         skills: [
           "Agentes de IA",
           "API Anthropic (Claude)",
-          "GitHub Copilot",
-          "Engenharia de prompt",
+          "Claude Code",
+          "Cursor",
           "Servidores MCP",
+          "Engenharia de prompt",
+          "OCR com IA",
           "n8n",
         ],
       },
       {
-        label: "Qualidade & entrega",
+        label: "Nuvem, qualidade & entrega",
         skills: [
-          "Testes automatizados",
-          "TestClient (FastAPI)",
-          "Jest",
-          "Git/GitHub",
+          "Google Cloud (Cloud Run, Cloud SQL)",
+          "GitHub Actions",
           "Docker",
-          "Render",
-          "Fly.io",
+          "Vitest",
+          "Jest",
+          "Playwright",
+          "Acessibilidade WCAG AA",
+          "Git/GitHub",
         ],
       },
     ],
@@ -113,11 +122,6 @@ export const pt: Messages = {
         description:
           "Painel administrativo para um buffet tocar o dia a dia: pedidos, eventos e controle da operação em um só lugar.",
         role: "Desenvolvimento front-end e integração dos fluxos operacionais.",
-      },
-      "mv-financing": {
-        description:
-          "App de finanças pessoais: login JWT, sincronização em nuvem multi-dispositivo, orçamentos por categoria, metas, investimentos e relatórios em Excel/PDF.",
-        role: "Desenvolvimento full-stack: API, autenticação e front-end.",
       },
       modus: {
         description:
@@ -176,7 +180,7 @@ export const pt: Messages = {
         period: "fev/2026 — dez/2028",
         title: "Análise e Desenvolvimento de Sistemas",
         org: "IFSP",
-        note: "2º semestre em ago/2026",
+        note: "cursando",
       },
       {
         period: "mar/2024 — ago/2025",
@@ -202,10 +206,19 @@ export const pt: Messages = {
     title: "Onde já botei a mão",
     items: [
       {
-        period: "jan/2026 — atual",
-        role: "Assistente de P&D",
-        org: "Soft Film",
-        desc: "Revisa e atualiza componentes de receitas, solicita análises ao Controle de Qualidade, faz apontamento e reclassificação de ordens de produção. Rotina manual em Excel que motivou automatizar validações em Python.",
+        period: "set/2026 — atual",
+        role: "Desenvolvedor Full Stack",
+        org: "Enviagora",
+        desc: "Projeto, construo e levo à produção sistemas internos de ponta a ponta: do levantamento com a área de negócio à arquitetura, nuvem, segurança e deploy.",
+        highlights: [
+          "Conduzi a migração da plataforma de RH (Enviagora Hub) para o Google Cloud: Cloud Run, Cloud SQL, Cloud Storage e Secret Manager, com staging automático, deploy protegido via GitHub Actions, health checks e rollback.",
+          "Levei à produção o módulo de Admissão Digital: documentos do candidato, dossiê em PDF/ZIP, e-mail transacional e OCR com IA, com idempotência e logs sem dados pessoais.",
+          "Arquitetei o EnviaMind, monorepo que unifica os BIs da empresa com acesso por setor e papel, trilha de auditoria, modo TV e OAuth com tokens cifrados.",
+          "Criei dashboards integrados ao ClickUp e ao Google, com snapshot em PostgreSQL e tolerância a falhas, e um painel de indicadores (MRR, SLA, funil).",
+          "Desenvolvi um sistema de auditoria 5S para centros de distribuição: app mobile com câmera e QR Code, login integrado ao WMS e nota calculada no servidor.",
+          "Construí um planejador 3D de escritório com three.js e um motor de regras de circulação e rota de fuga.",
+          "Reduzi o layout shift mobile de 0,585 para 0,014 e mantenho mais de 550 testes automatizados entre os projetos, com desenvolvimento orientado por especificação.",
+        ],
       },
       {
         period: "ago/2024 — dez/2025",
@@ -224,7 +237,7 @@ export const pt: Messages = {
   contact: {
     eyebrow: "Contato",
     title: "Bora conversar?",
-    body: "Estou aberto a oportunidades, projetos freelance e boas conversas sobre tecnologia. Tem algo em mente? Manda mensagem que eu respondo.",
+    body: "Aberto a boas conversas sobre tecnologia, projetos e oportunidades. Tem algo em mente? Manda mensagem que eu respondo.",
   },
   footer: {
     by: "por",

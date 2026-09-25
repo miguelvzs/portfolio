@@ -38,6 +38,13 @@ export function Experience() {
                 {item.role} <span className="font-normal text-muted-foreground">· {item.org}</span>
               </p>
               <p className="text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+              {item.highlights && (
+                <ul className="mt-3 list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-muted-foreground marker:text-brand">
+                  {item.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
+                  ))}
+                </ul>
+              )}
             </motion.li>
           ))}
         </ol>

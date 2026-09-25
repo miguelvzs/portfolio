@@ -87,12 +87,13 @@ function applyDocumentMeta(locale: Locale, t: Messages) {
     const data = JSON.parse(script.textContent) as JsonLdPerson
     data.jobTitle = t.meta.jobTitle
     data.knowsAbout = [
-      "JavaScript",
-      "React",
-      "Python",
-      "FastAPI",
+      "TypeScript",
       "Node.js",
-      "C#",
+      "React",
+      "Next.js",
+      "PostgreSQL",
+      "Google Cloud",
+      "Python",
       t.meta.knowsAboutAi,
       "Anthropic Claude API",
       "MCP",

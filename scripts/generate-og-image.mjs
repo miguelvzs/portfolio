@@ -37,9 +37,9 @@ const svg = `
   <image href="${avatarDataUri}" x="76" y="76" width="88" height="88" clip-path="url(#avatarClip)" preserveAspectRatio="xMidYMid slice" />
 
   <text x="120" y="270" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" fill="#edf0f7">Miguel Vaz</text>
-  <text x="120" y="330" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="400" fill="#9aa3b8">Desenvolvedor Fullstack J&#250;nior &#183; Foco em IA</text>
+  <text x="120" y="330" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="400" fill="#9aa3b8">Desenvolvedor Full Stack @ Enviagora &#183; AI Engineering</text>
 
-  <text x="120" y="392" font-family="Consolas, 'Courier New', monospace" font-size="22" fill="#3B82F6">// agentes de IA integrados a sistemas reais</text>
+  <text x="120" y="392" font-family="Consolas, 'Courier New', monospace" font-size="22" fill="#3B82F6">// sistemas internos em produção, de ponta a ponta</text>
 
   <text x="120" y="560" font-family="Consolas, 'Courier New', monospace" font-size="24" fill="#5a6278">miguelvaz.vercel.app</text>
 </svg>

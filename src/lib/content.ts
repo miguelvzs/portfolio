@@ -6,11 +6,12 @@ export const profile = {
   email: "miguelsouza7970@gmail.com",
   github: "https://github.com/miguelvzs",
   linkedin: "https://linkedin.com/in/miguelvzs",
-  url: "https://miguelvzs.dev",
+  url: "https://miguelvaz.vercel.app",
 }
 
 export const navItems: { id: NavId; href: string }[] = [
   { id: "about", href: "#about" },
+  { id: "experience", href: "#experience" },
   { id: "skills", href: "#skills" },
   { id: "projects", href: "#projects" },
   { id: "credentials", href: "#credentials" },
@@ -22,6 +23,7 @@ export type ExperienceItem = {
   role: string
   org: string
   desc: string
+  highlights?: string[]
 }
 
 export type EducationItem = {
@@ -44,7 +46,7 @@ export type SkillGroup = {
 
 export type WebProject = {
   kind: "web"
-  slug: "cortex" | "mv-financing" | "modus" | "elos"
+  slug: "cortex" | "modus" | "elos"
   name: string
   description: string
   role: string
@@ -75,14 +77,6 @@ const webProjectMeta: Omit<WebProject, "description" | "role">[] = [
     stack: ["HTML", "CSS", "JavaScript"],
     demoUrl: "https://cortex-demo-eight.vercel.app/",
     displayUrl: "cortex-demo-eight.vercel.app",
-  },
-  {
-    kind: "web",
-    slug: "mv-financing",
-    name: "MV Financing",
-    stack: ["HTML", "CSS", "JavaScript", "Node.js", "JWT", "Redis"],
-    demoUrl: "https://mvfinancing.vercel.app/?demo",
-    displayUrl: "mvfinancing.vercel.app",
   },
   {
     kind: "web",

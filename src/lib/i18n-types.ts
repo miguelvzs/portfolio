@@ -30,7 +30,7 @@ export const localeMeta: Record<Locale, LocaleMeta> = {
   },
 }
 
-export type NavId = "about" | "skills" | "projects" | "credentials" | "contact"
+export type NavId = "about" | "experience" | "skills" | "projects" | "credentials" | "contact"
 
 export type WebProjectCopy = {
   description: string
@@ -95,7 +95,6 @@ export type Messages = {
     viewRepo: string
     web: {
       cortex: WebProjectCopy
-      "mv-financing": WebProjectCopy
       modus: WebProjectCopy
       elos: WebProjectCopy
     }
@@ -129,6 +128,7 @@ export type Messages = {
       role: string
       org: string
       desc: string
+      highlights?: string[]
     }[]
   }
   contact: {

@@ -2,14 +2,14 @@ import type { Messages } from "@/lib/i18n-types"
 
 export const es: Messages = {
   meta: {
-    title: "Miguel Vaz · Desarrollador Fullstack & AI Engineer",
+    title: "Miguel Vaz · Desarrollador Full Stack · AI Engineering",
     description:
-      "Miguel Vaz, desarrollador fullstack y AI engineer: React, Python, Node.js y agentes de IA integrados vía API de Anthropic. Consulta mi portafolio de proyectos.",
+      "Miguel Vaz, desarrollador full stack en Enviagora: TypeScript, Node.js, React, Next.js, PostgreSQL y Google Cloud, con IA aplicada a sistemas reales. Mira experiencia y proyectos.",
     ogDescription:
-      "Desarrollador fullstack y AI engineer. Mira mis proyectos y ponte en contacto.",
-    twitterDescription: "Desarrollador fullstack y AI engineer.",
+      "Desarrollador full stack en Enviagora, con IA aplicada a sistemas reales. Mira experiencia y proyectos.",
+    twitterDescription: "Desarrollador full stack en Enviagora · AI Engineering.",
     siteName: "Portafolio Miguel Vaz",
-    jobTitle: "Desarrollador Fullstack & AI Engineer",
+    jobTitle: "Desarrollador Full Stack",
     knowsAboutAi: "Inteligencia Artificial",
   },
   aria: {
@@ -26,18 +26,19 @@ export const es: Messages = {
   },
   nav: {
     about: "Sobre mí",
+    experience: "Experiencia",
     skills: "Skills",
     projects: "Proyectos",
     credentials: "Formación",
     contact: "Contacto",
   },
   profile: {
-    role: "Desarrollador Fullstack & AI Engineer",
+    role: "Desarrollador Full Stack @ Enviagora · AI Engineering",
   },
   hero: {
     subtitle:
-      "Desarrollador fullstack con enfoque en inteligencia artificial. Construyo el front-end en React, el back-end en Python y Node.js, y uso esa base para integrar agentes de IA en sistemas reales.",
-    available: "disponible para nuevos proyectos",
+      "Llevo sistemas internos a producción de punta a punta: arquitectura, nube, seguridad y despliegue, con IA integrada donde resuelve un problema real.",
+    available: "abierto a buenas conversaciones",
     contactCta: "Contactar",
     projectsCta: "Ver proyectos",
   },
@@ -45,9 +46,9 @@ export const es: Messages = {
     eyebrow: "Sobre mí",
     title: "Quién está detrás del código",
     paragraphs: [
-      "Soy Miguel: desarrollo aplicaciones fullstack, del front-end en React al back-end en Python y Node.js, y uso eso como base para construir y probar agentes de IA de verdad.",
-      "En el día a día integro LLMs a sistemas reales a través de la API de Anthropic (Claude), escribo e itero prompts midiendo resultados, y ya implementé un servidor MCP para exponer herramientas a un agente. Cubro lo que escribo con pruebas automatizadas y publico en la nube con contenedores.",
-      "Soy Técnico en Desarrollo de Sistemas por el SENAI y curso Análisis y Desarrollo de Sistemas en el IFSP. Fuera del código, me gusta entender cómo se construyó un producto por detrás.",
+      "Soy Miguel, desarrollador full stack en Enviagora. Construyo sistemas internos de punta a punta: hablo con el área de negocio, diseño la arquitectura, escribo front y back en TypeScript y me encargo de la nube, la seguridad y el despliegue.",
+      "La IA es parte de cómo trabajo y de lo que entrego: integro LLMs en sistemas reales con la API de Anthropic (Claude), ya implementé un servidor MCP y uso agentes de IA en el desarrollo, siempre con pruebas automatizadas y revisión.",
+      "Soy Técnico en Desarrollo de Sistemas por el SENAI y estudio Análisis y Desarrollo de Sistemas en el IFSP. Fuera del código, me gusta entender cómo se construyó un producto por dentro.",
     ],
   },
   skills: {
@@ -56,47 +57,55 @@ export const es: Messages = {
     groups: [
       {
         label: "Front-end",
-        skills: ["JavaScript", "React", "HTML", "CSS", "Leaflet.js", "APIs REST"],
+        skills: [
+          "TypeScript",
+          "React",
+          "Next.js",
+          "Tailwind CSS",
+          "TanStack Query",
+          "three.js",
+          "HTML/CSS",
+        ],
       },
       {
         label: "Back-end y datos",
         skills: [
+          "Node.js",
+          "Fastify",
+          "Prisma",
+          "Zod",
+          "PostgreSQL",
           "Python",
           "FastAPI",
-          "Flask",
           "Pandas",
-          "NumPy",
-          "Node.js",
-          "C",
-          "C#",
-          "JSON",
-          "Webhooks",
-          "JWT",
-          "SQL (MySQL, PostgreSQL)",
           "Redis",
+          "APIs REST",
         ],
       },
       {
         label: "Inteligencia artificial",
         skills: [
           "Agentes de IA",
-          "API Anthropic (Claude)",
-          "GitHub Copilot",
-          "Ingeniería de prompt",
+          "API de Anthropic (Claude)",
+          "Claude Code",
+          "Cursor",
           "Servidores MCP",
+          "Ingeniería de prompts",
+          "OCR con IA",
           "n8n",
         ],
       },
       {
-        label: "Calidad y entrega",
+        label: "Nube, calidad y entrega",
         skills: [
-          "Pruebas automatizadas",
-          "TestClient (FastAPI)",
-          "Jest",
-          "Git/GitHub",
+          "Google Cloud (Cloud Run, Cloud SQL)",
+          "GitHub Actions",
           "Docker",
-          "Render",
-          "Fly.io",
+          "Vitest",
+          "Jest",
+          "Playwright",
+          "Accesibilidad WCAG AA",
+          "Git/GitHub",
         ],
       },
     ],
@@ -113,11 +122,6 @@ export const es: Messages = {
         description:
           "Panel de administración para que un servicio de catering gestione el día a día: pedidos, eventos y control de la operación en un solo lugar.",
         role: "Desarrollo front-end e integración de los flujos operativos.",
-      },
-      "mv-financing": {
-        description:
-          "App de finanzas personales: login JWT, sincronización en la nube entre dispositivos, presupuestos por categoría, metas, inversiones e informes en Excel/PDF.",
-        role: "Desarrollo full-stack: API, autenticación y front-end.",
       },
       modus: {
         description:
@@ -176,7 +180,7 @@ export const es: Messages = {
         period: "feb/2026 — dic/2028",
         title: "Análisis y Desarrollo de Sistemas",
         org: "IFSP",
-        note: "2.º semestre en ago/2026",
+        note: "en curso",
       },
       {
         period: "mar/2024 — ago/2025",
@@ -202,10 +206,19 @@ export const es: Messages = {
     title: "Dónde ya puse las manos a la obra",
     items: [
       {
-        period: "ene/2026 — actualidad",
-        role: "Asistente de I+D",
-        org: "Soft Film",
-        desc: "Revisa y actualiza componentes de recetas, solicita análisis a Control de Calidad, registra y reclasifica órdenes de producción. Rutina manual en Excel que motivó automatizar validaciones en Python.",
+        period: "sep/2026 — actual",
+        role: "Desarrollador Full Stack",
+        org: "Enviagora",
+        desc: "Diseño, construyo y llevo a producción sistemas internos de punta a punta: desde el relevamiento con el área de negocio hasta la arquitectura, la nube, la seguridad y el despliegue.",
+        highlights: [
+          "Conduje la migración de la plataforma de RR. HH. (Enviagora Hub) a Google Cloud: Cloud Run, Cloud SQL, Cloud Storage y Secret Manager, con staging automático, despliegue protegido vía GitHub Actions, health checks y rollback.",
+          "Llevé a producción el módulo de Admisión Digital: documentos del candidato, dosier en PDF/ZIP, e-mail transaccional y OCR con IA, con idempotencia y logs sin datos personales.",
+          "Diseñé la arquitectura de EnviaMind, monorepo que unifica los BI de la empresa con acceso por sector y rol, auditoría, modo TV y OAuth con tokens cifrados.",
+          "Creé dashboards integrados con ClickUp y Google, con snapshots en PostgreSQL y tolerancia a fallos, y un panel de indicadores (MRR, SLA, embudo).",
+          "Desarrollé un sistema de auditoría 5S para centros de distribución: app móvil con cámara y código QR, login integrado al WMS y nota calculada en el servidor.",
+          "Construí un planificador 3D de oficinas con three.js y un motor de reglas de circulación y rutas de evacuación.",
+          "Reduje el layout shift móvil de 0,585 a 0,014 y mantengo más de 550 pruebas automatizadas entre los proyectos, con desarrollo guiado por especificación.",
+        ],
       },
       {
         period: "ago/2024 — dic/2025",
@@ -224,7 +237,7 @@ export const es: Messages = {
   contact: {
     eyebrow: "Contacto",
     title: "¿Hablamos?",
-    body: "Estoy abierto a oportunidades, proyectos freelance y buenas conversaciones sobre tecnología. ¿Tienes algo en mente? Envíame un mensaje y te respondo.",
+    body: "Abierto a buenas conversaciones sobre tecnología, proyectos y oportunidades. ¿Tienes algo en mente? Escríbeme y te respondo.",
   },
   footer: {
     by: "por",

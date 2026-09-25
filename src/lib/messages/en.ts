@@ -2,14 +2,14 @@ import type { Messages } from "@/lib/i18n-types"
 
 export const en: Messages = {
   meta: {
-    title: "Miguel Vaz · Full-Stack Developer & AI Engineer",
+    title: "Miguel Vaz · Full Stack Developer · AI Engineering",
     description:
-      "Miguel Vaz, full-stack developer and AI engineer: React, Python, Node.js, and AI agents integrated via the Anthropic API. See my project portfolio.",
+      "Miguel Vaz, full stack developer at Enviagora: TypeScript, Node.js, React, Next.js, PostgreSQL and Google Cloud, with AI applied to real systems. See experience and projects.",
     ogDescription:
-      "Full-stack developer and AI engineer. See my projects and get in touch.",
-    twitterDescription: "Full-stack developer and AI engineer.",
+      "Full stack developer at Enviagora, applying AI to real systems. See experience and projects.",
+    twitterDescription: "Full stack developer at Enviagora · AI Engineering.",
     siteName: "Miguel Vaz Portfolio",
-    jobTitle: "Full-Stack Developer & AI Engineer",
+    jobTitle: "Full Stack Developer",
     knowsAboutAi: "Artificial Intelligence",
   },
   aria: {
@@ -26,18 +26,19 @@ export const en: Messages = {
   },
   nav: {
     about: "About",
+    experience: "Experience",
     skills: "Skills",
     projects: "Projects",
     credentials: "Education",
     contact: "Contact",
   },
   profile: {
-    role: "Full-Stack Developer & AI Engineer",
+    role: "Full Stack Developer @ Enviagora · AI Engineering",
   },
   hero: {
     subtitle:
-      "Fullstack developer focused on artificial intelligence. I build the front-end in React, the back-end in Python and Node.js, and use that foundation to integrate AI agents into real systems.",
-    available: "available for new projects",
+      "I ship internal systems to production end to end: architecture, cloud, security and deployment, with AI built in where it solves a real problem.",
+    available: "open to good conversations",
     contactCta: "Get in touch",
     projectsCta: "View projects",
   },
@@ -45,9 +46,9 @@ export const en: Messages = {
     eyebrow: "About",
     title: "Who's behind the code",
     paragraphs: [
-      "I'm Miguel: I build fullstack applications, from React on the front-end to Python and Node.js on the back-end, and I use that as the base to build and test real AI agents.",
-      "Day to day I integrate LLMs into real systems through the Anthropic API (Claude), write and iterate on prompts while measuring results, and I've already shipped an MCP server to expose tools to an agent. I cover what I write with automated tests and deploy to the cloud in containers.",
-      "I'm a Systems Development Technician from SENAI and I'm studying Systems Analysis and Development at IFSP. Away from the keyboard, I like understanding how a product was built under the hood.",
+      "I'm Miguel, a full stack developer at Enviagora. I build internal systems end to end: I work with business teams, design the architecture, write front end and back end in TypeScript, and own cloud, security and deployment.",
+      "AI is part of how I work and what I ship: I integrate LLMs into real systems through the Anthropic (Claude) API, I've built an MCP server, and I use AI agents in development, always backed by automated tests and review.",
+      "I hold a Systems Development technical degree from SENAI and I'm studying Systems Analysis and Development at IFSP. Outside of code, I like understanding how a product was built behind the scenes.",
     ],
   },
   skills: {
@@ -55,25 +56,30 @@ export const en: Messages = {
     title: "Technologies I use every day",
     groups: [
       {
-        label: "Front-end",
-        skills: ["JavaScript", "React", "HTML", "CSS", "Leaflet.js", "REST APIs"],
+        label: "Front end",
+        skills: [
+          "TypeScript",
+          "React",
+          "Next.js",
+          "Tailwind CSS",
+          "TanStack Query",
+          "three.js",
+          "HTML/CSS",
+        ],
       },
       {
-        label: "Back-end & data",
+        label: "Back end & data",
         skills: [
+          "Node.js",
+          "Fastify",
+          "Prisma",
+          "Zod",
+          "PostgreSQL",
           "Python",
           "FastAPI",
-          "Flask",
           "Pandas",
-          "NumPy",
-          "Node.js",
-          "C",
-          "C#",
-          "JSON",
-          "Webhooks",
-          "JWT",
-          "SQL (MySQL, PostgreSQL)",
           "Redis",
+          "REST APIs",
         ],
       },
       {
@@ -81,22 +87,25 @@ export const en: Messages = {
         skills: [
           "AI agents",
           "Anthropic API (Claude)",
-          "GitHub Copilot",
-          "Prompt engineering",
+          "Claude Code",
+          "Cursor",
           "MCP servers",
+          "Prompt engineering",
+          "AI-powered OCR",
           "n8n",
         ],
       },
       {
-        label: "Quality & delivery",
+        label: "Cloud, quality & delivery",
         skills: [
-          "Automated testing",
-          "TestClient (FastAPI)",
-          "Jest",
-          "Git/GitHub",
+          "Google Cloud (Cloud Run, Cloud SQL)",
+          "GitHub Actions",
           "Docker",
-          "Render",
-          "Fly.io",
+          "Vitest",
+          "Jest",
+          "Playwright",
+          "WCAG AA accessibility",
+          "Git/GitHub",
         ],
       },
     ],
@@ -113,11 +122,6 @@ export const en: Messages = {
         description:
           "Admin dashboard for a catering business to run day-to-day operations: orders, events, and operational control in one place.",
         role: "Front-end development and operational flow integration.",
-      },
-      "mv-financing": {
-        description:
-          "Personal finance app: JWT login, multi-device cloud sync, category budgets, goals, investments, and Excel/PDF reports.",
-        role: "Full-stack development: API, authentication, and front-end.",
       },
       modus: {
         description:
@@ -176,7 +180,7 @@ export const en: Messages = {
         period: "Feb 2026 — Dec 2028",
         title: "Systems Analysis and Development",
         org: "IFSP",
-        note: "2nd semester as of Aug 2026",
+        note: "in progress",
       },
       {
         period: "Mar 2024 — Aug 2025",
@@ -202,10 +206,19 @@ export const en: Messages = {
     title: "Where I've put in the work",
     items: [
       {
-        period: "Jan 2026 — present",
-        role: "R&D Assistant",
-        org: "Soft Film",
-        desc: "Reviews and updates recipe components, requests Quality Control analyses, and logs and reclassifies production orders. A manual Excel routine that motivated automating validations in Python.",
+        period: "Sep 2026 — present",
+        role: "Full Stack Developer",
+        org: "Enviagora",
+        desc: "I design, build and ship internal systems end to end: from gathering requirements with business teams to architecture, cloud, security and deployment.",
+        highlights: [
+          "Led the migration of the HR platform (Enviagora Hub) to Google Cloud: Cloud Run, Cloud SQL, Cloud Storage and Secret Manager, with automated staging, gated deploys via GitHub Actions, health checks and rollback.",
+          "Shipped the Digital Onboarding module to production: candidate documents, PDF/ZIP dossier, transactional email and AI-powered OCR, with idempotency and PII-free logging.",
+          "Architected EnviaMind, a monorepo that unifies the company's BI dashboards with sector- and role-based access, audit trail, TV mode and OAuth with encrypted tokens.",
+          "Built dashboards integrated with ClickUp and Google, with PostgreSQL snapshots and fault tolerance, plus a KPI panel (MRR, SLA, funnel).",
+          "Developed a 5S audit system for distribution centers: mobile app with camera and QR codes, WMS-integrated login and server-side scoring.",
+          "Built a 3D office planner with three.js and a rules engine for circulation and fire escape routes.",
+          "Cut mobile layout shift from 0.585 to 0.014 and maintain 550+ automated tests across projects, with spec-driven development.",
+        ],
       },
       {
         period: "Aug 2024 — Dec 2025",
@@ -224,7 +237,7 @@ export const en: Messages = {
   contact: {
     eyebrow: "Contact",
     title: "Shall we talk?",
-    body: "I'm open to opportunities, freelance projects, and good conversations about technology. Have something in mind? Send a message and I'll get back to you.",
+    body: "Open to good conversations about tech, projects and opportunities. Have something in mind? Send a message and I'll reply.",
   },
   footer: {
     by: "by",
