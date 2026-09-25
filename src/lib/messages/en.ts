@@ -4,10 +4,10 @@ export const en: Messages = {
   meta: {
     title: "Miguel Vaz · Full Stack Developer · AI Engineering",
     description:
-      "Miguel Vaz, full stack developer at Enviagora: TypeScript, Node.js, React, Next.js, PostgreSQL and Google Cloud, with AI applied to real systems. See experience and projects.",
+      "Miguel Vaz, full stack developer: TypeScript, Node.js, React, Next.js, PostgreSQL and Google Cloud, with AI applied to real systems. See experience and projects.",
     ogDescription:
-      "Full stack developer at Enviagora, applying AI to real systems. See experience and projects.",
-    twitterDescription: "Full stack developer at Enviagora · AI Engineering.",
+      "Full stack developer applying AI to real systems. See experience and projects.",
+    twitterDescription: "Full stack developer · AI Engineering.",
     siteName: "Miguel Vaz Portfolio",
     jobTitle: "Full Stack Developer",
     knowsAboutAi: "Artificial Intelligence",
@@ -33,11 +33,11 @@ export const en: Messages = {
     contact: "Contact",
   },
   profile: {
-    role: "Full Stack Developer @ Enviagora · AI Engineering",
+    role: "Full Stack Developer · AI Engineering",
   },
   hero: {
     subtitle:
-      "I ship internal systems to production end to end: architecture, cloud, security and deployment, with AI built in where it solves a real problem.",
+      "I ship systems to production end to end: architecture, cloud, security and deployment, with AI built in where it solves a real problem.",
     available: "open to good conversations",
     contactCta: "Get in touch",
     projectsCta: "View projects",
@@ -46,9 +46,9 @@ export const en: Messages = {
     eyebrow: "About",
     title: "Who's behind the code",
     paragraphs: [
-      "I'm Miguel, a full stack developer at Enviagora. I build internal systems end to end: I work with business teams, design the architecture, write front end and back end in TypeScript, and own cloud, security and deployment.",
-      "AI is part of how I work and what I ship: I integrate LLMs into real systems through the Anthropic (Claude) API, I've built an MCP server, and I use AI agents in development, always backed by automated tests and review.",
-      "I hold a Systems Development technical degree from SENAI and I'm studying Systems Analysis and Development at IFSP. Outside of code, I like understanding how a product was built behind the scenes.",
+      "I'm Miguel, a full stack developer. I build systems end to end: I work with business teams, design the architecture, write front end and back end in TypeScript, and own cloud, security and deployment.",
+      "AI is part of how I work and what I ship. I integrate LLMs into real systems without locking into a single provider (Claude, DeepSeek and other models via OpenRouter), build agents and pipelines that classify, extract and validate data, and have built MCP servers to expose tools to agents. Day to day I use AI agents in development, always backed by automated tests and review.",
+      "I hold a Systems Development technical degree from SENAI and I'm studying Systems Analysis and Development at IFSP. Before coding full time, I worked in R&D and administrative roles in manufacturing, and that operations background shapes the systems I build today.",
     ],
   },
   skills: {
@@ -86,7 +86,9 @@ export const en: Messages = {
         label: "Artificial intelligence",
         skills: [
           "AI agents",
-          "Anthropic API (Claude)",
+          "LLMs (Claude, DeepSeek)",
+          "OpenRouter",
+          "Structured outputs (JSON)",
           "Claude Code",
           "Cursor",
           "MCP servers",
@@ -218,6 +220,17 @@ export const en: Messages = {
           "Developed a 5S audit system for distribution centers: mobile app with camera and QR codes, WMS-integrated login and server-side scoring.",
           "Built a 3D office planner with three.js and a rules engine for circulation and fire escape routes.",
           "Cut mobile layout shift from 0.585 to 0.014 and maintain 550+ automated tests across projects, with spec-driven development.",
+        ],
+      },
+      {
+        period: "Jan 2026 — Aug 2026",
+        role: "R&D Assistant",
+        org: "Soft Film",
+        desc: "R&D in a manufacturing environment: hands-on work with production orders, quality control and process data, the same operations I now build systems for.",
+        highlights: [
+          "Reviewed and updated components of production recipes.",
+          "Handled production order reporting and reclassification, and bridged with Quality Control on analysis requests.",
+          "Manual Excel routines led me to automate validations with Python, my first step in bringing software to operations.",
         ],
       },
       {

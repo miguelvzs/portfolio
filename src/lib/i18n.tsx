@@ -95,7 +95,8 @@ function applyDocumentMeta(locale: Locale, t: Messages) {
       "Google Cloud",
       "Python",
       t.meta.knowsAboutAi,
-      "Anthropic Claude API",
+      "LLMs",
+      "OpenRouter",
       "MCP",
     ]
     script.textContent = JSON.stringify(data)

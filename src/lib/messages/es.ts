@@ -4,10 +4,10 @@ export const es: Messages = {
   meta: {
     title: "Miguel Vaz · Desarrollador Full Stack · AI Engineering",
     description:
-      "Miguel Vaz, desarrollador full stack en Enviagora: TypeScript, Node.js, React, Next.js, PostgreSQL y Google Cloud, con IA aplicada a sistemas reales. Mira experiencia y proyectos.",
+      "Miguel Vaz, desarrollador full stack: TypeScript, Node.js, React, Next.js, PostgreSQL y Google Cloud, con IA aplicada a sistemas reales. Mira experiencia y proyectos.",
     ogDescription:
-      "Desarrollador full stack en Enviagora, con IA aplicada a sistemas reales. Mira experiencia y proyectos.",
-    twitterDescription: "Desarrollador full stack en Enviagora · AI Engineering.",
+      "Desarrollador full stack con IA aplicada a sistemas reales. Mira experiencia y proyectos.",
+    twitterDescription: "Desarrollador full stack · AI Engineering.",
     siteName: "Portafolio Miguel Vaz",
     jobTitle: "Desarrollador Full Stack",
     knowsAboutAi: "Inteligencia Artificial",
@@ -33,11 +33,11 @@ export const es: Messages = {
     contact: "Contacto",
   },
   profile: {
-    role: "Desarrollador Full Stack @ Enviagora · AI Engineering",
+    role: "Desarrollador Full Stack · AI Engineering",
   },
   hero: {
     subtitle:
-      "Llevo sistemas internos a producción de punta a punta: arquitectura, nube, seguridad y despliegue, con IA integrada donde resuelve un problema real.",
+      "Llevo sistemas a producción de punta a punta: arquitectura, nube, seguridad y despliegue, con IA integrada donde resuelve un problema real.",
     available: "abierto a buenas conversaciones",
     contactCta: "Contactar",
     projectsCta: "Ver proyectos",
@@ -46,9 +46,9 @@ export const es: Messages = {
     eyebrow: "Sobre mí",
     title: "Quién está detrás del código",
     paragraphs: [
-      "Soy Miguel, desarrollador full stack en Enviagora. Construyo sistemas internos de punta a punta: hablo con el área de negocio, diseño la arquitectura, escribo front y back en TypeScript y me encargo de la nube, la seguridad y el despliegue.",
-      "La IA es parte de cómo trabajo y de lo que entrego: integro LLMs en sistemas reales con la API de Anthropic (Claude), ya implementé un servidor MCP y uso agentes de IA en el desarrollo, siempre con pruebas automatizadas y revisión.",
-      "Soy Técnico en Desarrollo de Sistemas por el SENAI y estudio Análisis y Desarrollo de Sistemas en el IFSP. Fuera del código, me gusta entender cómo se construyó un producto por dentro.",
+      "Soy Miguel, desarrollador full stack. Construyo sistemas de punta a punta: hablo con el área de negocio, diseño la arquitectura, escribo front y back en TypeScript y me encargo de la nube, la seguridad y el despliegue.",
+      "La IA es parte de cómo trabajo y de lo que entrego. Integro LLMs en sistemas reales sin atarme a un solo proveedor (Claude, DeepSeek y otros modelos vía OpenRouter), construyo agentes y pipelines que clasifican, extraen y validan datos, y ya implementé servidores MCP para exponer herramientas a agentes. En el día a día uso agentes de IA en el desarrollo, siempre con pruebas automatizadas y revisión.",
+      "Soy Técnico en Desarrollo de Sistemas por el SENAI y estudio Análisis y Desarrollo de Sistemas en el IFSP. Antes de programar a tiempo completo, trabajé en I+D y en rutinas administrativas en la industria, y esa experiencia de operación orienta los sistemas que construyo hoy.",
     ],
   },
   skills: {
@@ -86,7 +86,9 @@ export const es: Messages = {
         label: "Inteligencia artificial",
         skills: [
           "Agentes de IA",
-          "API de Anthropic (Claude)",
+          "LLMs (Claude, DeepSeek)",
+          "OpenRouter",
+          "Salidas estructuradas (JSON)",
           "Claude Code",
           "Cursor",
           "Servidores MCP",
@@ -218,6 +220,17 @@ export const es: Messages = {
           "Desarrollé un sistema de auditoría 5S para centros de distribución: app móvil con cámara y código QR, login integrado al WMS y nota calculada en el servidor.",
           "Construí un planificador 3D de oficinas con three.js y un motor de reglas de circulación y rutas de evacuación.",
           "Reduje el layout shift móvil de 0,585 a 0,014 y mantengo más de 550 pruebas automatizadas entre los proyectos, con desarrollo guiado por especificación.",
+        ],
+      },
+      {
+        period: "ene/2026 — ago/2026",
+        role: "Asistente de I+D",
+        org: "Soft Film",
+        desc: "I+D en un entorno industrial: experiencia directa con órdenes de producción, control de calidad y datos de proceso, la misma operación para la que hoy construyo sistemas.",
+        highlights: [
+          "Revisé y actualicé componentes de las recetas de producción.",
+          "Hice el registro y la reclasificación de órdenes de producción y el enlace con Control de Calidad en las solicitudes de análisis.",
+          "La rutina manual en Excel me llevó a automatizar validaciones con Python, mi primer paso para llevar software a la operación.",
         ],
       },
       {
