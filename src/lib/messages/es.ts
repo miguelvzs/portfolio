@@ -156,7 +156,7 @@ export const es: Messages = {
       },
       "quebra-gelo": {
         description:
-          "Hecho en el OpenAI DevDay Exchange Hackathon, organizado por los Codex Ambassadors de OpenAI en São Paulo (2026):una mascota virtual que solo avanza cuando hablas con alguien de verdad en el evento, con pantalla en vivo para los organizadores.",
+          "1.er lugar en el DevDay Exchange Community Hackathon, organizado por los Codex Ambassadors de OpenAI en São Paulo (2026): una mascota virtual que solo avanza cuando hablas con alguien de verdad en el evento, con pantalla en vivo para los organizadores.",
         role: "Desarrollo en dupla, del producto al deploy.",
       },
       vellfinancing: {
@@ -220,6 +220,11 @@ export const es: Messages = {
       },
     ],
     awards: [
+      {
+        year: "2026",
+        title: "1.er lugar — DevDay Exchange Community Hackathon (OpenAI Codex Ambassadors, São Paulo)",
+        desc: "Quebra-Gelo, hecho en dupla en un día. Premio: US$ 1.000 en créditos de Codex para el equipo y 12 meses de ChatGPT Pro para cada integrante.",
+      },
       {
         year: "2026",
         title: "Embajador SAGA SENAI — Proyectos de Innovación",
