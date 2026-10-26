@@ -156,7 +156,7 @@ export const pt: Messages = {
       },
       "quebra-gelo": {
         description:
-          "Feito no DevDay Exchange Community Hackathon (comunidade OpenAI Codex, São Paulo, 2026): um pet virtual que só avança quando você conversa com alguém de verdade no evento, com telão ao vivo para a organização.",
+          "Feito no OpenAI DevDay Exchange Hackathon, organizado pelos Codex Ambassadors da OpenAI em São Paulo (2026):um pet virtual que só avança quando você conversa com alguém de verdade no evento, com telão ao vivo para a organização.",
         role: "Desenvolvimento em dupla, do produto ao deploy.",
       },
       vellfinancing: {

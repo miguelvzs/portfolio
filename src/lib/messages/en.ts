@@ -156,7 +156,7 @@ export const en: Messages = {
       },
       "quebra-gelo": {
         description:
-          "Built at the DevDay Exchange Community Hackathon (OpenAI Codex community, São Paulo, 2026): a virtual pet that only moves forward when you talk to someone for real at the event, with a live board for organizers.",
+          "Built at the OpenAI DevDay Exchange Hackathon, run by OpenAI's Codex Ambassadors in São Paulo (2026):a virtual pet that only moves forward when you talk to someone for real at the event, with a live board for organizers.",
         role: "Built as a pair, from product to deploy.",
       },
       vellfinancing: {
