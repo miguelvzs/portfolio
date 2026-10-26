@@ -156,7 +156,7 @@ export const es: Messages = {
       },
       "quebra-gelo": {
         description:
-          "Proyecto de hackathon: una mascota virtual que solo avanza cuando hablas con alguien de verdad en el evento, con pantalla en vivo para los organizadores.",
+          "Hecho en el DevDay Exchange Community Hackathon (comunidad OpenAI Codex, São Paulo, 2026): una mascota virtual que solo avanza cuando hablas con alguien de verdad en el evento, con pantalla en vivo para los organizadores.",
         role: "Desarrollo en dupla, del producto al deploy.",
       },
       vellfinancing: {
