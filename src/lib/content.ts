@@ -78,6 +78,8 @@ const productProjectMeta: WebMeta<keyof Messages["projects"]["products"]>[] = [
     slug: "morada",
     name: "Morada",
     stack: ["Expo", "React Native", "Next.js", "Prisma", "PostgreSQL"],
+    demoUrl: "https://getmorada.app",
+    displayUrl: "getmorada.app",
   },
   {
     kind: "web",
