@@ -121,6 +121,8 @@ export const es: Messages = {
     webHeading: "Proyectos anteriores (web)",
     showOlder: "Ver proyectos anteriores",
     aiHeading: "IA y automatización",
+    productsHeading: "Productos",
+    private: "privado",
     openSite: "abrir sitio",
     viewRepo: "ver repositorio",
     tryDemo: "probar en vivo",
@@ -139,6 +141,28 @@ export const es: Messages = {
         description:
           "Sistema de gestión con registro de usuarios, direcciones y establecimientos, mapa interactivo con Leaflet y búsqueda de código postal mediante la API ViaCEP. Datos en LocalStorage.",
         role: "Desarrollo front-end completo, desde cero.",
+      },
+    },
+    products: {
+      morada: {
+        description:
+          "App móvil para inmigrantes: cuánto ganaste y gastaste, quién te debe, metas, plazos de documentos y comunidad de la ciudad. En portugués, español e inglés. En desarrollo.",
+        role: "Producto propio: app, API, base de datos y deploy.",
+      },
+      "media-hub": {
+        description:
+          "Sistema interno en producción para una empresa de medios: puntos de exhibición, biblioteca, programación, producción, contratos y facturación, con asistente de IA.",
+        role: "Desarrollo completo para un cliente.",
+      },
+      "quebra-gelo": {
+        description:
+          "Proyecto de hackathon: una mascota virtual que solo avanza cuando hablas con alguien de verdad en el evento, con pantalla en vivo para los organizadores.",
+        role: "Desarrollo en dupla, del producto al deploy.",
+      },
+      vellfinancing: {
+        description:
+          "Control financiero personal: movimientos, presupuesto, metas, inversiones e importación de extractos bancarios OFX/CSV.",
+        role: "Desarrollo completo, desde cero.",
       },
     },
     ai: {

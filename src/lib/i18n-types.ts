@@ -96,6 +96,8 @@ export type Messages = {
     webHeading: string
     showOlder: string
     aiHeading: string
+    productsHeading: string
+    private: string
     openSite: string
     viewRepo: string
     tryDemo: string
@@ -103,6 +105,12 @@ export type Messages = {
       cortex: WebProjectCopy
       modus: WebProjectCopy
       elos: WebProjectCopy
+    }
+    products: {
+      morada: WebProjectCopy
+      "media-hub": WebProjectCopy
+      "quebra-gelo": WebProjectCopy
+      vellfinancing: WebProjectCopy
     }
     ai: {
       "validador-registros-tabulares": AiProjectCopy

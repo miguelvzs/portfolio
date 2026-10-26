@@ -30,6 +30,17 @@ export function Projects() {
 
         <Reveal>
           <h3 className="mb-5 font-mono text-xs tracking-widest text-muted-foreground uppercase">
+            {t.projects.productsHeading}
+          </h3>
+        </Reveal>
+        <div className="mb-14 grid gap-6 sm:grid-cols-2">
+          {content.productProjects.map((project, i) => (
+            <ProjectCard key={project.slug} project={project} index={i} />
+          ))}
+        </div>
+
+        <Reveal>
+          <h3 className="mb-5 font-mono text-xs tracking-widest text-muted-foreground uppercase">
             {t.projects.aiHeading}
           </h3>
         </Reveal>

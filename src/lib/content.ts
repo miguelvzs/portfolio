@@ -46,14 +46,17 @@ export type SkillGroup = {
 
 export type WebProject = {
   kind: "web"
-  slug: "cortex" | "modus" | "elos"
+  slug: string
   name: string
   description: string
   role: string
   stack: string[]
-  demoUrl: string
-  displayUrl: string
+  // sem demoUrl = projeto privado, o card mostra o selo em vez do link
+  demoUrl?: string
+  displayUrl?: string
 }
+
+type WebMeta<S> = Omit<WebProject, "description" | "role" | "slug"> & { slug: S }
 
 export type AiProject = {
   kind: "ai"
@@ -69,7 +72,38 @@ export type AiProject = {
 
 export type Project = WebProject | AiProject
 
-const webProjectMeta: Omit<WebProject, "description" | "role">[] = [
+const productProjectMeta: WebMeta<keyof Messages["projects"]["products"]>[] = [
+  {
+    kind: "web",
+    slug: "morada",
+    name: "Morada",
+    stack: ["Expo", "React Native", "Next.js", "Prisma", "PostgreSQL"],
+  },
+  {
+    kind: "web",
+    slug: "media-hub",
+    name: "Media Ops Hub",
+    stack: ["Next.js 16", "Prisma", "PostgreSQL", "AI SDK", "Vercel Blob"],
+  },
+  {
+    kind: "web",
+    slug: "quebra-gelo",
+    name: "Quebra-Gelo",
+    stack: ["TypeScript", "Vite", "Express"],
+    demoUrl: "https://quebra-gelo.julioakamine.com",
+    displayUrl: "quebra-gelo.julioakamine.com",
+  },
+  {
+    kind: "web",
+    slug: "vellfinancing",
+    name: "MV Financing",
+    stack: ["JavaScript", "Drizzle", "PostgreSQL", "Vercel"],
+    demoUrl: "https://github.com/miguelvzs/vellfinancing",
+    displayUrl: "github.com/miguelvzs/vellfinancing",
+  },
+]
+
+const webProjectMeta: WebMeta<keyof Messages["projects"]["web"]>[] = [
   {
     kind: "web",
     slug: "cortex",
@@ -118,6 +152,7 @@ export type LocalizedContent = {
   nav: { id: NavId; href: string; label: string }[]
   aboutParagraphs: Messages["about"]["paragraphs"]
   skillGroups: SkillGroup[]
+  productProjects: WebProject[]
   webProjects: WebProject[]
   aiProjects: AiProject[]
   education: EducationItem[]
@@ -131,6 +166,11 @@ export function buildContent(t: Messages): LocalizedContent {
     nav: navItems.map((item) => ({ ...item, label: t.nav[item.id] })),
     aboutParagraphs: t.about.paragraphs,
     skillGroups: t.skills.groups,
+    productProjects: productProjectMeta.map((project) => ({
+      ...project,
+      description: t.projects.products[project.slug].description,
+      role: t.projects.products[project.slug].role,
+    })),
     webProjects: webProjectMeta.map((project) => ({
       ...project,
       description: t.projects.web[project.slug].description,

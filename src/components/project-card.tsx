@@ -17,7 +17,7 @@ export function ProjectCard({ project, index }: { project: WebProject; index: nu
             <div className="ml-2 flex flex-1 items-center gap-1.5 rounded-md border border-border bg-background px-2.5 py-1">
               <Lock className="size-2.5 text-emerald-500" />
               <span className="truncate font-mono text-[10px] text-muted-foreground">
-                {project.displayUrl}
+                {project.displayUrl ?? t.projects.private}
               </span>
             </div>
           </div>
@@ -26,15 +26,19 @@ export function ProjectCard({ project, index }: { project: WebProject; index: nu
         <div className="flex flex-1 flex-col gap-2.5 p-5">
           <div className="flex items-center justify-between gap-2">
             <h3 className="text-base font-semibold text-foreground">{project.name}</h3>
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-brand"
-            >
-              {t.projects.openSite}
-              <ArrowUpRight className="size-3.5" />
-            </a>
+            {project.demoUrl ? (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-brand"
+              >
+                {t.projects.openSite}
+                <ArrowUpRight className="size-3.5" />
+              </a>
+            ) : (
+              <span className="text-xs text-muted-foreground">{t.projects.private}</span>
+            )}
           </div>
 
           <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>
