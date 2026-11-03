@@ -281,7 +281,7 @@ export const en: Messages = {
   },
   cases: {
     eyebrow: "Case studies",
-    title: "Systems I designed and built",
+    title: "Systems I've worked on",
     subtitle: "Professional work described without internal data. Diagrams show the architecture, not real screens.",
     context: "Context",
     did: "What I did",
@@ -430,7 +430,7 @@ export const en: Messages = {
         period: "Sep 2026 — present",
         role: "Full Stack Developer",
         org: "Enviagora",
-        desc: "I led the migration of the HR Hub to Google Cloud and I'm building EnviaMind, the company's single platform.",
+        desc: "I run every project on Google Cloud with Terraform, led the migration of the HR Hub to it, and I'm part of the team building EnviaMind, the company's single platform.",
         highlights: [
           "Platform: GCP in Terraform (Cloud Run, private-IP Cloud SQL, Secret Manager, Load Balancer, Cloud DNS); CI/CD on GitHub Actions with Workload Identity Federation, secret scanning and approval-gated production deploys; a monorepo with ~20 systems imported with full history.",
           "Data: PostgreSQL in raw/trusted/refined layers per department, a universal person key, RLS, server-side RBAC and an outbox for integrations (ClickUp, ZapSign).",

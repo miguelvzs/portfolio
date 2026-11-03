@@ -281,7 +281,7 @@ export const es: Messages = {
   },
   cases: {
     eyebrow: "Casos",
-    title: "Sistemas que diseñé y construí",
+    title: "Sistemas en los que trabajé",
     subtitle: "Trabajo profesional descrito sin datos internos. Los diagramas muestran la arquitectura, no pantallas reales.",
     context: "Contexto",
     did: "Qué hice",
@@ -430,7 +430,7 @@ export const es: Messages = {
         period: "sep/2026 — actual",
         role: "Desarrollador Full Stack",
         org: "Enviagora",
-        desc: "Conduje la migración del Hub de RR. HH. a Google Cloud y construyo EnviaMind, la plataforma única de la empresa.",
+        desc: "Uso Google Cloud con Terraform en todos los proyectos, conduje la migración del Hub de RR. HH. y formo parte del equipo que construye EnviaMind, la plataforma única de la empresa.",
         highlights: [
           "Plataforma: GCP con Terraform (Cloud Run, Cloud SQL con IP privada, Secret Manager, Load Balancer, Cloud DNS); CI/CD en GitHub Actions con Workload Identity Federation, secret scanning y deploy a producción con aprobación; monorepo con ~20 sistemas importados con su historial.",
           "Datos: PostgreSQL en capas raw/trusted/refined por área, clave universal de persona, RLS, RBAC calculado en el servidor y outbox para integraciones (ClickUp, ZapSign).",
