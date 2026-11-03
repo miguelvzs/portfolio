@@ -24,6 +24,7 @@ export type ExperienceItem = {
   org: string
   desc: string
   highlights?: string[]
+  stack?: string
 }
 
 export type EducationItem = {

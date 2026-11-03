@@ -192,6 +192,7 @@ export type Messages = {
       org: string
       desc: string
       highlights?: string[]
+      stack?: string
     }[]
   }
   contact: {

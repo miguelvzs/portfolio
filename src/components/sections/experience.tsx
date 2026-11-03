@@ -37,6 +37,13 @@ export function Experience() {
                   ))}
                 </ul>
               )}
+              {item.stack && (
+                <ul aria-label={t.hero.sheet.stack} className="mt-4 flex flex-wrap gap-1.5">
+                  {item.stack.split(", ").map((tech) => (
+                    <li key={tech} className="spec">{tech}</li>
+                  ))}
+                </ul>
+              )}
             </Reveal>
           ))}
         </ol>
