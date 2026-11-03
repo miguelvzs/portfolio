@@ -24,7 +24,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.1}>
-          <Card className="gap-6 p-8 ring-border md:p-11">
+          <Card className="gap-6 p-8 md:p-11">
             <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">{t.contact.body}</p>
             <div className="flex flex-wrap gap-3">
               {links.map((link) => (

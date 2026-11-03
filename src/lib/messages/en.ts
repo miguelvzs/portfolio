@@ -21,7 +21,6 @@ export const en: Messages = {
     themeLight: "Switch to light theme",
     themeDark: "Switch to dark theme",
     language: "Language",
-    scrollToAbout: "Scroll to the about section",
     stackUsedIn: "Stack used in {name}",
   },
   nav: {
@@ -39,15 +38,16 @@ export const en: Messages = {
   hero: {
     subtitle:
       "I ship systems to production end to end: architecture, cloud, security and deployment, with AI built in where it solves a real problem.",
-    available: "open to good conversations",
+    available: "open to new projects",
     contactCta: "Get in touch",
     projectsCta: "View projects",
     cvCta: "Download CV",
     cvHref: "/cv/miguel-vaz-cv-en.pdf",
+    sheet: { role: "role", base: "based in", status: "status", stack: "stack", baseValue: "Extrema, MG · Brazil" },
   },
   about: {
     eyebrow: "About",
-    title: "Who's behind the code",
+    title: "Software built close to the operation",
     paragraphs: [
       "I'm Miguel, a full stack developer. I build systems end to end: I work with business teams, design the architecture, write front end and back end in TypeScript, and own cloud, security and deployment.",
       "AI is part of how I work and what I ship. I integrate LLMs into real systems without locking into a single provider (Claude, DeepSeek and other models via OpenRouter), build agents and pipelines that classify, extract and validate data, and have built MCP servers to expose tools to agents. Day to day I use AI agents in development, always backed by automated tests and review.",
@@ -56,7 +56,7 @@ export const en: Messages = {
   },
   skills: {
     eyebrow: "Skills",
-    title: "Technologies I use every day",
+    title: "Working stack",
     groups: [
       {
         label: "Front end",
@@ -117,7 +117,7 @@ export const en: Messages = {
   },
   projects: {
     eyebrow: "Projects",
-    title: "What I've been building",
+    title: "Personal and competition projects",
     webHeading: "Earlier projects (web)",
     showOlder: "Show earlier projects",
     aiHeading: "AI & automation",
@@ -402,7 +402,7 @@ export const en: Messages = {
   },
   process: {
     eyebrow: "How I work",
-    title: "From requirement to production, no shortcuts",
+    title: "How a requirement reaches production",
     items: [
       {
         title: "Spec before code",
@@ -424,7 +424,7 @@ export const en: Messages = {
   },
   experience: {
     eyebrow: "Experience",
-    title: "Where I've put in the work",
+    title: "Where I've worked",
     items: [
       {
         period: "Sep 2026 — present",

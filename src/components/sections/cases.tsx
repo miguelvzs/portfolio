@@ -23,18 +23,18 @@ export function Cases() {
         <div className="space-y-8">
           {t.cases.items.map((item) => (
             <Reveal key={item.slug}>
-              <Card className="gap-5 p-6 ring-border md:p-8">
+              <Card className="gap-5 p-6 md:p-8">
                 <h3 className="text-lg font-semibold text-foreground md:text-xl">{item.title}</h3>
 
                 <div>
-                  <p className="mb-1 font-mono text-[11px] tracking-widest text-brand uppercase">{t.cases.context}</p>
+                  <p className="mb-1 font-mono text-[11px] text-brand">{t.cases.context}</p>
                   <p className="text-sm leading-relaxed text-muted-foreground">{item.context}</p>
                 </div>
 
                 <PipelineDiagram steps={item.diagram} />
 
                 <div>
-                  <p className="mb-2 font-mono text-[11px] tracking-widest text-brand uppercase">{t.cases.did}</p>
+                  <p className="mb-2 font-mono text-[11px] text-brand">{t.cases.did}</p>
                   <ul className="list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-muted-foreground marker:text-brand">
                     {item.points.map((point) => (
                       <li key={point}>{point}</li>
@@ -43,14 +43,14 @@ export function Cases() {
                 </div>
 
                 <div className="rounded-lg border border-brand/30 bg-brand/5 p-4">
-                  <p className="mb-1 font-mono text-[11px] tracking-widest text-brand uppercase">{t.cases.result}</p>
+                  <p className="mb-1 font-mono text-[11px] text-brand">{t.cases.result}</p>
                   <p className="text-sm leading-relaxed text-foreground">{item.result}</p>
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <ul className="flex flex-wrap gap-1.5" aria-label={t.aria.stackUsedIn.replace("{name}", item.title)}>
                     {item.stack.map((tech) => (
-                      <li key={tech} className="rounded-md bg-brand/10 px-2 py-0.5 font-mono text-[11px] text-brand">
+                      <li key={tech} className="spec">
                         {tech}
                       </li>
                     ))}

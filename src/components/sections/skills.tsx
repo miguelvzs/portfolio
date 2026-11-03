@@ -27,13 +27,13 @@ export function Skills() {
         <div className="grid gap-10 sm:grid-cols-2">
           {content.skillGroups.map((group, gi) => (
             <Reveal key={group.label} delay={gi * 0.08}>
-              <h3 className="mb-4 font-mono text-xs tracking-widest text-muted-foreground uppercase">
+              <h3 className="mb-4 font-mono text-xs text-muted-foreground">
                 {group.label}
               </h3>
               <ul className="flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
                   <li key={skill}>
-                    <span className="inline-flex items-center rounded-full border border-border bg-secondary/50 px-3 py-1.5 text-sm text-foreground transition-colors hover:border-brand hover:text-brand">
+                    <span className="inline-flex items-center rounded-[2px] border border-border px-2.5 py-1 text-sm text-foreground transition-colors hover:border-brand hover:text-brand">
                       {skill}
                     </span>
                   </li>

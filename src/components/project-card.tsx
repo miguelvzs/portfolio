@@ -1,4 +1,4 @@
-import { ArrowUpRight, Lock } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { Card } from "@/components/ui/card"
 import type { WebProject } from "@/lib/content"
@@ -8,19 +8,10 @@ export function ProjectCard({ project, index }: { project: WebProject; index: nu
   const { t } = useI18n()
   return (
     <Reveal delay={(index % 2) * 0.08}>
-      <Card className="group h-full gap-0 py-0 ring-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10 hover:ring-brand/50">
-        <div className="border-b border-border bg-muted/40 px-3 py-2.5">
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
-            <div className="ml-2 flex flex-1 items-center gap-1.5 rounded-md border border-border bg-background px-2.5 py-1">
-              <Lock className="size-2.5 text-emerald-500" />
-              <span className="truncate font-mono text-[10px] text-muted-foreground">
-                {project.displayUrl ?? t.projects.private}
-              </span>
-            </div>
-          </div>
+      <Card className="group h-full gap-0 py-0 transition-colors duration-200 hover:bg-muted/40 ">
+        <div className="flex items-center justify-between gap-3 border-b border-border px-5 py-2.5 font-mono text-[11px] text-muted-foreground">
+          <span className="text-brand">fig. {String(index + 1).padStart(2, "0")}</span>
+          <span className="truncate">{project.displayUrl ?? t.projects.private}</span>
         </div>
 
         <div className="flex flex-1 flex-col gap-2.5 p-5">
@@ -50,7 +41,7 @@ export function ProjectCard({ project, index }: { project: WebProject; index: nu
             {project.stack.map((tech) => (
               <li
                 key={tech}
-                className="rounded-md bg-brand/10 px-2 py-0.5 font-mono text-[11px] text-brand"
+                className="spec"
               >
                 {tech}
               </li>

@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react"
-import { RotateCcw, Sparkles } from "lucide-react"
+import { RotateCcw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Reveal } from "@/components/reveal"
@@ -86,15 +86,15 @@ export function ValidatorDemo() {
 
   return (
     <Reveal>
-      <Card id="demo" className="mt-12 scroll-mt-24 gap-5 p-6 ring-border md:p-8">
+      <Card id="demo" className="mt-12 scroll-mt-24 gap-5 p-6 md:p-8">
         <div>
-          <p className="mb-2 font-mono text-xs tracking-[0.14em] text-brand uppercase">{t.demo.eyebrow}</p>
+          <p className="mb-2 font-mono text-xs text-brand">{t.demo.eyebrow}</p>
           <h3 className="text-xl font-semibold text-foreground md:text-2xl">{t.demo.title}</h3>
           <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">{t.demo.intro}</p>
         </div>
 
         <label className="block">
-          <span className="mb-1.5 block font-mono text-[11px] tracking-widest text-muted-foreground uppercase">
+          <span className="mb-1.5 block font-mono text-[11px] text-muted-foreground">
             {t.demo.editLabel}
           </span>
           <textarea
@@ -111,7 +111,6 @@ export function ValidatorDemo() {
             {t.demo.validate}
           </Button>
           <Button onClick={recover} disabled={status === "loading" || rejected.length === 0} className="gap-2">
-            <Sparkles className="size-4" aria-hidden="true" />
             {status === "loading" ? t.demo.recovering : t.demo.recover}
           </Button>
           <Button variant="ghost" onClick={reset} className="gap-2">
@@ -135,7 +134,7 @@ export function ValidatorDemo() {
 
           {status === "done" && (
             <div className="rounded-lg border border-brand/30 bg-brand/5 p-4">
-              <p className="mb-2 font-mono text-[11px] tracking-widest text-brand uppercase">{t.demo.corrections}</p>
+              <p className="mb-2 font-mono text-[11px] text-brand">{t.demo.corrections}</p>
               {applied.length === 0 ? (
                 <p className="text-sm text-muted-foreground">{t.demo.noCorrections}</p>
               ) : (
@@ -153,7 +152,7 @@ export function ValidatorDemo() {
           {rejected.length > 0 && (
             <div className="overflow-x-auto rounded-lg border border-border">
               <table className="w-full text-left text-xs">
-                <thead className="bg-muted/40 font-mono text-[11px] tracking-widest text-muted-foreground uppercase">
+                <thead className="bg-muted/40 font-mono text-[11px] text-muted-foreground">
                   <tr>
                     <th className="px-3 py-2 font-normal">{t.demo.order}</th>
                     <th className="px-3 py-2 font-normal">{t.demo.reasonsCol}</th>

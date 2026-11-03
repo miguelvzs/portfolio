@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { localeMeta, LOCALES } from "@/lib/i18n-types"
 import { useI18n } from "@/lib/i18n"
@@ -7,34 +6,26 @@ export function LanguageSwitcher() {
   const { locale, setLocale, t } = useI18n()
 
   return (
-    <div role="group" aria-label={t.aria.language} className="flex items-center">
-      {LOCALES.map((code) => {
-        const meta = localeMeta[code]
+    <div role="group" aria-label={t.aria.language} className="flex items-center font-mono text-xs">
+      {LOCALES.map((code, i) => {
         const active = locale === code
         return (
-          <Button
-            key={code}
-            type="button"
-            variant="ghost"
-            size="icon-sm"
-            onClick={() => setLocale(code)}
-            aria-label={meta.nativeName}
-            aria-pressed={active}
-            title={meta.nativeName}
-            className={cn(active && "bg-muted ring-1 ring-brand/70")}
-          >
-            <img
-              src={meta.flagSrc}
-              alt=""
-              width={20}
-              height={14}
-              draggable={false}
+          <span key={code} className="flex items-center">
+            {i > 0 && <span className="px-1 text-border" aria-hidden="true">/</span>}
+            <button
+              type="button"
+              onClick={() => setLocale(code)}
+              aria-label={localeMeta[code].nativeName}
+              aria-pressed={active}
+              title={localeMeta[code].nativeName}
               className={cn(
-                "h-3.5 w-5 rounded-[3px] object-cover shadow-[0_0_0_1px_rgba(0,0,0,0.12)] transition-opacity dark:shadow-[0_0_0_1px_rgba(255,255,255,0.18)]",
-                active ? "opacity-100" : "opacity-55 group-hover/button:opacity-100"
+                "rounded-[2px] px-1 py-1 uppercase transition-colors focus-visible:outline-2 focus-visible:outline-ring",
+                active ? "text-brand underline underline-offset-4" : "text-muted-foreground hover:text-foreground"
               )}
-            />
-          </Button>
+            >
+              {code}
+            </button>
+          </span>
         )
       })}
     </div>

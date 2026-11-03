@@ -65,7 +65,6 @@ export type Messages = {
     themeLight: string
     themeDark: string
     language: string
-    scrollToAbout: string
     stackUsedIn: string
   }
   nav: Record<NavId, string>
@@ -79,6 +78,7 @@ export type Messages = {
     projectsCta: string
     cvCta: string
     cvHref: string
+    sheet: { role: string; base: string; status: string; stack: string; baseValue: string }
   }
   about: {
     eyebrow: string

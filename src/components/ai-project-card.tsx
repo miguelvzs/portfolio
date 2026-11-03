@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github, Sparkles } from "lucide-react"
+import { ArrowUpRight, Github } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { Card } from "@/components/ui/card"
 import { PipelineDiagram } from "@/components/pipeline-diagram"
@@ -9,11 +9,10 @@ export function AiProjectCard({ project, index }: { project: AiProject; index: n
   const { t } = useI18n()
   return (
     <Reveal delay={index * 0.08}>
-      <Card className="h-full gap-0 py-0 ring-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10 hover:ring-brand/50">
+      <Card className="h-full gap-0 py-0 transition-colors hover:bg-muted/40">
         <div className="flex flex-1 flex-col gap-3 p-5">
           <div className="flex items-center justify-between gap-2">
             <h3 className="flex items-center gap-2 text-base font-semibold text-foreground">
-              <Sparkles className="size-4 text-brand" aria-hidden="true" />
               {project.name}
             </h3>
             <a
@@ -31,9 +30,9 @@ export function AiProjectCard({ project, index }: { project: AiProject; index: n
           {project.slug === "validador-registros-tabulares" && (
             <a
               href="#demo"
-              className="inline-flex w-fit items-center gap-1.5 rounded-full bg-brand/10 px-3 py-1 font-mono text-[11px] text-brand transition-colors hover:bg-brand/20"
+              className="inline-flex w-fit items-center gap-1.5 spec transition-colors hover:text-foreground"
             >
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              <span aria-hidden="true" className="size-1.5 bg-brand" />
               {t.projects.tryDemo}
             </a>
           )}
@@ -59,7 +58,7 @@ export function AiProjectCard({ project, index }: { project: AiProject; index: n
             {project.stack.map((tech) => (
               <li
                 key={tech}
-                className="rounded-md bg-brand/10 px-2 py-0.5 font-mono text-[11px] text-brand"
+                className="spec"
               >
                 {tech}
               </li>

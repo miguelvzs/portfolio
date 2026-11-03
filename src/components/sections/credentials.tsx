@@ -19,14 +19,14 @@ export function Credentials() {
 
         <div className="grid gap-14 md:grid-cols-2">
           <Reveal>
-            <h3 className="mb-5 flex items-center gap-2 font-mono text-xs tracking-widest text-muted-foreground uppercase">
+            <h3 className="mb-5 flex items-center gap-2 font-mono text-xs text-muted-foreground">
               <GraduationCap className="size-3.5" aria-hidden="true" />
               {t.credentials.educationHeading}
             </h3>
             <ul className="space-y-5">
               {content.education.map((item) => (
                 <li key={item.title}>
-                  <p className="mb-0.5 font-mono text-[10px] tracking-widest text-brand uppercase">
+                  <p className="mb-0.5 font-mono text-[10px] text-brand">
                     {item.period}
                   </p>
                   <p className="text-sm font-semibold text-foreground">{item.title}</p>
@@ -40,14 +40,14 @@ export function Credentials() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h3 className="mb-5 flex items-center gap-2 font-mono text-xs tracking-widest text-muted-foreground uppercase">
+            <h3 className="mb-5 flex items-center gap-2 font-mono text-xs text-muted-foreground">
               <AwardIcon className="size-3.5" aria-hidden="true" />
               {t.credentials.awardsHeading}
             </h3>
             <ul className="space-y-5">
               {content.awards.map((item) => (
                 <li key={item.title}>
-                  <p className="mb-0.5 font-mono text-[10px] tracking-widest text-brand uppercase">
+                  <p className="mb-0.5 font-mono text-[10px] text-brand">
                     {item.year}
                   </p>
                   <p className="text-sm font-semibold text-foreground">{item.title}</p>

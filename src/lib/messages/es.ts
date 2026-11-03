@@ -21,7 +21,6 @@ export const es: Messages = {
     themeLight: "Activar tema claro",
     themeDark: "Activar tema oscuro",
     language: "Idioma",
-    scrollToAbout: "Ir a la sección sobre mí",
     stackUsedIn: "Stack usada en {name}",
   },
   nav: {
@@ -39,15 +38,16 @@ export const es: Messages = {
   hero: {
     subtitle:
       "Llevo sistemas a producción de punta a punta: arquitectura, nube, seguridad y despliegue, con IA integrada donde resuelve un problema real.",
-    available: "abierto a buenas conversaciones",
+    available: "abierto a nuevos proyectos",
     contactCta: "Contactar",
     projectsCta: "Ver proyectos",
     cvCta: "Descargar CV",
     cvHref: "/cv/miguel-vaz-cv-en.pdf",
+    sheet: { role: "cargo", base: "base", status: "estado", stack: "stack", baseValue: "Extrema, MG · Brasil" },
   },
   about: {
     eyebrow: "Sobre mí",
-    title: "Quién está detrás del código",
+    title: "Software hecho cerca de la operación",
     paragraphs: [
       "Soy Miguel, desarrollador full stack. Construyo sistemas de punta a punta: hablo con el área de negocio, diseño la arquitectura, escribo front y back en TypeScript y me encargo de la nube, la seguridad y el despliegue.",
       "La IA es parte de cómo trabajo y de lo que entrego. Integro LLMs en sistemas reales sin atarme a un solo proveedor (Claude, DeepSeek y otros modelos vía OpenRouter), construyo agentes y pipelines que clasifican, extraen y validan datos, y ya implementé servidores MCP para exponer herramientas a agentes. En el día a día uso agentes de IA en el desarrollo, siempre con pruebas automatizadas y revisión.",
@@ -56,7 +56,7 @@ export const es: Messages = {
   },
   skills: {
     eyebrow: "Skills",
-    title: "Tecnologías que uso en el día a día",
+    title: "Stack de trabajo",
     groups: [
       {
         label: "Front-end",
@@ -117,7 +117,7 @@ export const es: Messages = {
   },
   projects: {
     eyebrow: "Proyectos",
-    title: "Lo que he estado construyendo",
+    title: "Proyectos personales y de competición",
     webHeading: "Proyectos anteriores (web)",
     showOlder: "Ver proyectos anteriores",
     aiHeading: "IA y automatización",
@@ -402,7 +402,7 @@ export const es: Messages = {
   },
   process: {
     eyebrow: "Cómo trabajo",
-    title: "Del requisito a producción, sin atajos",
+    title: "Cómo un requisito llega a producción",
     items: [
       {
         title: "Especificación antes del código",
@@ -424,7 +424,7 @@ export const es: Messages = {
   },
   experience: {
     eyebrow: "Experiencia",
-    title: "Dónde ya puse las manos a la obra",
+    title: "Dónde he trabajado",
     items: [
       {
         period: "sep/2026 — actual",

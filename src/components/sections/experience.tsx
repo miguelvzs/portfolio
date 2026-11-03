@@ -21,9 +21,9 @@ export function Experience() {
             <Reveal as="li" key={item.org} delay={i * 0.08} className="relative mb-8 last:mb-0">
               <span
                 aria-hidden="true"
-                className="absolute -left-[29px] top-1.5 h-2.5 w-2.5 rounded-full border-2 border-background bg-brand"
+                className="absolute -left-[29px] top-1.5 h-2 w-2 rotate-45 border border-brand bg-background"
               />
-              <p className="mb-1 font-mono text-[10px] tracking-widest text-brand uppercase">
+              <p className="mb-1 font-mono text-[10px] text-brand">
                 {item.period}
               </p>
               <p className="mb-1 text-sm font-semibold text-foreground">

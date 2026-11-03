@@ -29,7 +29,7 @@ export function Projects() {
         </Reveal>
 
         <Reveal>
-          <h3 className="mb-5 font-mono text-xs tracking-widest text-muted-foreground uppercase">
+          <h3 className="mb-5 font-mono text-xs text-muted-foreground">
             {t.projects.productsHeading}
           </h3>
         </Reveal>
@@ -40,7 +40,7 @@ export function Projects() {
         </div>
 
         <Reveal>
-          <h3 className="mb-5 font-mono text-xs tracking-widest text-muted-foreground uppercase">
+          <h3 className="mb-5 font-mono text-xs text-muted-foreground">
             {t.projects.aiHeading}
           </h3>
         </Reveal>
@@ -53,11 +53,11 @@ export function Projects() {
         <ValidatorDemo />
 
         <details className="group mt-12">
-          <summary className="inline-flex cursor-pointer list-none items-center gap-2 rounded-full border border-border px-4 py-2 font-mono text-xs tracking-widest text-muted-foreground uppercase transition-colors hover:border-brand hover:text-brand [&::-webkit-details-marker]:hidden">
+          <summary className="inline-flex cursor-pointer list-none items-center gap-2 rounded-[3px] border border-border px-4 py-2 font-mono text-xs text-muted-foreground transition-colors hover:border-brand hover:text-brand [&::-webkit-details-marker]:hidden">
             <ChevronDown aria-hidden="true" className="size-3.5 transition-transform group-open:rotate-180" />
             {t.projects.showOlder}
           </summary>
-          <h3 className="mt-8 mb-5 font-mono text-xs tracking-widest text-muted-foreground uppercase">
+          <h3 className="mt-8 mb-5 font-mono text-xs text-muted-foreground">
             {t.projects.webHeading}
           </h3>
           <div className="grid gap-6 sm:grid-cols-2">
