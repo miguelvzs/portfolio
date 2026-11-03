@@ -22,7 +22,7 @@ export function Hero() {
     { k: sheet.base, v: sheet.baseValue },
     { k: sheet.status, v: t.hero.available },
     { k: sheet.stack, v: "TypeScript · Next.js · PostgreSQL · Google Cloud" },
-    { k: sheet.localTime, v: <span className="tabular-nums">{clock} <span className="text-muted-foreground">UTC−3</span></span> },
+    { k: sheet.localTime, v: <span className="tabular-nums">{clock} <span className="text-muted-foreground">BRT</span></span> },
     ...(push
       ? [{
           k: sheet.lastPush,
