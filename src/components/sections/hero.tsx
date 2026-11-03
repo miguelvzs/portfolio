@@ -67,18 +67,19 @@ export function Hero() {
         </div>
 
         <aside style={{ animationDelay: "0.15s" }} className="rise w-full max-w-md justify-self-start lg:justify-self-end">
-          <figure className="ruled overflow-hidden">
+          {/* round portrait inside a dashed compass ring, like a detail callout */}
+          <figure className="relative mx-auto size-48 rounded-full border border-dashed border-brand/50 p-2 sm:size-56">
             <img
               src={avatar}
               alt={profile.name}
               width={480}
               height={480}
-              className="aspect-[4/3] w-full object-cover object-[50%_30%]"
+              className="size-full rounded-full border border-border object-cover"
             />
           </figure>
 
           {/* title block: the facts a recruiter scans first */}
-          <dl className="ruled mt-3 grid grid-cols-[auto_1fr] font-mono text-xs">
+          <dl className="ruled mt-6 grid grid-cols-[auto_1fr] font-mono text-xs">
             {rows.map((row, i) => (
               <div key={row.k} className="contents">
                 <dt className={"border-r border-border px-3 py-2.5 text-muted-foreground " + (i ? "border-t" : "")}>
