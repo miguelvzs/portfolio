@@ -41,9 +41,9 @@ export function DraftingTools() {
         </svg>
       </Tool>
 
-      <Tool className="right-[4%] bottom-[10%]" rotate={-12}>
+      <Tool className="right-[0.5%] bottom-[3%]" rotate={-12}>
         {/* 45° set square: outer triangle with a cutout and a tiny scale */}
-        <svg width="190" height="190" viewBox="0 0 190 190">
+        <svg width="150" height="150" viewBox="0 0 190 190">
           <path
             d="M4 186V4L186 186Z M30 160V66L124 160Z"
             fillRule="evenodd"

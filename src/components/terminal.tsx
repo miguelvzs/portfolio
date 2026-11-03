@@ -163,6 +163,7 @@ export function Terminal() {
               }
             }}
             placeholder={t.fun.placeholder}
+            autoFocus
             autoComplete="off"
             spellCheck={false}
             className="min-w-0 flex-1 bg-transparent text-foreground outline-none placeholder:text-muted-foreground/60"
