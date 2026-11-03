@@ -13,6 +13,7 @@ import { LanguageSwitcher } from "@/components/language-switcher"
 import { useTheme } from "@/lib/theme"
 import { useI18n } from "@/lib/i18n"
 import { useActiveSection } from "@/lib/live"
+import { openTerminal } from "@/components/terminal"
 
 export function Navbar() {
   const { theme, toggleTheme } = useTheme()
@@ -67,6 +68,17 @@ export function Navbar() {
 
         <div className="flex items-center gap-1 md:gap-2">
           <LanguageSwitcher />
+
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            onClick={openTerminal}
+            aria-label={t.fun.terminalLabel}
+            title={t.fun.terminalHint}
+            className="font-mono text-xs"
+          >
+            &gt;_
+          </Button>
 
           <Button
             variant="ghost"

@@ -200,6 +200,22 @@ export type Messages = {
     title: string
     body: string
   }
+  fun: {
+    dragHint: string
+    note: [string, string, string]
+    terminalHint: string
+    terminalLabel: string
+    placeholder: string
+    help: string
+    whoami: string
+    notFound: string
+    sudo: string
+    goto: string
+    sections: string
+    dimsOn: string
+    dimsOff: string
+    dimsBadge: string
+  }
   footer: {
     source: string
     sheet: string

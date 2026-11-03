@@ -1,8 +1,10 @@
 import { useEffect, useRef } from "react"
+import { useI18n } from "@/lib/i18n"
 
-/** CAD-style pointer coordinates in page pixels. Desktop pointers only; writes to the DOM directly, no re-renders. */
+/** CAD-style pointer coordinates in page pixels, plus the keyboard hints. Desktop pointers only. */
 export function CursorReadout() {
-  const ref = useRef<HTMLDivElement>(null)
+  const { t } = useI18n()
+  const ref = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
     if (!window.matchMedia("(pointer: fine)").matches) return
@@ -16,11 +18,14 @@ export function CursorReadout() {
 
   return (
     <div
-      ref={ref}
       aria-hidden="true"
-      className="pointer-events-none fixed bottom-4 left-4 z-30 hidden rounded-[2px] border border-border bg-background/80 px-2 py-1 font-mono text-[11px] whitespace-pre text-muted-foreground tabular-nums backdrop-blur [@media(pointer:fine)]:lg:block"
+      className="pointer-events-none fixed bottom-4 left-4 z-30 hidden items-center divide-x divide-border rounded-[2px] border border-border bg-background/80 font-mono text-[11px] whitespace-pre text-muted-foreground tabular-nums backdrop-blur [@media(pointer:fine)]:lg:flex"
     >
-      x 0000  y 0000
+      <span ref={ref} className="px-2 py-1">
+        x 0000  y 0000
+      </span>
+      <span className="px-2 py-1">{t.fun.terminalHint}</span>
+      <span className="px-2 py-1">D · {t.fun.dimsBadge}</span>
     </div>
   )
 }

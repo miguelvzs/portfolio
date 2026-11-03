@@ -302,3 +302,26 @@ main {
   counter-increment: section;
   content: counter(section, decimal-leading-zero);
 }
+
+/* Pencil-drawn pipeline diagrams: nodes appear in order, connectors are traced after them. */
+.draw .draw-node {
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity 0.35s ease-out,
+    transform 0.35s ease-out;
+  transition-delay: calc(var(--i) * 0.22s);
+}
+.draw .draw-line {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 0.25s ease-in-out;
+  transition-delay: calc(var(--i) * 0.22s + 0.15s);
+}
+.draw.is-drawn .draw-node {
+  opacity: 1;
+  transform: none;
+}
+.draw.is-drawn .draw-line {
+  stroke-dashoffset: 0;
+}
