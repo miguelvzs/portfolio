@@ -201,8 +201,6 @@ export type Messages = {
     body: string
   }
   fun: {
-    dragHint: string
-    note: [string, string, string]
     terminalHint: string
     terminalLabel: string
     placeholder: string

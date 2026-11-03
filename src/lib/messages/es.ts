@@ -477,8 +477,6 @@ export const es: Messages = {
     body: "Abierto a buenas conversaciones sobre tecnología, proyectos y oportunidades. ¿Tienes algo en mente? Escríbeme y te respondo.",
   },
   fun: {
-    dragHint: "arrastra los instrumentos · doble clic los devuelve a su lugar",
-    note: ["1.er lugar", "OpenAI DevDay", "25 equipos · oct/2026"],
     terminalHint: "ctrl + k abre la terminal",
     terminalLabel: "Terminal del portafolio",
     placeholder: "escribe help",

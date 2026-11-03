@@ -477,8 +477,6 @@ export const en: Messages = {
     body: "Open to good conversations about tech, projects and opportunities. Have something in mind? Send a message and I'll reply.",
   },
   fun: {
-    dragHint: "drag the instruments · double-click puts them back",
-    note: ["1st place", "OpenAI DevDay", "25 teams · Oct 2026"],
     terminalHint: "ctrl + k opens the terminal",
     terminalLabel: "Portfolio terminal",
     placeholder: "type help",

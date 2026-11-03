@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button"
 import { useI18n } from "@/lib/i18n"
 import { timeAgo, useLastPush, useLocalTime } from "@/lib/live"
 import avatar from "@/assets/avatar.webp"
-import { DraftingTools } from "@/components/drafting-tools"
 
 export function Hero() {
   const { t, content, locale } = useI18n()
@@ -38,7 +37,6 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative w-full overflow-hidden">
-      <DraftingTools />
       <div className="mx-auto grid min-h-[88dvh] max-w-6xl items-center gap-14 px-6 pt-16 pb-24 lg:grid-cols-[1.35fr_1fr] lg:gap-16">
         <div className="rise">
           <h1 className="text-[clamp(3.25rem,9vw,7rem)] leading-[0.92] font-bold tracking-[-0.045em] text-foreground">
