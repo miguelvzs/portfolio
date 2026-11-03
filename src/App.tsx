@@ -3,6 +3,7 @@ import { LocaleProvider, useI18n } from "@/lib/i18n"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { CursorReadout } from "@/components/cursor-readout"
 import { Hero } from "@/components/sections/hero"
 import { About } from "@/components/sections/about"
 import { Experience } from "@/components/sections/experience"
@@ -43,6 +44,7 @@ function AppShell() {
       </main>
 
       <Footer />
+      <CursorReadout />
     </>
   )
 }

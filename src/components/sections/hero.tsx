@@ -1,12 +1,15 @@
 import { ArrowUpRight, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useI18n } from "@/lib/i18n"
+import { timeAgo, useLastPush, useLocalTime } from "@/lib/live"
 import avatar from "@/assets/avatar.webp"
 
 export function Hero() {
-  const { t, content } = useI18n()
+  const { t, content, locale } = useI18n()
   const { profile } = content
   const sheet = t.hero.sheet
+  const clock = useLocalTime(locale)
+  const push = useLastPush(profile.github.split("/").pop() ?? "miguelvzs")
 
   const links = [
     { label: "GitHub", href: profile.github },
@@ -19,6 +22,17 @@ export function Hero() {
     { k: sheet.base, v: sheet.baseValue },
     { k: sheet.status, v: t.hero.available },
     { k: sheet.stack, v: "TypeScript · Next.js · PostgreSQL · Google Cloud" },
+    { k: sheet.localTime, v: <span className="tabular-nums">{clock} <span className="text-muted-foreground">UTC−3</span></span> },
+    ...(push
+      ? [{
+          k: sheet.lastPush,
+          v: (
+            <a href={`${profile.github}/${push.repo}`} target="_blank" rel="noopener noreferrer" className="hover:text-brand">
+              {push.repo} <span className="text-muted-foreground">· {timeAgo(push.at, locale)}</span>
+            </a>
+          ),
+        }]
+      : []),
   ]
 
   return (
@@ -67,19 +81,31 @@ export function Hero() {
         </div>
 
         <aside style={{ animationDelay: "0.15s" }} className="rise w-full max-w-md justify-self-start lg:justify-self-end">
-          {/* round portrait inside a dashed compass ring, like a detail callout */}
-          <figure className="relative mx-auto size-48 rounded-full border border-dashed border-brand/50 p-2 sm:size-56">
+          {/* round portrait framed as a drawing detail: dashed ring, centre marks, callout tag */}
+          <figure className="relative mx-auto aspect-square w-[min(100%,20rem)] p-3">
+            <span aria-hidden="true" className="absolute inset-0 rounded-full border border-dashed border-brand/45" />
+            <span aria-hidden="true" className="absolute top-1/2 -left-3 h-px w-6 bg-brand/50" />
+            <span aria-hidden="true" className="absolute top-1/2 -right-3 h-px w-6 bg-brand/50" />
+            <span aria-hidden="true" className="absolute -top-3 left-1/2 h-6 w-px bg-brand/50" />
+            <span aria-hidden="true" className="absolute -bottom-3 left-1/2 h-6 w-px bg-brand/50" />
             <img
               src={avatar}
               alt={profile.name}
               width={480}
               height={480}
-              className="size-full rounded-full border border-border object-cover"
+              className="relative size-full rounded-full border border-border object-cover"
             />
+            <figcaption
+              aria-hidden="true"
+              className="absolute top-2 right-0 flex items-center gap-2 font-mono text-[11px] text-brand"
+            >
+              <span className="h-px w-6 bg-brand/60" />
+              <span className="grid size-6 place-items-center rounded-full border border-brand/70">A</span>
+            </figcaption>
           </figure>
 
           {/* title block: the facts a recruiter scans first */}
-          <dl className="ruled mt-6 grid grid-cols-[auto_1fr] font-mono text-xs">
+          <dl className="ruled mt-8 grid grid-cols-[auto_1fr] font-mono text-xs">
             {rows.map((row, i) => (
               <div key={row.k} className="contents">
                 <dt className={"border-r border-border px-3 py-2.5 text-muted-foreground " + (i ? "border-t" : "")}>

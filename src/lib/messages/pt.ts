@@ -43,7 +43,7 @@ export const pt: Messages = {
     projectsCta: "Ver projetos",
     cvCta: "Baixar CV",
     cvHref: "/cv/miguel-vaz-cv-pt.pdf",
-    sheet: { role: "cargo", base: "base", status: "status", stack: "stack", baseValue: "Extrema, MG · Brasil" },
+    sheet: { role: "cargo", base: "base", status: "status", stack: "stack", baseValue: "Extrema, MG · Brasil", localTime: "hora local", lastPush: "último push" },
   },
   about: {
     eyebrow: "Sobre",
@@ -473,5 +473,8 @@ export const pt: Messages = {
   },
   footer: {
     source: "código-fonte",
+    sheet: "folha 01/01",
+    rev: "rev",
+    built: "build",
   },
 }

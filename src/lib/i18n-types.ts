@@ -78,7 +78,7 @@ export type Messages = {
     projectsCta: string
     cvCta: string
     cvHref: string
-    sheet: { role: string; base: string; status: string; stack: string; baseValue: string }
+    sheet: { role: string; base: string; status: string; stack: string; baseValue: string; localTime: string; lastPush: string }
   }
   about: {
     eyebrow: string
@@ -201,5 +201,8 @@ export type Messages = {
   }
   footer: {
     source: string
+    sheet: string
+    rev: string
+    built: string
   }
 }

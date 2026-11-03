@@ -12,11 +12,13 @@ import {
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { useTheme } from "@/lib/theme"
 import { useI18n } from "@/lib/i18n"
+import { useActiveSection } from "@/lib/live"
 
 export function Navbar() {
   const { theme, toggleTheme } = useTheme()
   const { t, content } = useI18n()
   const [scrolled, setScrolled] = useState(false)
+  const active = useActiveSection(content.nav.map((item) => item.href.slice(1)))
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -43,15 +45,24 @@ export function Navbar() {
         </a>
 
         <nav aria-label={t.aria.mainNav} className="hidden items-center gap-6 md:flex">
-          {content.nav.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </a>
-          ))}
+          {content.nav.map((item) => {
+            const isActive = active === item.href.slice(1)
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                aria-current={isActive ? "location" : undefined}
+                className={
+                  "relative text-sm transition-colors hover:text-foreground " +
+                  (isActive
+                    ? "text-foreground after:absolute after:-bottom-[19px] after:left-0 after:h-px after:w-full after:bg-brand"
+                    : "text-muted-foreground")
+                }
+              >
+                {item.label}
+              </a>
+            )
+          })}
         </nav>
 
         <div className="flex items-center gap-1 md:gap-2">
