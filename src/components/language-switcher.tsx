@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { localeMeta, LOCALES } from "@/lib/i18n-types"
 import { useI18n } from "@/lib/i18n"
@@ -6,26 +7,34 @@ export function LanguageSwitcher() {
   const { locale, setLocale, t } = useI18n()
 
   return (
-    <div role="group" aria-label={t.aria.language} className="flex items-center font-mono text-xs">
-      {LOCALES.map((code, i) => {
+    <div role="group" aria-label={t.aria.language} className="flex items-center">
+      {LOCALES.map((code) => {
+        const meta = localeMeta[code]
         const active = locale === code
         return (
-          <span key={code} className="flex items-center">
-            {i > 0 && <span className="px-1 text-border" aria-hidden="true">/</span>}
-            <button
-              type="button"
-              onClick={() => setLocale(code)}
-              aria-label={localeMeta[code].nativeName}
-              aria-pressed={active}
-              title={localeMeta[code].nativeName}
+          <Button
+            key={code}
+            type="button"
+            variant="ghost"
+            size="icon-sm"
+            onClick={() => setLocale(code)}
+            aria-label={meta.nativeName}
+            aria-pressed={active}
+            title={meta.nativeName}
+            className="size-11"
+          >
+            <img
+              src={meta.flagSrc}
+              alt=""
+              width={20}
+              height={14}
+              draggable={false}
               className={cn(
-                "rounded-[2px] px-1 py-1 uppercase transition-colors focus-visible:outline-2 focus-visible:outline-ring",
-                active ? "text-brand underline underline-offset-4" : "text-muted-foreground hover:text-foreground"
+                "h-3.5 w-5 rounded-[3px] object-cover shadow-[0_0_0_1px_rgba(0,0,0,0.12)] transition-opacity dark:shadow-[0_0_0_1px_rgba(255,255,255,0.18)]",
+                active ? "opacity-100 outline-2 outline-offset-[5px] outline-brand/80" : "opacity-55 group-hover/button:opacity-100"
               )}
-            >
-              {code}
-            </button>
-          </span>
+            />
+          </Button>
         )
       })}
     </div>

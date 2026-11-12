@@ -86,15 +86,15 @@ export function ValidatorDemo() {
 
   return (
     <Reveal>
-      <Card id="demo" className="mt-12 scroll-mt-24 gap-5 p-6 md:p-8">
+      <Card id="demo" className="mt-12 scroll-mt-24 gap-5 p-6 ring-border md:p-8">
         <div>
-          <p className="mb-2 font-mono text-xs text-brand">{t.demo.eyebrow}</p>
+          <p className="mb-2 font-mono text-[13px] tracking-[0.14em] text-brand uppercase">{t.demo.eyebrow}</p>
           <h3 className="text-xl font-semibold text-foreground md:text-2xl">{t.demo.title}</h3>
-          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted-foreground">{t.demo.intro}</p>
+          <p className="mt-2 max-w-3xl text-base leading-relaxed text-muted-foreground">{t.demo.intro}</p>
         </div>
 
         <label className="block">
-          <span className="mb-1.5 block font-mono text-[11px] text-muted-foreground">
+          <span className="mb-1.5 block font-mono text-[13px] tracking-widest text-muted-foreground uppercase">
             {t.demo.editLabel}
           </span>
           <textarea
@@ -102,25 +102,25 @@ export function ValidatorDemo() {
             onChange={(e) => setCsv(e.target.value)}
             spellCheck={false}
             rows={8}
-            className="w-full resize-y rounded-lg border border-border bg-background p-3 font-mono text-[11px] leading-relaxed text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none md:text-xs"
+            className="w-full resize-y rounded-lg border border-border bg-background p-3 font-mono text-[13px] leading-relaxed text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none md:text-[15px]"
           />
         </label>
 
         <div className="flex flex-wrap gap-3">
-          <Button variant="outline" onClick={() => run()}>
+          <Button variant="outline" onClick={() => run()} className="h-11 px-4 text-base">
             {t.demo.validate}
           </Button>
-          <Button onClick={recover} disabled={status === "loading" || rejected.length === 0} className="gap-2">
+          <Button onClick={recover} disabled={status === "loading" || rejected.length === 0} className="h-11 px-4 text-base">
             {status === "loading" ? t.demo.recovering : t.demo.recover}
           </Button>
-          <Button variant="ghost" onClick={reset} className="gap-2">
+          <Button variant="ghost" onClick={reset} className="h-11 gap-2 px-4 text-base">
             <RotateCcw className="size-4" aria-hidden="true" />
             {t.demo.reset}
           </Button>
         </div>
 
         <div aria-live="polite" className="space-y-4">
-          <p className="font-mono text-sm text-foreground">
+          <p className="font-mono text-base text-foreground">
             {checked.length - rejected.length} {t.demo.valid} · {rejected.length} {t.demo.rejected}
             {status === "done" && (
               <span className="text-brand">
@@ -130,15 +130,15 @@ export function ValidatorDemo() {
             )}
           </p>
 
-          {message && <p className="text-sm text-muted-foreground">{message}</p>}
+          {message && <p className="text-base text-muted-foreground">{message}</p>}
 
           {status === "done" && (
             <div className="rounded-lg border border-brand/30 bg-brand/5 p-4">
-              <p className="mb-2 font-mono text-[11px] text-brand">{t.demo.corrections}</p>
+              <p className="mb-2 font-mono text-[13px] tracking-widest text-brand uppercase">{t.demo.corrections}</p>
               {applied.length === 0 ? (
-                <p className="text-sm text-muted-foreground">{t.demo.noCorrections}</p>
+                <p className="text-base text-muted-foreground">{t.demo.noCorrections}</p>
               ) : (
-                <ul className="space-y-1 font-mono text-xs text-foreground">
+                <ul className="space-y-1 font-mono text-base text-foreground">
                   {applied.map((c) => (
                     <li key={`${c.linha}-${c.campo}`}>
                       {checked[c.linha]?.row.id_pedido} · {c.campo} → {String(c.valor)}
@@ -151,8 +151,8 @@ export function ValidatorDemo() {
 
           {rejected.length > 0 && (
             <div className="overflow-x-auto rounded-lg border border-border">
-              <table className="w-full text-left text-xs">
-                <thead className="bg-muted/40 font-mono text-[11px] text-muted-foreground">
+              <table className="w-full text-left text-base">
+                <thead className="bg-muted/40 font-mono text-[13px] tracking-widest text-muted-foreground uppercase">
                   <tr>
                     <th className="px-3 py-2 font-normal">{t.demo.order}</th>
                     <th className="px-3 py-2 font-normal">{t.demo.reasonsCol}</th>
@@ -170,7 +170,7 @@ export function ValidatorDemo() {
             </div>
           )}
 
-          <p className="text-xs text-muted-foreground">{t.demo.aiNote}</p>
+          <p className="text-base text-muted-foreground">{t.demo.aiNote}</p>
         </div>
       </Card>
     </Reveal>

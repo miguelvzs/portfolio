@@ -1,12 +1,20 @@
-import type { Messages } from "@/lib/i18n-types"
+// Fontes, e nada além delas:
+// - linkedin-2026-11.md (Sobre, Experiência na Enviagora, base industrial, stack, hackathon, Morada);
+// - o próprio site de outubro (9383801): frase da capa, títulos, MV Financing, Radar, papel no Quebra-Gelo;
+// - README público de miguelvzs/validador-registros-tabulares (5 de 10 recuperados, menos de 1 s, 13 verificações);
+// - documentos do Morada, da Vell e do Studoo, já levantados em Shared/portfolio (conteúdo aprovado como fonte);
+// - respostas do Miguel em 12/11/2026: decisão do Quebra-Gelo, "12 prévias" da Vell, cargos na indústria, Radar,
+//   e a volta de Cortex, Modus, ELOS, Media Ops Hub, IFSP, SAGA e OBA (sem datas, que só voltam com fonte).
+import type { AiProjectCopy, ArcKey, CaseCopy, ExperienceCopy, NoteCopy, ProductCopy } from "@/lib/copy-types"
+import type { ReasonCode } from "@/lib/validator"
 
-export const pt: Messages = {
+export const pt = {
   meta: {
     title: "Miguel Vaz · Desenvolvedor Full Stack · AI Engineering",
     description:
-      "Miguel Vaz, desenvolvedor full stack: TypeScript, Node.js, React, Next.js, PostgreSQL e Google Cloud, com IA aplicada a sistemas reais. Veja experiência e projetos.",
+      "Miguel Vaz, desenvolvedor full stack: Google Cloud, PostgreSQL e TypeScript, com IA aplicada a sistemas que vão para produção. Casos, projetos e contato.",
     ogDescription:
-      "Desenvolvedor full stack com IA aplicada a sistemas reais. Veja experiência e projetos.",
+      "Desenvolvedor full stack. Levo sistemas à produção, com IA integrada onde ela resolve problema de verdade.",
     twitterDescription: "Desenvolvedor full stack · AI Engineering.",
     siteName: "Portfólio Miguel Vaz",
     jobTitle: "Desenvolvedor Full Stack",
@@ -21,14 +29,16 @@ export const pt: Messages = {
     themeLight: "Ativar tema claro",
     themeDark: "Ativar tema escuro",
     language: "Idioma",
-    stackUsedIn: "Stack usada em {name}",
+    scrollToAbout: "Rolar para a seção sobre",
+    flow: "Fluxo de {name}",
+    mine: "decisão minha",
   },
   nav: {
     about: "Sobre",
     experience: "Experiência",
     cases: "Casos",
-    skills: "Skills",
     projects: "Projetos",
+    notes: "Notas",
     credentials: "Formação",
     contact: "Contato",
   },
@@ -38,95 +48,190 @@ export const pt: Messages = {
   hero: {
     subtitle:
       "Levo sistemas à produção de ponta a ponta: arquitetura, nuvem, segurança e deploy, com IA integrada onde ela resolve problema de verdade.",
-    available: "aberto a novos projetos",
+    available: "Estou aberto a novos projetos.",
     contactCta: "Entrar em contato",
     projectsCta: "Ver projetos",
     cvCta: "Baixar CV",
     cvHref: "/cv/miguel-vaz-cv-pt.pdf",
-    sheet: { role: "cargo", base: "base", status: "status", stack: "stack", baseValue: "Extrema, MG · Brasil", localTime: "horário de Brasília", lastPush: "último push" },
   },
   about: {
     eyebrow: "Sobre",
-    title: "Software feito perto da operação",
+    title: "O que faço hoje e de onde venho",
     paragraphs: [
-      "Sou o Miguel, desenvolvedor full stack. Construo sistemas de ponta a ponta: converso com a área de negócio, desenho a arquitetura, escrevo front e back em TypeScript e cuido da nuvem, da segurança e do deploy.",
-      "IA faz parte de como eu trabalho e do que entrego. Integro LLMs a sistemas reais sem ficar preso a um provedor (Claude, DeepSeek e outros modelos via OpenRouter), construo agentes e pipelines que classificam, extraem e validam dados, e já implementei servidores MCP para expor ferramentas a agentes. No dia a dia uso agentes de IA no desenvolvimento, sempre com teste automatizado e revisão.",
-      "Sou Técnico em Desenvolvimento de Sistemas pelo SENAI e curso Análise e Desenvolvimento de Sistemas no IFSP. Antes de programar em tempo integral, trabalhei em P&D e em rotinas administrativas na indústria, e essa vivência de operação orienta os sistemas que construo hoje.",
+      "Sou desenvolvedor full stack na Enviagora. Lá, uso o Google Cloud com Terraform em todos os projetos e faço parte do time que constrói o EnviaMind, a plataforma única que reúne RH, operação, portaria, financeiro e diretoria.",
+      "Em IA, construo fluxos feitos para produção. O que o modelo extrai passa por validação, limiar de confiança ou aprovação de uma pessoa antes de virar ação. Não fico preso a um provedor (Claude, Gemini e GPT via Vertex AI e OpenRouter), meço o custo de cada chamada e escolho o modelo por avaliação.",
+      "Antes do software, passei pela indústria: técnico em Desenvolvimento de Sistemas pelo SENAI, desenho técnico mecânico, manutenção eletromecânica e passagens por Panasonic, Hutchinson e P&D na Soft Film. Hoje curso Análise e Desenvolvimento de Sistemas no IFSP. Fora do trabalho, construo o Morada e faço parte do time Ponto e Vírgula, que está especificando o Studoo.",
     ],
+    stackLabel: "Stack",
+    stack:
+      "TypeScript, Node.js, React, Next.js, Fastify, PostgreSQL, Prisma, Zod, Python, Google Cloud, Terraform, Docker, GitHub Actions, Vertex AI e AI SDK.",
   },
-  skills: {
-    eyebrow: "Skills",
-    title: "Stack de trabalho",
-    groups: [
+  experience: {
+    moreLabel: "mais detalhes",
+    eyebrow: "Experiência",
+    title: "Onde já botei a mão",
+    items: [
       {
-        label: "Front-end",
-        skills: [
-          "TypeScript",
-          "React",
-          "Next.js",
-          "Tailwind CSS",
-          "TanStack Query",
-          "three.js",
-          "HTML/CSS",
+        period: "atual",
+        role: "Desenvolvedor Full Stack",
+        org: "Enviagora",
+        desc: "Construo e levo à produção os sistemas internos da empresa, da infraestrutura aos fluxos com IA.",
+        highlights: [
+          "Conduzi a migração do Hub de RH para o Google Cloud: ensaio completo em QA, validação por contagem e checksum e um cutover de cerca de 45 minutos, com rollback pronto.",
+          "No gravador de reuniões, um agente lê a transcrição a cada 45 s e propõe compromissos, cada um ancorado no trecho de onde saiu. Só viram tarefa no ClickUp depois que uma pessoa aprova. A troca de modelo por benchmark levou o erro de palavras de 13,4% para 7,6%.",
+          "Na admissão digital, a leitura de documentos usa o texto do PDF e recorre a modelos de visão só quando precisa; os modelos foram comparados às cegas antes da escolha.",
+        ],
+        more: [
+          "Plataforma no Google Cloud via Terraform: Cloud Run, Cloud SQL com IP privado, Secret Manager, Load Balancer e Cloud DNS. CI/CD no GitHub Actions com Workload Identity Federation, secret scanning e deploy em produção só com aprovação. Monorepo com cerca de 20 sistemas importados com histórico.",
+          "Dados em PostgreSQL por camadas (raw, trusted e refined) em cada setor, chave universal de pessoa, RLS, RBAC calculado no servidor e outbox para as integrações com ClickUp e ZapSign.",
+          "Gravador de reuniões: PWA local-first que envia o áudio em partes, com confirmação de recebimento e sem perda de áudio; transcrição em streaming (Gemini Live) e final com diarização; um segundo modelo revisa contra uma base de conhecimento.",
+          "Admissão digital: extração por tipo de documento, normalização determinística e cruzamento de identidade, com fallback via OpenRouter.",
+          "Portaria: leitura de placa por visão (Claude no Vertex AI), com confiança mínima e confirmação humana.",
+          "Auditoria 5S: app mobile com câmera e QR Code, nota calculada no servidor e antifraude.",
         ],
       },
       {
-        label: "Back-end & dados",
-        skills: [
-          "Node.js",
-          "Fastify",
-          "Prisma",
-          "Zod",
-          "PostgreSQL",
-          "Python",
-          "FastAPI",
-          "Pandas",
-          "Redis",
-          "APIs REST",
-        ],
+        role: "Assistente de P&D",
+        org: "Soft Film",
+        desc: "Pesquisa e desenvolvimento em ambiente industrial.",
       },
       {
-        label: "Inteligência artificial",
-        skills: [
-          "Agentes de IA",
-          "LLMs (Claude, DeepSeek)",
-          "OpenRouter",
-          "Saídas estruturadas (JSON)",
-          "Claude Code",
-          "Cursor",
-          "Servidores MCP",
-          "Engenharia de prompt",
-          "OCR com IA",
-          "n8n",
+        role: "Aprendiz",
+        org: "Hutchinson e Panasonic",
+        desc: "Primeiras passagens pela indústria, em rotinas administrativas.",
+      },
+    ] as ExperienceCopy[],
+  },
+  cases: {
+    eyebrow: "Casos",
+    title: "Sistemas que projetei e construí",
+    subtitle:
+      "Cada caso conta o problema, a restrição, a decisão e onde ele está hoje. Nenhum dado de cliente.",
+    arcLabels: {
+      problema: "O problema",
+      restricao: "A restrição",
+      decisao: "A decisão",
+      erro: "O que deu errado",
+      fora: "O que ficou de fora",
+      resultado: "Onde está",
+    } as Record<ArcKey, string>,
+    items: [
+      {
+        slug: "vell",
+        title: "Vell, minha agência de sites",
+        intro:
+          "Cada prévia de site passa pelo mesmo fluxo, com um time de agentes de IA e quatro pontos em que eu decido. Nada sai 100% automático.",
+        flowLabel: "o fluxo de uma prévia",
+        flow: [
+          { label: "Pesquisa e dossiê" },
+          { label: "Alvo e direção", mine: true },
+          { label: "Construção" },
+          { label: "Rascunho", mine: true },
+          { label: "QA automático" },
+          { label: "Revisão independente" },
+          { label: "Versão final", mine: true },
+          { label: "Publicação" },
+          { label: "Envio", mine: true },
         ],
+        arc: [
+          ["problema", "Fazer uma prévia de site sob medida para cada negócio, rápido o bastante para ir no primeiro contato e sem cara de template."],
+          ["restricao", "Nada sai sem mim: nenhuma prévia vai ao ar nem chega a alguém sem a minha aprovação. E nada é inventado: preço, nota, depoimento, telefone e horário só com fonte."],
+          ["decisao", "Agentes com papéis separados, porque quem constrói não revisa. O revisor dá nota por critério e só aprova com todos em 8,5 ou mais; o QA reprova sozinho o que não passa em texto de 16 px, alvos de 44 px, contraste AA e LCP abaixo de 2,5 s."],
+          ["resultado", "12 prévias até agora (12/11/2026). As regras ficam num arquivo único que todos os agentes leem antes de começar, e cada reprovação minha vira uma linha nova. As prévias vão ao ar com noindex, só para quem tem o link."],
+        ],
+        link: { href: "https://velldigital.vercel.app", label: "site da Vell" },
       },
       {
-        label: "Nuvem, qualidade & entrega",
-        skills: [
-          "Google Cloud (Cloud Run, Cloud SQL)",
-          "GitHub Actions",
-          "Docker",
-          "Vitest",
-          "Jest",
-          "Playwright",
-          "Acessibilidade WCAG AA",
-          "Git/GitHub",
+        slug: "morada",
+        title: "Morada, app para imigrantes",
+        intro:
+          "Dinheiro, documentos e prazos para quem mora num país novo. Produto meu: app, API, banco e deploy, em português, espanhol e inglês.",
+        flowLabel: "as camadas do app",
+        flow: [
+          { label: "App · Expo" },
+          { label: "Cache · TanStack Query" },
+          { label: "Contrato · Zod" },
+          { label: "API · Next.js" },
+          { label: "Banco · PostgreSQL" },
         ],
+        arc: [
+          ["problema", "Quem chega a um país novo usa o celular na rua, muitas vezes com uma mão e com dados móveis limitados. Precisa saber quanto ganhou e gastou, quem ainda deve e qual prazo de documento vence."],
+          ["restricao", "Privacidade e rede ruim. O app nunca fala com o banco nem com um provedor externo e não carrega segredo; com rede ruim, mostra a última leitura. E três idiomas desde o primeiro dia."],
+          ["decisao", "Saldo, totais e status são calculados só no servidor, para a tela inicial, as finanças, o relatório e o PDF sempre baterem. O saldo mostra só o que é real: o que está a receber ou a pagar nunca entra nele. O mesmo schema Zod valida o formulário no app e de novo na API."],
+          ["fora", "Uma versão web na v1, porque só o app nativo dá lembrete com o app fechado. O login só por código no e-mail virou senha, para entrar todo dia sem abrir o e-mail. E no dia da contratação o servidor da UE estava esgotado: escolhi o Canadá, com cópia de segurança na UE, e aceitei cerca de 100 ms a mais por chamada."],
+          ["resultado", "Primeiro build no TestFlight em 26/10/2026; o beta público está aberto em getmorada.app/beta. Em 18/10, a API tinha 345 testes passando, e as auditorias de segurança internas não acharam nada crítico; os achados médios já foram corrigidos. Ainda não foi validado em uso real: esse é o próximo passo."],
+        ],
+        link: { href: "https://getmorada.app", label: "getmorada.app" },
+      },
+      {
+        slug: "quebra-gelo",
+        title: "Quebra-Gelo, 1º lugar num hackathon da OpenAI",
+        intro:
+          "Hackathon OpenAI DevDay Exchange Community, em São Paulo, organizado pelos OpenAI Codex Ambassadors. Feito em dupla com Julio Akamine.",
+        body:
+          "Um pet virtual multiplayer em tempo real, feito em um dia e em dupla. Meu papel: desenvolvimento, do produto ao deploy.",
+        arc: [
+          ["decisao", "O momento em que decidimos que o jogo podia ser sobre o evento, e não sobre uma situação qualquer. A regra ficou assim: o pet só evolui quando você conversa com alguém de verdade ali."],
+          ["restricao", "Um dia, em dupla. Coube o essencial: multiplayer em tempo real por WebSocket, o pet criado por IA multimodal com saída estruturada e um telão ao vivo para a organização acompanhar."],
+          ["resultado", "1º lugar entre 25 equipes. Prêmio da OpenAI: US$ 1.000 em créditos Codex para a equipe e 12 meses de ChatGPT Pro para cada integrante."],
+        ],
+        link: { href: "https://quebra-gelo.julioakamine.com", label: "abrir o Quebra-Gelo" },
+      },
+    ] as CaseCopy[],
+  },
+  process: {
+    eyebrow: "Como trabalho",
+    title: "Do requisito à produção, sem atalho",
+    items: [
+      {
+        title: "Especificação antes do código",
+        desc: "Cada entrega começa por uma especificação, e as decisões ficam registradas em ADRs. Quando alguém pergunta por que algo é assim, a resposta está escrita.",
+      },
+      {
+        title: "Agentes no desenvolvimento, revisão em todo PR",
+        desc: "Desenvolvo com Claude Code e Cursor. Na Enviagora, todo PR passa por teste automatizado (Vitest, Playwright) e revisão antes de ir ao ar.",
+      },
+      {
+        title: "Modelo escolhido por avaliação",
+        desc: "Comparo modelos às cegas no mesmo material e meço o custo de cada chamada. No gravador de reuniões, a troca de modelo por benchmark levou o erro de palavras de 13,4% para 7,6%.",
+      },
+      {
+        title: "Produção com rede de segurança",
+        desc: "Deploy em produção só com aprovação, segredos fora do código e varredura no CI. Na migração do Hub de RH, ensaio completo em QA e rollback pronto antes do cutover.",
       },
     ],
   },
   projects: {
     eyebrow: "Projetos",
-    title: "Projetos pessoais e de competição",
-    webHeading: "Projetos anteriores (web)",
-    showOlder: "Ver projetos anteriores",
-    aiHeading: "IA & automação",
+    title: "O que tenho construído",
     productsHeading: "Produtos",
-    private: "privado",
+    aiHeading: "IA & automação",
     openSite: "abrir site",
     viewRepo: "ver repositório",
-    tryDemo: "testar ao vivo",
-    web: {
+    tryDemo: "testar aqui embaixo",
+    noLink: "sem link público",
+    products: {
+      studoo: {
+        status: "em especificação",
+        description:
+          "Aprender qualquer assunto rápido, com IA, do jeito que o Duolingo ensina uma língua. A pessoa diz o que quer aprender e a IA propõe um plano; nada gerado entra no plano sem um toque de aceite. Ainda não há app: existe a especificação e a marca.",
+        role: "Feito com o time Ponto e Vírgula, do qual faço parte.",
+      },
+      "media-hub": {
+        description:
+          "Sistema interno para uma empresa de mídia: pontos de exibição, biblioteca, grade, produção, contratos e faturamento, com assistente de IA.",
+        role: "Desenvolvimento completo para cliente.",
+      },
+      vellfinancing: {
+        status: "código aberto",
+        description:
+          "Controle financeiro pessoal: lançamentos, orçamento, metas, investimentos e importação de extrato bancário OFX/CSV.",
+        role: "Desenvolvimento completo, do zero.",
+      },
+    } as Record<"studoo" | "media-hub" | "vellfinancing", ProductCopy>,
+    olderHeading: "Projetos anteriores (web)",
+    showOlder: "ver projetos anteriores",
+    older: {
       cortex: {
         description:
           "Painel administrativo para um buffet tocar o dia a dia: pedidos, eventos e controle da operação em um só lugar.",
@@ -142,114 +247,39 @@ export const pt: Messages = {
           "Sistema de gestão com cadastro de usuários, endereços e estabelecimentos, mapa interativo via Leaflet e busca de CEP pela API ViaCEP. Dados em LocalStorage.",
         role: "Desenvolvimento front-end completo, do zero.",
       },
-    },
-    products: {
-      morada: {
-        description:
-          "App mobile para imigrantes: quanto ganhou e gastou, quem ainda deve, metas, prazos de documentos e comunidade da cidade. Em português, espanhol e inglês. Em desenvolvimento.",
-        role: "Produto próprio: app, API, banco e deploy.",
-      },
-      "media-hub": {
-        description:
-          "Sistema interno em produção para uma empresa de mídia: pontos de exibição, biblioteca, grade, produção, contratos e faturamento, com assistente de IA.",
-        role: "Desenvolvimento completo para cliente.",
-      },
-      "quebra-gelo": {
-        description:
-          "1º lugar entre 25 equipes no hackathon OpenAI DevDay Exchange Community, organizado pelos OpenAI Codex Ambassadors em São Paulo (2026): um pet virtual que só avança quando você conversa com alguém de verdade no evento, com telão ao vivo para a organização.",
-        role: "Desenvolvimento em dupla, do produto ao deploy.",
-      },
-      vellfinancing: {
-        description:
-          "Controle financeiro pessoal: lançamentos, orçamento, metas, investimentos e importação de extrato bancário OFX/CSV.",
-        role: "Desenvolvimento completo, do zero.",
-      },
-    },
+    } as Record<"cortex" | "modus" | "elos", ProductCopy>,
     ai: {
       "validador-registros-tabulares": {
         description:
-          "API REST que ingere planilhas de pedidos e valida cada registro por regra de negócio, apontando o campo inconsistente. Um agente de LLM relê os pedidos rejeitados e devolve campos estruturados em JSON pra recuperar o que dá.",
-        role: "Desenvolvimento do back-end, do agente de IA e do servidor MCP.",
+          "API que ingere planilhas de pedidos e valida cada registro por regra de negócio, apontando o campo inconsistente. Um agente relê só os pedidos rejeitados e devolve campos estruturados em JSON para recuperar o que dá para deduzir.",
+        role: "Back-end, agente de IA e servidor MCP.",
         highlights: [
-          "5 de 10 pedidos rejeitados recuperados pelo agente",
-          "processamento em menos de 1s",
-          "13 testes automatizados (e2e, endpoints incl. HTTP 422, MCP via JSON-RPC)",
+          "5 de 10 pedidos rejeitados recuperados pelo agente, no lote de exemplo",
+          "processamento em menos de 1 s",
+          "13 verificações de ponta a ponta, incluindo o MCP via JSON-RPC",
         ],
         diagramSteps: [
           "Planilha de pedidos",
-          "API REST (FastAPI)",
-          "Validação por regra de negócio",
-          "Agente LLM (Claude) relê rejeitados",
-          "Registros recuperados em JSON",
+          "API (FastAPI)",
+          "Regra de negócio",
+          "Agente relê os rejeitados",
+          "Registros recuperados",
         ],
       },
       "pipeline-tendencia-conteudo": {
         description:
-          "Pipeline autônomo que ingere dados de APIs externas, filtra e classifica com um agente de LLM, e executa o fluxo completo sem intervenção humana, publicado em contêiner.",
-        role: "Desenvolvimento do pipeline, integração com o agente de LLM e deploy.",
-        highlights: [
-          "execução autônoma, sem intervenção humana",
-          "publicado em contêiner na Fly.io",
-        ],
-        diagramSteps: [
-          "Sinal externo (API HTTP)",
-          "Ingestão de dados",
-          "Agente LLM classifica",
-          "Fluxo executado sem intervenção",
-          "Publicação",
-        ],
+          "Pipeline que ingere dados de APIs externas, filtra, classifica com um agente de LLM e executa o fluxo completo sem intervenção humana.",
+        role: "Pipeline, integração com o agente e deploy.",
+        highlights: ["publicado em contêiner na Fly.io"],
+        diagramSteps: ["Sinal externo (API)", "Ingestão", "Agente classifica", "Fluxo executado", "Publicação"],
       },
-    },
-  },
-  credentials: {
-    eyebrow: "Formação",
-    title: "Formação & prêmios",
-    educationHeading: "Formação",
-    awardsHeading: "Prêmios",
-    education: [
-      {
-        period: "fev/2026 — dez/2028",
-        title: "Análise e Desenvolvimento de Sistemas",
-        org: "IFSP",
-        note: "cursando",
-      },
-      {
-        period: "mar/2024 — ago/2025",
-        title: "Técnico em Desenvolvimento de Sistemas",
-        org: "SENAI CFP Janez Hlebanja",
-      },
-    ],
-    awards: [
-      {
-        year: "2026",
-        title: "1º lugar — Hackathon OpenAI DevDay Exchange Community (São Paulo)",
-        desc: "Entre 25 equipes, no hackathon organizado pelos OpenAI Codex Ambassadors, com o Quebra-Gelo, feito em dupla em um dia. Prêmio da OpenAI: US$ 1.000 em créditos Codex para a equipe e 12 meses de ChatGPT Pro para cada integrante.",
-      },
-      {
-        year: "2026",
-        title: "Embaixador SAGA SENAI — Projetos de Inovação",
-        desc: "Único aluno selecionado por desempenho para representar a instituição, apresentar projetos e mentorar outros alunos.",
-      },
-      {
-        year: "2021 · 2022",
-        title: "Olimpíada Brasileira de Astronomia e Astronáutica",
-        desc: "Medalha de Ouro (2021) e Prata (2022).",
-      },
-    ],
-  },
-  stats: {
-    label: "Números",
-    items: [
-      { value: "550+", label: "testes automatizados entre os projetos" },
-      { value: "0,585 → 0,014", label: "layout shift mobile depois da otimização" },
-      { value: "5 de 10", label: "pedidos rejeitados recuperados por um agente de IA" },
-      { value: "5.089 → 98 ms", label: "tempo da lista de auditorias com 300 registros" },
-    ],
+    } as Record<"validador-registros-tabulares" | "pipeline-tendencia-conteudo", AiProjectCopy>,
   },
   demo: {
-    eyebrow: "Demo ao vivo",
+    eyebrow: "Roda nesta página",
     title: "Validador de pedidos com agente de IA",
-    intro: "Edite a planilha de exemplo (dados fictícios), valide pelas regras de negócio e peça para a IA recuperar o que dá. As regras rodam no seu navegador; só os pedidos rejeitados vão para o LLM.",
+    intro:
+      "Edite a planilha de exemplo (dados fictícios), valide pelas regras de negócio e peça para a IA recuperar o que dá. As regras rodam no seu navegador; só os pedidos rejeitados vão para o modelo.",
     editLabel: "Planilha (CSV)",
     validate: "Validar",
     recover: "Recuperar com IA",
@@ -262,8 +292,9 @@ export const pt: Messages = {
     reasonsCol: "Motivos",
     corrections: "Correções aplicadas",
     noCorrections: "A IA não encontrou correção segura para os pedidos restantes.",
-    aiNote: "A IA só corrige o que dá para deduzir dos outros campos do pedido. Cliente, SKU, ID e prazo nunca são inventados.",
-    unavailable: "A IA está indisponível agora. A validação continua funcionando.",
+    aiNote:
+      "A IA só corrige o que dá para deduzir dos outros campos do pedido. Cliente, SKU, ID e prazo nunca são inventados.",
+    unavailable: "A recuperação com IA está desligada neste site por enquanto. A validação pelas regras continua funcionando.",
     rateLimited: "Limite de uso atingido. Tente de novo em alguns minutos.",
     error: "Não foi possível falar com a IA agora.",
     reasons: {
@@ -277,223 +308,63 @@ export const pt: Messages = {
       deadline: "prazo vencido ou inválido",
       product_empty: "produto vazio",
       sku_empty: "SKU vazio",
-    },
+    } satisfies Record<ReasonCode, string>,
   },
-  cases: {
-    eyebrow: "Casos",
-    title: "Sistemas em que trabalhei",
-    subtitle: "Trabalho profissional descrito sem dados internos. Os diagramas mostram a arquitetura, não telas reais.",
-    context: "Contexto",
-    did: "O que fiz",
-    result: "Resultado",
-    readArticle: "Ler o artigo sobre a migração",
+  notes: {
+    eyebrow: "Notas",
+    title: "O que eu escrevo sobre o trabalho",
+    read: "ler o artigo",
     items: [
       {
-        slug: "cloud",
-        title: "Migração de uma plataforma de RH para o Google Cloud",
-        context: "Plataforma de RH em produção, hospedada numa VPS com Dokploy e arquivos no MinIO, migrada para uma infraestrutura gerenciada no Google Cloud.",
-        points: [
-          "Cloud Run para backend e frontend, Cloud SQL (PostgreSQL) com backup diário e recuperação point-in-time de 7 dias, Cloud Storage privado, Secret Manager por ambiente e Load Balancer HTTPS com certificado gerenciado.",
-          "Deploy via GitHub Actions com Workload Identity Federation, sem chave de conta de serviço: staging automático e produção manual, aceita só a partir do main e com CI verde.",
-          "Migrations no start do backend; se a revisão nova não fica saudável, o tráfego continua na anterior e o frontend nem é publicado. Rollback por revisão do Cloud Run.",
-          "Restrições de segurança da organização (chave de serviço e acesso público bloqueados) contornadas com o cliente nativo do Cloud Storage e build das imagens no runner.",
-        ],
-        result: "Migração concluída, com uptime checks a cada 5 minutos, alerta multi-região, alerta de orçamento e runbook de operação.",
-        stack: [
-          "Google Cloud Run",
-          "Cloud SQL",
-          "Cloud Storage",
-          "Secret Manager",
-          "GitHub Actions",
-          "Docker",
-          "Prisma",
-        ],
-        diagram: [
-          "GitHub Actions",
-          "Workload Identity",
-          "Artifact Registry",
-          "Cloud Run",
-          "Cloud SQL + Storage",
-        ],
+        title: "Como migrei o banco do Hub de RH para o Google Cloud",
+        summary:
+          "Ensaio completo em QA, validação por contagem e checksum e um cutover de cerca de 45 minutos, com rollback pronto.",
+        href: "/artigos/migracao-cloud-run/",
       },
       {
-        slug: "onboarding",
-        title: "Admissão digital com leitura de documentos por IA",
-        context: "Fluxo de admissão de ponta a ponta: do convite ao candidato até o envio do dossiê à contabilidade.",
-        points: [
-          "Link com token cifrado e validade de 7 dias; o candidato envia fotos ou PDF (frente e verso) e o RH confere tudo numa tela.",
-          "Leitura de documentos por IA via OpenRouter, com modelo escolhido por medição, fila de fallback e circuit breaker. Só preenche campo vazio que passa em validação (dígito de CPF/PIS, CEP, datas); o resto vira sugestão.",
-          "Dossiê em PDF e ZIP, e-mail transacional e integrações idempotentes com Google Sheets e Google Forms, que aguentam clique duplo e reenvio.",
-          "Segurança: nenhum papel acima do próprio pode ser atribuído, o link trava depois do envio, link inválido tem resposta única e nenhuma URL carrega dado pessoal.",
-        ],
-        result: "Módulo em produção, coberto por centenas de testes automatizados.",
-        stack: [
-          "TypeScript",
-          "Fastify",
-          "Next.js",
-          "Prisma",
-          "OpenRouter",
-          "Resend",
-          "Google APIs",
-        ],
-        diagram: [
-          "Convite",
-          "Envio do candidato",
-          "Leitura por IA",
-          "Conferência do RH",
-          "Dossiê + integrações",
-        ],
+        title: "Saída de modelo só vale com o trecho de origem",
+        summary:
+          "No gravador de reuniões, o agente só propõe um compromisso se trouxer junto o trecho da transcrição de onde ele saiu, e só acima de um limiar de confiança. Mesmo assim, quem transforma em tarefa é uma pessoa. A âncora no texto é o que deixa conferir em segundos se o modelo inventou; sem ela, revisar vira reler a reunião inteira.",
       },
       {
-        slug: "bi",
-        title: "Hub de BI unificado com acesso por papel e modo TV",
-        context: "Dashboards de BI espalhados, reunidos num só produto com controle de acesso, auditoria e exibição em TV.",
-        points: [
-          "Monorepo com um pacote por BI e schema próprio; cada BI entra migrando o código existente, não reescrevendo, e só sai de \"em integração\" quando prova paridade.",
-          "Autenticação própria (scrypt, sessão com expiração, senha provisória), RBAC por setor e papel conferido no backend e trilha de auditoria.",
-          "Modo TV em 1920×1080 que escala nítido até 4K, pareado por código de uso único e com acesso só de leitura.",
-          "Integração com Google via OAuth com PKCE e tokens cifrados em AES-256-GCM com rotação de chave.",
-        ],
-        result: "Design system próprio e CI que barra segredo exposto, contraste abaixo de WCAG AA, erro de tipo e teste quebrado.",
-        stack: [
-          "Next.js",
-          "Fastify",
-          "Zod",
-          "PostgreSQL",
-          "pnpm workspaces",
-          "Vitest",
-        ],
-        diagram: [
-          "Navegador",
-          "Next.js (mesma origem)",
-          "API Fastify",
-          "PostgreSQL",
-          "APIs do Google",
-        ],
+        title: "Num hackathon, a regra vem antes da pilha",
+        summary:
+          "No Quebra-Gelo, a decisão-chave foi o momento em que decidimos que o jogo podia ser sobre o evento, e não sobre uma situação qualquer. A regra passou a ser o centro: o pet só cresce quando você conversa com alguém de verdade ali. O tempo real por WebSocket e a IA multimodal existem para servir a essa regra. É o que eu levo para projeto curto: primeiro a regra que a pessoa sente, depois a pilha.",
       },
-      {
-        slug: "audit",
-        title: "Auditoria 5S mobile com desenho antifraude",
-        context: "Auditoria 5S em centros de distribuição, feita no celular enquanto o auditor percorre a rota física.",
-        points: [
-          "Foto só pela câmera do app, sem upload da galeria; selfie no início e no fim, leitura de QR Code e fila offline que não perde fotos.",
-          "Nota calculada no servidor: item crítico não conforme reprova, \"não se aplica\" nunca vira zero e a revisão do admin preserva o resultado original.",
-          "Antifraude: o auditor nunca recebe o valor esperado (um teste automatizado garante), contagem cega e sinais de suspeita calculados ao concluir.",
-          "Login integrado ao WMS por um adaptador isolado, com timeout e sem gravar nem logar a senha.",
-        ],
-        result: "Lista de auditorias de 5.089 ms para 98 ms com 300 registros, 305 testes automatizados e 60 de 60 telas sem rolagem horizontal e com contraste AA.",
-        stack: [
-          "Next.js",
-          "TanStack Query",
-          "Fastify",
-          "Prisma",
-          "PostgreSQL",
-          "Cloud Run",
-        ],
-        diagram: [
-          "QR do setor",
-          "Checklist na rota",
-          "Foto + resposta",
-          "Nota no servidor",
-          "Plano de ação",
-        ],
-      },
-    ],
+    ] as NoteCopy[],
   },
-  process: {
-    eyebrow: "Como trabalho",
-    title: "Como um requisito chega à produção",
-    items: [
-      {
-        title: "Especificação antes do código",
-        desc: "Cada entrega começa com spec, critérios de aceite e registro de decisões (ADRs). Criei esse método em um projeto e reaproveitei nos seguintes.",
-      },
-      {
-        title: "IA com revisão humana",
-        desc: "Uso agentes de IA para acelerar implementação, testes e revisão, mas toda mudança passa por PR, teste e leitura crítica antes de ir ao ar.",
-      },
-      {
-        title: "Qualidade automatizada",
-        desc: "Testes unitários e end-to-end (Vitest, Jest, Playwright), checagem de acessibilidade WCAG AA e varredura de segredos no CI.",
-      },
-      {
-        title: "Produção desde o primeiro dia",
-        desc: "Staging com deploy automático, produção com deploy protegido, health checks, alertas e rollback. Logs sem dados pessoais, pensando na LGPD.",
-      },
+  credentials: {
+    eyebrow: "Formação",
+    title: "Formação & prêmios",
+    educationHeading: "Formação",
+    awardsHeading: "Prêmios",
+    education: [
+      { title: "Análise e Desenvolvimento de Sistemas", org: "IFSP · cursando" },
+      { title: "Técnico em Desenvolvimento de Sistemas", org: "SENAI" },
+      { title: "Desenho técnico mecânico e manutenção eletromecânica", org: "base industrial" },
     ],
-  },
-  experience: {
-    eyebrow: "Experiência",
-    title: "Onde trabalhei",
-    items: [
+    awards: [
       {
-        period: "set/2026 — atual",
-        role: "Desenvolvedor Full Stack",
-        org: "Enviagora",
-        desc: "Uso o Google Cloud com Terraform em todos os projetos, conduzi a migração do Hub de RH para ele e faço parte do time que constrói o EnviaMind, a plataforma única da empresa.",
-        highlights: [
-          "Plataforma: GCP via Terraform (Cloud Run, Cloud SQL com IP privado, Secret Manager, Load Balancer, Cloud DNS); CI/CD no GitHub Actions com Workload Identity Federation, secret scanning e deploy em produção com aprovação; monorepo com ~20 sistemas importados com histórico.",
-          "Dados: PostgreSQL em camadas raw/trusted/refined por setor, chave universal de pessoa, RLS, RBAC calculado no servidor e outbox para integrações (ClickUp, ZapSign).",
-          "Migração do Hub de RH: ensaio em QA, validação por contagem e checksum, cutover de ~45 min com rollback.",
-          "Gravador de reuniões: PWA local-first com chunks e ACK, sem perda de áudio; transcrição em streaming (Gemini Live) e final com diarização; um segundo modelo revisa a transcrição contra uma base de conhecimento; um agente detecta compromissos a cada 45 s em JSON validado por Zod, ancorado no trecho de origem e com limiar de confiança; aprovados viram tarefas no ClickUp. Adapters trocam Claude e Gemini por variável; modelo escolhido por benchmark (erro de palavras de 13,4% para 7,6%).",
-          "Admissão digital: OCR com texto do PDF e fallback para modelos de visão via OpenRouter, extração estruturada por tipo de documento, normalização determinística e cruzamento de identidade; avaliação cega entre modelos.",
-          "Portaria: leitura de placa por visão (Claude no Vertex AI), regex e confiança mínima, com confirmação humana.",
-          "Auditoria 5S: app mobile com câmera e QR Code, nota no servidor e antifraude.",
-          "Spec-driven development, ADRs, testes (Vitest, Playwright), LGPD e agentes de IA no fluxo de desenvolvimento.",
-        ],
-        stack: "TypeScript, Node.js, Next.js, React, Fastify, PostgreSQL, Prisma, Zod, Tailwind CSS, TanStack Query, Vitest, Playwright, Docker, Terraform, Google Cloud, Vertex AI, GitHub Actions, three.js, Python",
+        year: "2026",
+        title: "1º lugar no Hackathon OpenAI DevDay Exchange Community (São Paulo)",
+        desc: "Entre 25 equipes, com o Quebra-Gelo, feito em dupla em um dia.",
       },
       {
-        period: "jan/2026 — ago/2026",
-        role: "Assistente de P&D",
-        org: "Soft Film",
-        desc: "Assistente de P&D numa indústria de filmes plásticos. Foi onde aprendi como processo, dado e qualidade se conectam no chão de fábrica, a mesma operação para a qual hoje construo sistemas.",
-        highlights: [
-          "Amostragem de ponta a ponta, com média de 40 amostras por mês: do pedido cadastrado pelo comercial até o envio ao cliente, com análise de cada caso.",
-          "Formulações: revisão e atualização dos componentes das receitas de produto, base das fichas técnicas.",
-          "Qualidade: solicitação de análises, laudos e testes junto ao Controle de Qualidade.",
-          "Dados de produção: apontamento e reclassificação de ordens de produção e controle de consumo de matéria-prima.",
-          "Automação: rotinas manuais em Excel me levaram a automatizar validações com Python, meu primeiro passo levando software para a operação.",
-        ],
-        stack: "Microsoft Excel, Python",
+        title: "Embaixador SAGA SENAI, Projetos de Inovação",
+        desc: "Único aluno selecionado por desempenho para representar a instituição, apresentar projetos e mentorar outros alunos.",
       },
       {
-        period: "ago/2024 — dez/2025",
-        role: "Aprendiz",
-        org: "Hutchinson",
-        desc: "Rotinas administrativas em ambiente industrial, adaptação rápida a processos e equipes.",
+        title: "Olimpíada Brasileira de Astronomia e Astronáutica",
+        desc: "Medalha de ouro e medalha de prata.",
       },
-      {
-        period: "ago/2023 — jul/2024",
-        role: "Aprendiz",
-        org: "Panasonic do Brasil",
-        desc: "Rotinas administrativas em ambiente corporativo, primeiro contato com processos de empresa grande.",
-      },
-    ],
+    ] as { year?: string; title: string; desc: string }[],
   },
   contact: {
     eyebrow: "Contato",
-    title: "Bora conversar?",
-    body: "Aberto a boas conversas sobre tecnologia, projetos e oportunidades. Tem algo em mente? Manda mensagem que eu respondo.",
-  },
-  fun: {
-    terminalHint: "ctrl + k abre o terminal",
-    terminalLabel: "Terminal do portfólio",
-    placeholder: "digite help",
-    help: "comandos: whoami · stack · ls · cd <seção> · cv · contato · theme · lang pt|en|es · dims · clear · exit",
-    whoami: "Miguel Vaz. Desenvolvedor full stack em Extrema, MG: TypeScript, Google Cloud e IA em produção.",
-    notFound: "comando não encontrado: ",
-    sudo: "permissão negada. mas um e-mail funciona: ",
-    goto: "indo para ",
-    sections: "seções: ",
-    dimsOn: "modo cotas ligado. passe o mouse em qualquer coisa (tecla D desliga).",
-    dimsOff: "modo cotas desligado.",
-    dimsBadge: "cotas",
+    title: "Tem um sistema para levar à produção?",
+    body: "Ou um fluxo de IA que precisa de controle antes de virar ação? Me escreva pelo e-mail ou pelo LinkedIn.",
   },
   footer: {
     source: "código-fonte",
-    sheet: "folha 01/01",
-    rev: "rev",
-    built: "build",
   },
 }

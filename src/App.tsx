@@ -3,18 +3,14 @@ import { LocaleProvider, useI18n } from "@/lib/i18n"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { CursorReadout } from "@/components/cursor-readout"
-import { DimensionMode } from "@/components/dimension-mode"
-import { Terminal } from "@/components/terminal"
 import { Hero } from "@/components/sections/hero"
 import { About } from "@/components/sections/about"
 import { Experience } from "@/components/sections/experience"
-import { Stats } from "@/components/sections/stats"
 import { Cases } from "@/components/sections/cases"
 import { Process } from "@/components/sections/process"
-import { Skills } from "@/components/sections/skills"
 import { Credentials } from "@/components/sections/credentials"
 import { Projects } from "@/components/sections/projects"
+import { Notes } from "@/components/sections/notes"
 import { Contact } from "@/components/sections/contact"
 
 function AppShell() {
@@ -24,7 +20,7 @@ function AppShell() {
     <>
       <a
         href="#main-content"
-        className="sr-only rounded-md bg-brand px-4 py-2 text-sm font-medium text-brand-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
+        className="sr-only rounded-md bg-brand px-4 py-3 text-base font-medium text-brand-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
       >
         {t.aria.skipToContent}
       </a>
@@ -34,21 +30,17 @@ function AppShell() {
 
       <main id="main-content">
         <Hero />
-        <Stats />
         <About />
         <Experience />
         <Cases />
         <Process />
-        <Skills />
         <Projects />
+        <Notes />
         <Credentials />
         <Contact />
       </main>
 
       <Footer />
-      <CursorReadout />
-      <DimensionMode />
-      <Terminal />
     </>
   )
 }

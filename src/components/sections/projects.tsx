@@ -20,31 +20,15 @@ export function Projects() {
 
       <div className="relative mx-auto max-w-5xl px-6">
         <Reveal>
-          <SectionHeading
-            eyebrow={t.projects.eyebrow}
-            title={t.projects.title}
-            id="projects-heading"
-            size="lg"
-          />
+          <SectionHeading eyebrow={t.projects.eyebrow} title={t.projects.title} id="projects-heading" size="lg" />
         </Reveal>
 
         <Reveal>
-          <h3 className="mb-5 font-mono text-xs text-muted-foreground">
-            {t.projects.productsHeading}
-          </h3>
-        </Reveal>
-        <div className="mb-14 grid gap-6 sm:grid-cols-2">
-          {content.productProjects.map((project, i) => (
-            <ProjectCard key={project.slug} project={project} index={i} />
-          ))}
-        </div>
-
-        <Reveal>
-          <h3 className="mb-5 font-mono text-xs text-muted-foreground">
+          <h3 className="mb-5 font-mono text-[13px] tracking-widest text-muted-foreground uppercase">
             {t.projects.aiHeading}
           </h3>
         </Reveal>
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-6">
           {content.aiProjects.map((project, i) => (
             <AiProjectCard key={project.slug} project={project} index={i} />
           ))}
@@ -52,16 +36,27 @@ export function Projects() {
 
         <ValidatorDemo />
 
+        <Reveal>
+          <h3 className="mt-16 mb-5 font-mono text-[13px] tracking-widest text-muted-foreground uppercase">
+            {t.projects.productsHeading}
+          </h3>
+        </Reveal>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {content.productProjects.map((project, i) => (
+            <ProjectCard key={project.slug} project={project} index={i} />
+          ))}
+        </div>
+
         <details className="group mt-12">
-          <summary className="inline-flex cursor-pointer list-none items-center gap-2 rounded-[3px] border border-border px-4 py-2 font-mono text-xs text-muted-foreground transition-colors hover:border-brand hover:text-brand [&::-webkit-details-marker]:hidden">
-            <ChevronDown aria-hidden="true" className="size-3.5 transition-transform group-open:rotate-180" />
+          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-full border border-border px-4 font-mono text-[13px] tracking-widest text-muted-foreground uppercase transition-colors hover:border-brand hover:text-brand [&::-webkit-details-marker]:hidden">
+            <ChevronDown aria-hidden="true" className="size-4 transition-transform group-open:rotate-180" />
             {t.projects.showOlder}
           </summary>
-          <h3 className="mt-8 mb-5 font-mono text-xs text-muted-foreground">
-            {t.projects.webHeading}
+          <h3 className="mt-8 mb-5 font-mono text-[13px] tracking-widest text-muted-foreground uppercase">
+            {t.projects.olderHeading}
           </h3>
-          <div className="grid gap-6 sm:grid-cols-2">
-            {content.webProjects.map((project, i) => (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {content.olderProjects.map((project, i) => (
               <ProjectCard key={project.slug} project={project} index={i} />
             ))}
           </div>

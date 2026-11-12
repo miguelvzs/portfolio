@@ -12,14 +12,11 @@ import {
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { useTheme } from "@/lib/theme"
 import { useI18n } from "@/lib/i18n"
-import { useActiveSection } from "@/lib/live"
-import { openTerminal } from "@/components/terminal"
 
 export function Navbar() {
   const { theme, toggleTheme } = useTheme()
   const { t, content } = useI18n()
   const [scrolled, setScrolled] = useState(false)
-  const active = useActiveSection(content.nav.map((item) => item.href.slice(1)))
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -40,30 +37,21 @@ export function Navbar() {
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
         <a
           href="#hero"
-          className="rounded-sm font-mono text-sm tracking-tight text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+          className="rounded-sm py-3 font-mono text-sm tracking-tight text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
         >
           miguelvzs
         </a>
 
         <nav aria-label={t.aria.mainNav} className="hidden items-center gap-6 md:flex">
-          {content.nav.map((item) => {
-            const isActive = active === item.href.slice(1)
-            return (
-              <a
-                key={item.href}
-                href={item.href}
-                aria-current={isActive ? "location" : undefined}
-                className={
-                  "relative text-sm transition-colors hover:text-foreground " +
-                  (isActive
-                    ? "text-foreground after:absolute after:-bottom-[19px] after:left-0 after:h-px after:w-full after:bg-brand"
-                    : "text-muted-foreground")
-                }
-              >
-                {item.label}
-              </a>
-            )
-          })}
+          {content.nav.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="py-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
 
         <div className="flex items-center gap-1 md:gap-2">
@@ -72,17 +60,7 @@ export function Navbar() {
           <Button
             variant="ghost"
             size="icon-sm"
-            onClick={openTerminal}
-            aria-label={t.fun.terminalLabel}
-            title={t.fun.terminalHint}
-            className="font-mono text-xs"
-          >
-            &gt;_
-          </Button>
-
-          <Button
-            variant="ghost"
-            size="icon-sm"
+            className="size-11"
             onClick={toggleTheme}
             aria-label={theme === "dark" ? t.aria.themeLight : t.aria.themeDark}
           >
@@ -91,7 +69,7 @@ export function Navbar() {
 
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon-sm" className="md:hidden" aria-label={t.aria.openMenu}>
+              <Button variant="ghost" size="icon-sm" className="size-11 md:hidden" aria-label={t.aria.openMenu}>
                 <Menu className="size-4" />
               </Button>
             </SheetTrigger>
