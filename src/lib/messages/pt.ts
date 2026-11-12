@@ -351,7 +351,7 @@ export const pt = {
       },
       {
         year: "2026",
-        title: "Embaixador SAGA SENAI",
+        title: "Embaixador SAGA SENAI, Projetos de Inovação",
         desc: "Único aluno selecionado por desempenho para representar a instituição, apresentar projetos e mentorar outros alunos.",
       },
       {

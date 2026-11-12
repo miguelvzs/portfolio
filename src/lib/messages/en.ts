@@ -341,7 +341,7 @@ export const en: Messages = {
       },
       {
         year: "2026",
-        title: "SAGA SENAI Ambassador",
+        title: "SAGA SENAI Ambassador, Innovation Projects",
         desc: "The only student selected on performance to represent the institution, present projects and mentor other students.",
       },
       {
