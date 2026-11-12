@@ -10,6 +10,7 @@ export type CaseCopy = {
   intro: string
   flowLabel?: string
   flow?: FlowStep[]
+  body?: string
   arc: [ArcKey, string][]
   stack?: string
   link?: { href: string; label: string }
@@ -21,6 +22,7 @@ export type ExperienceCopy = {
   org: string
   desc: string
   highlights?: string[]
+  more?: string[]
 }
 
 export type ProductCopy = {

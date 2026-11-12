@@ -26,9 +26,7 @@ export function AiProjectCard({ project, index }: { project: AiProject; index: n
           ))}
         </ul>
 
-        <p className="mt-auto font-mono text-[13px] leading-relaxed text-muted-foreground">{project.stack}</p>
-
-        <div className="flex flex-wrap gap-x-6">
+        <div className="mt-auto flex flex-wrap gap-x-6">
           <a
             href={project.repoUrl}
             target="_blank"

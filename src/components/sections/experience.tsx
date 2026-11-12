@@ -1,3 +1,4 @@
+import { ChevronDown } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { Reveal } from "@/components/reveal"
 import { useI18n } from "@/lib/i18n"
@@ -32,6 +33,19 @@ export function Experience() {
                     <li key={highlight}>{highlight}</li>
                   ))}
                 </ul>
+              )}
+              {item.more && (
+                <details className="group mt-3">
+                  <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-1.5 text-base text-brand [&::-webkit-details-marker]:hidden">
+                    <ChevronDown aria-hidden="true" className="size-4 transition-transform group-open:rotate-180" />
+                    {t.experience.moreLabel}
+                  </summary>
+                  <ul className="mt-2 list-disc space-y-2 pl-4 text-base leading-relaxed text-muted-foreground marker:text-brand">
+                    {item.more.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                </details>
               )}
             </Reveal>
           ))}

@@ -54,9 +54,9 @@ export const pt = {
   },
   about: {
     eyebrow: "Sobre",
-    title: "Quem está por trás do código",
+    title: "O que faço hoje e de onde venho",
     paragraphs: [
-      "Sou desenvolvedor full stack na Enviagora. Uso o Google Cloud com Terraform em todos os projetos, conduzi a migração do Hub de RH para ele e faço parte do time que constrói o EnviaMind, a plataforma única que reúne RH, operação, portaria, financeiro e diretoria.",
+      "Sou desenvolvedor full stack na Enviagora. Lá, uso o Google Cloud com Terraform em todos os projetos, conduzi a migração do Hub de RH para ele e faço parte do time que constrói o EnviaMind, a plataforma única que reúne RH, operação, portaria, financeiro e diretoria.",
       "Em IA, construo fluxos feitos para produção. O que o modelo extrai passa por validação, limiar de confiança ou aprovação de uma pessoa antes de virar ação. Não fico preso a um provedor (Claude, Gemini e GPT via Vertex AI e OpenRouter), meço o custo de cada chamada e escolho o modelo por avaliação.",
       "Antes do software, passei pela indústria: técnico em Desenvolvimento de Sistemas pelo SENAI, desenho técnico mecânico, manutenção eletromecânica e passagens por Panasonic, Hutchinson e P&D na Soft Film. Fora do trabalho, construo o Morada e faço parte do time Ponto e Vírgula, que está especificando o Studoo.",
     ],
@@ -65,6 +65,7 @@ export const pt = {
       "TypeScript, Node.js, React, Next.js, Fastify, PostgreSQL, Prisma, Zod, Python, Google Cloud, Terraform, Docker, GitHub Actions, Vertex AI e AI SDK.",
   },
   experience: {
+    moreLabel: "mais detalhes",
     eyebrow: "Experiência",
     title: "Onde já botei a mão",
     items: [
@@ -74,11 +75,15 @@ export const pt = {
         org: "Enviagora",
         desc: "Construo e levo à produção os sistemas internos da empresa, da infraestrutura aos fluxos com IA.",
         highlights: [
+          "Conduzi a migração do Hub de RH para o Google Cloud: ensaio completo em QA, validação por contagem e checksum e um cutover de cerca de 45 minutos, com rollback pronto.",
+          "No gravador de reuniões, um agente lê a transcrição a cada 45 s e propõe compromissos, cada um ancorado no trecho de onde saiu. Só viram tarefa no ClickUp depois que uma pessoa aprova. A troca de modelo por benchmark levou o erro de palavras de 13,4% para 7,6%.",
+          "Na admissão digital, a leitura de documentos usa o texto do PDF e recorre a modelos de visão só quando precisa; os modelos foram comparados às cegas antes da escolha.",
+        ],
+        more: [
           "Plataforma no Google Cloud via Terraform: Cloud Run, Cloud SQL com IP privado, Secret Manager, Load Balancer e Cloud DNS. CI/CD no GitHub Actions com Workload Identity Federation, secret scanning e deploy em produção só com aprovação. Monorepo com cerca de 20 sistemas importados com histórico.",
           "Dados em PostgreSQL por camadas (raw, trusted e refined) em cada setor, chave universal de pessoa, RLS, RBAC calculado no servidor e outbox para as integrações com ClickUp e ZapSign.",
-          "Migração do Hub de RH: ensaio completo em QA, validação por contagem e checksum e cutover de cerca de 45 minutos, com rollback pronto.",
-          "Gravador de reuniões: PWA local-first que envia o áudio em partes, com confirmação de recebimento, sem perder nada. Transcrição em streaming (Gemini Live) e final com diarização; um segundo modelo revisa contra uma base de conhecimento; um agente extrai compromissos a cada 45 s, ancorados no trecho de origem, que só viram tarefa no ClickUp depois de aprovados.",
-          "Admissão digital: OCR com o texto do PDF e fallback para modelos de visão via OpenRouter, extração por tipo de documento, normalização determinística e cruzamento de identidade, com avaliação cega entre modelos.",
+          "Gravador de reuniões: PWA local-first que envia o áudio em partes, com confirmação de recebimento e sem perda de áudio; transcrição em streaming (Gemini Live) e final com diarização; um segundo modelo revisa contra uma base de conhecimento.",
+          "Admissão digital: extração por tipo de documento, normalização determinística e cruzamento de identidade, com fallback via OpenRouter.",
           "Portaria: leitura de placa por visão (Claude no Vertex AI), com confiança mínima e confirmação humana.",
           "Auditoria 5S: app mobile com câmera e QR Code, nota calculada no servidor e antifraude.",
         ],
@@ -131,7 +136,7 @@ export const pt = {
           ["restricao", "Nada sai sem mim: nenhuma prévia vai ao ar nem chega a alguém sem a minha aprovação. E nada é inventado: preço, nota, depoimento, telefone e horário só com fonte."],
           ["decisao", "Agentes com papéis separados, porque quem constrói não revisa. O revisor dá nota por critério e só aprova com todos em 8,5 ou mais; o QA reprova sozinho o que não passa em texto de 16 px, alvos de 44 px, contraste AA e LCP abaixo de 2,5 s."],
           ["erro", "A primeira versão autoral de uma prévia saiu com cara de IA genérica: serifa editorial, fundo off-white, cards previsíveis. Reprovei. Virou regra: a versão autoral nasce de referências reais e da identidade do cliente, com a direção aprovada antes do código."],
-          ["resultado", "Em uso. As regras ficam num arquivo único que todos os agentes leem antes de começar, e cada reprovação minha vira uma linha nova. As prévias vão ao ar com noindex, só para quem tem o link."],
+          ["resultado", "As regras ficam num arquivo único que todos os agentes leem antes de começar, e cada reprovação minha vira uma linha nova. As prévias vão ao ar com noindex, só para quem tem o link."],
         ],
         link: { href: "https://velldigital.vercel.app", label: "site da Vell" },
       },
@@ -153,7 +158,7 @@ export const pt = {
           ["restricao", "Privacidade e rede ruim. O app nunca fala com o banco nem com um provedor externo e não carrega segredo; com rede ruim, mostra a última leitura. E três idiomas desde o primeiro dia."],
           ["decisao", "Saldo, totais e status são calculados só no servidor, para a tela inicial, as finanças, o relatório e o PDF sempre baterem. O saldo mostra só o que é real: o que está a receber ou a pagar nunca entra nele. O mesmo schema Zod valida o formulário no app e de novo na API."],
           ["fora", "Uma versão web na v1, porque só o app nativo dá lembrete com o app fechado. O login só por código no e-mail virou senha, para entrar todo dia sem abrir o e-mail. E no dia da contratação o servidor da UE estava esgotado: escolhi o Canadá, com cópia de segurança na UE, e aceitei cerca de 100 ms a mais por chamada."],
-          ["resultado", "Primeiro build no TestFlight em 26/10/2026 e beta público aberto. 345 testes na API e uma auditoria de segurança sem achado crítico, alto ou médio. Ainda não foi validado em uso real: esse é o próximo passo."],
+          ["resultado", "Primeiro build no TestFlight em 26/10/2026 e beta público aberto. 345 testes na API e auditorias de segurança internas, sem achado crítico e com os médios já corrigidos. Ainda não foi validado em uso real: esse é o próximo passo."],
         ],
         link: { href: "https://getmorada.app", label: "getmorada.app" },
       },
@@ -162,10 +167,9 @@ export const pt = {
         title: "Quebra-Gelo, 1º lugar num hackathon da OpenAI",
         intro:
           "Hackathon OpenAI DevDay Exchange Community, em São Paulo, organizado pelos OpenAI Codex Ambassadors. Feito em dupla com Julio Akamine.",
+        body:
+          "A proposta era um pet virtual que só evolui quando você conversa com alguém de verdade no evento. Em um dia e em dupla, fizemos o multiplayer em tempo real por WebSocket, o pet criado por IA multimodal com saída estruturada e um telão ao vivo para a organização acompanhar. Meu papel: desenvolvimento em dupla, do produto ao deploy.",
         arc: [
-          ["problema", "A proposta: um pet virtual que só evolui quando você conversa com alguém de verdade no evento."],
-          ["restricao", "Um dia, em dupla."],
-          ["decisao", "Multiplayer em tempo real por WebSocket, o pet criado por IA multimodal com saída estruturada e um telão ao vivo para a organização acompanhar o evento. Meu papel: desenvolvimento em dupla, do produto ao deploy."],
           ["resultado", "1º lugar entre 25 equipes. Prêmio da OpenAI: US$ 1.000 em créditos Codex para a equipe e 12 meses de ChatGPT Pro para cada integrante."],
         ],
         link: { href: "https://quebra-gelo.julioakamine.com", label: "abrir o Quebra-Gelo" },
@@ -182,7 +186,7 @@ export const pt = {
       },
       {
         title: "Agentes no desenvolvimento, revisão em todo PR",
-        desc: "Desenvolvo com Claude Code e Cursor. Nenhuma mudança vai ao ar sem teste automatizado (Vitest, Playwright) e revisão no PR.",
+        desc: "Desenvolvo com Claude Code e Cursor. Na Enviagora, todo PR passa por teste automatizado (Vitest, Playwright) e revisão antes de ir ao ar.",
       },
       {
         title: "Modelo escolhido por avaliação",

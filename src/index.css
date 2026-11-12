@@ -228,3 +228,22 @@
   background-image: radial-gradient(ellipse 80% 60% at 70% -10%, rgb(23 74 114 / 70%), transparent 70%);
   background-repeat: no-repeat;
 }
+
+/* Fluxo dos casos: cada passo aparece na ordem, quando o card entra na tela. */
+.reveal .flow-step {
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.35s ease-out,
+    transform 0.35s ease-out;
+  transition-delay: calc(0.25s + var(--i, 0) * 0.12s);
+}
+.reveal.is-visible .flow-step {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal .flow-step {
+    transition-delay: 0s !important;
+  }
+}

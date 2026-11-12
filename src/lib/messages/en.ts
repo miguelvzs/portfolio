@@ -48,9 +48,9 @@ export const en: Messages = {
   },
   about: {
     eyebrow: "About",
-    title: "The person behind the code",
+    title: "What I do now and where I come from",
     paragraphs: [
-      "I'm a full stack developer at Enviagora. I run every project on Google Cloud with Terraform, led the migration of the HR Hub to it, and I'm part of the team building EnviaMind, the single platform that brings together HR, operations, the gatehouse, finance and leadership.",
+      "I'm a full stack developer at Enviagora. There, I run every project on Google Cloud with Terraform, led the migration of the HR Hub to it, and I'm part of the team building EnviaMind, the single platform that brings together HR, operations, the gatehouse, finance and leadership.",
       "On AI, I build flows meant for production. What the model extracts goes through validation, a confidence threshold or a person's approval before it turns into an action. I don't lock into one provider (Claude, Gemini and GPT via Vertex AI and OpenRouter), I track the cost of every call and I pick the model by evaluation.",
       "Before software, I came through industry: a technical degree in Systems Development from SENAI, mechanical drafting, electromechanical maintenance, and roles at Panasonic, Hutchinson and in R&D at Soft Film. Outside work, I'm building Morada, and I'm part of the Ponto e Vírgula team, which is writing the spec for Studoo.",
     ],
@@ -59,6 +59,7 @@ export const en: Messages = {
       "TypeScript, Node.js, React, Next.js, Fastify, PostgreSQL, Prisma, Zod, Python, Google Cloud, Terraform, Docker, GitHub Actions, Vertex AI and AI SDK.",
   },
   experience: {
+    moreLabel: "more details",
     eyebrow: "Experience",
     title: "Where I've put my hands",
     items: [
@@ -68,11 +69,15 @@ export const en: Messages = {
         org: "Enviagora",
         desc: "I build the company's internal systems and take them to production, from infrastructure to AI flows.",
         highlights: [
+          "I led the migration of the HR Hub to Google Cloud: a full rehearsal in QA, row count and checksum validation and a cutover of about 45 minutes, with rollback ready.",
+          "In the meeting recorder, an agent reads the transcript every 45 s and proposes commitments, each anchored to the excerpt it came from. They only become ClickUp tasks after a person approves them. Switching models by benchmark took the word error rate from 13.4% to 7.6%.",
+          "In digital onboarding, document reading uses the PDF text and falls back to vision models only when needed; the models were compared blind before the choice.",
+        ],
+        more: [
           "Platform on Google Cloud in Terraform: Cloud Run, private-IP Cloud SQL, Secret Manager, Load Balancer and Cloud DNS. CI/CD on GitHub Actions with Workload Identity Federation, secret scanning and approval-gated production deploys. A monorepo with about 20 systems imported with full history.",
           "Data in PostgreSQL in layers (raw, trusted and refined) per department, a universal person key, RLS, server-side RBAC and an outbox for the ClickUp and ZapSign integrations.",
-          "HR Hub migration: a full rehearsal in QA, row count and checksum validation and a cutover of about 45 minutes, with rollback ready.",
-          "Meeting recorder: a local-first PWA that uploads audio in chunks, with receipt acknowledgements, and loses nothing. Streaming transcription (Gemini Live) and a final pass with diarization; a second model reviews it against a knowledge base; an agent extracts commitments every 45 s, anchored to the source excerpt, which only become ClickUp tasks once approved.",
-          "Digital onboarding: OCR with the PDF text and fallback to vision models via OpenRouter, extraction per document type, deterministic normalization and identity cross-checks, with blind evaluation across models.",
+          "Meeting recorder: a local-first PWA that uploads audio in chunks, with receipt acknowledgements and no audio loss; streaming transcription (Gemini Live) and a final pass with diarization; a second model reviews it against a knowledge base.",
+          "Digital onboarding: extraction per document type, deterministic normalization and identity cross-checks, with fallback via OpenRouter.",
           "Gatehouse: license plate reading with vision (Claude on Vertex AI), with minimum confidence and human confirmation.",
           "5S audits: a mobile app with camera and QR codes, server-side scoring and anti-fraud.",
         ],
@@ -124,7 +129,7 @@ export const en: Messages = {
           ["restricao", "Nothing goes out without me: no preview goes live or reaches anyone without my approval. And nothing is made up: prices, ratings, testimonials, phone numbers and hours only with a source."],
           ["decisao", "Agents with separate roles, because whoever builds doesn't review. The reviewer scores each criterion and only approves with all of them at 8.5 or above; QA rejects on its own anything that fails 16 px text, 44 px targets, AA contrast and LCP under 2.5 s."],
           ["erro", "The first original version of a preview came out looking like generic AI: editorial serif, off-white background, predictable cards. I rejected it. It became a rule: the original version starts from real references and the client's identity, with the direction approved before any code."],
-          ["resultado", "In use. The rules live in a single file every agent reads before starting, and each rejection of mine becomes a new line. Previews go live with noindex, only for people who have the link."],
+          ["resultado", "The rules live in a single file every agent reads before starting, and each rejection of mine becomes a new line. Previews go live with noindex, only for people who have the link."],
         ],
         link: { href: "https://velldigital.vercel.app", label: "Vell website" },
       },
@@ -146,7 +151,7 @@ export const en: Messages = {
           ["restricao", "Privacy and bad networks. The app never talks to the database or an external provider and carries no secrets; on a bad network it shows the last reading. And three languages from day one."],
           ["decisao", "Balance, totals and status are computed only on the server, so the home screen, finances, report and PDF always match. The balance shows only what is real: money to receive or to pay never goes into it. The same Zod schema validates the form in the app and again in the API."],
           ["fora", "A web version in v1, because only the native app can remind you with the app closed. Email-code-only login became a password, so people can sign in every day without opening their email. And on the day I signed up, the EU server was sold out: I chose Canada, with a backup copy in the EU, and accepted about 100 ms more per call."],
-          ["resultado", "First TestFlight build on 10/26/2026 and an open public beta. 345 tests on the API and a security audit with no critical, high or medium findings. It hasn't been validated in real use yet: that's the next step."],
+          ["resultado", "First TestFlight build on 10/26/2026 and an open public beta. 345 tests on the API and internal security audits, with no critical findings and the medium ones already fixed. It hasn't been validated in real use yet: that's the next step."],
         ],
         link: { href: "https://getmorada.app", label: "getmorada.app" },
       },
@@ -155,10 +160,9 @@ export const en: Messages = {
         title: "Quebra-Gelo, 1st place at an OpenAI hackathon",
         intro:
           "OpenAI DevDay Exchange Community Hackathon, in São Paulo, run by the OpenAI Codex Ambassadors. Built in a pair with Julio Akamine.",
+        body:
+          "The idea was a virtual pet that only grows when you actually talk to someone at the event. In one day and in a pair, we built real-time multiplayer over WebSocket, the pet created by multimodal AI with structured output, and a live big screen so the organizers could follow along. My role: development in a pair, from product to deploy.",
         arc: [
-          ["problema", "The idea: a virtual pet that only grows when you actually talk to someone at the event."],
-          ["restricao", "One day, in a pair."],
-          ["decisao", "Real-time multiplayer over WebSocket, the pet created by multimodal AI with structured output, and a live big screen so the organizers could follow the event. My role: development in a pair, from product to deploy."],
           ["resultado", "1st place out of 25 teams. OpenAI prize: US$ 1,000 in Codex credits for the team and 12 months of ChatGPT Pro for each member."],
         ],
         link: { href: "https://quebra-gelo.julioakamine.com", label: "open Quebra-Gelo" },
@@ -175,7 +179,7 @@ export const en: Messages = {
       },
       {
         title: "Agents in development, review on every PR",
-        desc: "I build with Claude Code and Cursor. No change goes live without automated tests (Vitest, Playwright) and review on the PR.",
+        desc: "I build with Claude Code and Cursor. At Enviagora, every PR goes through automated tests (Vitest, Playwright) and review before it ships.",
       },
       {
         title: "Models picked by evaluation",

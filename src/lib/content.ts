@@ -25,7 +25,6 @@ export type ProductProject = {
   status: string
   description: string
   role: string
-  stack: string
   href?: string
   displayUrl?: string
 }
@@ -35,7 +34,6 @@ export type AiProject = {
   name: string
   description: string
   role: string
-  stack: string
   repoUrl: string
   highlights: string[]
   diagramSteps: string[]
@@ -45,12 +43,10 @@ const productMeta: Omit<ProductProject, "status" | "description" | "role">[] = [
   {
     slug: "studoo",
     name: "Studoo",
-    stack: "Expo · Next.js · Prisma · PostgreSQL · Zod (candidata)",
   },
   {
     slug: "vellfinancing",
     name: "MV Financing",
-    stack: "JavaScript · Drizzle · PostgreSQL · Vercel",
     href: "https://github.com/miguelvzs/vellfinancing",
     displayUrl: "github.com/miguelvzs/vellfinancing",
   },
@@ -60,13 +56,11 @@ const aiMeta: Omit<AiProject, "description" | "role" | "highlights" | "diagramSt
   {
     slug: "validador-registros-tabulares",
     name: "Validador de Pedidos",
-    stack: "Python · FastAPI · Pandas · Claude · MCP · n8n",
     repoUrl: "https://github.com/miguelvzs/validador-registros-tabulares",
   },
   {
     slug: "pipeline-tendencia-conteudo",
     name: "Radar de Tendência",
-    stack: "Python · NumPy · Claude · Docker · Fly.io",
     repoUrl: "https://github.com/miguelvzs/pipeline-tendencia-conteudo",
   },
 ]

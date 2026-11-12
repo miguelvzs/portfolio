@@ -41,7 +41,7 @@ export function Cases() {
                         mineLabel={t.aria.mine}
                       />
                       {item.flow.some((s) => s.mine) && (
-                        <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+                        <p className="mt-2 flex items-center gap-2 text-base text-muted-foreground">
                           <span aria-hidden="true" className="inline-block h-3 w-3 rounded-sm bg-brand" />
                           {t.aria.mine}
                         </p>
@@ -49,6 +49,11 @@ export function Cases() {
                     </div>
                   )}
 
+                  {item.body && (
+                    <p className="max-w-3xl text-base leading-relaxed text-muted-foreground md:text-[17px]">{item.body}</p>
+                  )}
+
+                  {story.length > 0 && (
                   <dl className="grid gap-x-8 gap-y-2 md:grid-cols-[11rem_1fr] md:gap-y-5">
                     {story.map(([key, text], i) => (
                       <div key={key} className="contents">
@@ -64,6 +69,7 @@ export function Cases() {
                       </div>
                     ))}
                   </dl>
+                  )}
 
                   {result && (
                     <div className="rounded-lg border border-brand/30 bg-brand/5 p-4">

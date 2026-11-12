@@ -102,7 +102,7 @@ export function ValidatorDemo() {
             onChange={(e) => setCsv(e.target.value)}
             spellCheck={false}
             rows={8}
-            className="w-full resize-y rounded-lg border border-border bg-background p-3 font-mono text-[13px] leading-relaxed text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none md:text-sm"
+            className="w-full resize-y rounded-lg border border-border bg-background p-3 font-mono text-[13px] leading-relaxed text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none md:text-[15px]"
           />
         </label>
 
@@ -138,7 +138,7 @@ export function ValidatorDemo() {
               {applied.length === 0 ? (
                 <p className="text-base text-muted-foreground">{t.demo.noCorrections}</p>
               ) : (
-                <ul className="space-y-1 font-mono text-sm text-foreground">
+                <ul className="space-y-1 font-mono text-[15px] text-foreground">
                   {applied.map((c) => (
                     <li key={`${c.linha}-${c.campo}`}>
                       {checked[c.linha]?.row.id_pedido} · {c.campo} → {String(c.valor)}
@@ -151,7 +151,7 @@ export function ValidatorDemo() {
 
           {rejected.length > 0 && (
             <div className="overflow-x-auto rounded-lg border border-border">
-              <table className="w-full text-left text-sm">
+              <table className="w-full text-left text-base">
                 <thead className="bg-muted/40 font-mono text-[13px] tracking-widest text-muted-foreground uppercase">
                   <tr>
                     <th className="px-3 py-2 font-normal">{t.demo.order}</th>
@@ -170,7 +170,7 @@ export function ValidatorDemo() {
             </div>
           )}
 
-          <p className="text-sm text-muted-foreground">{t.demo.aiNote}</p>
+          <p className="text-base text-muted-foreground">{t.demo.aiNote}</p>
         </div>
       </Card>
     </Reveal>

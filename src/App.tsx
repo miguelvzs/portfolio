@@ -20,7 +20,7 @@ function AppShell() {
     <>
       <a
         href="#main-content"
-        className="sr-only rounded-md bg-brand px-4 py-2 text-sm font-medium text-brand-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
+        className="sr-only rounded-md bg-brand px-4 py-3 text-base font-medium text-brand-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50"
       >
         {t.aria.skipToContent}
       </a>
