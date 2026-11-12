@@ -52,7 +52,7 @@ export const en: Messages = {
     paragraphs: [
       "I'm a full stack developer at Enviagora. There, I run every project on Google Cloud with Terraform, and I'm part of the team building EnviaMind, the single platform that brings together HR, operations, the gatehouse, finance and leadership.",
       "On AI, I build flows meant for production. What the model extracts goes through validation, a confidence threshold or a person's approval before it turns into an action. I don't lock into one provider (Claude, Gemini and GPT via Vertex AI and OpenRouter), I track the cost of every call and I pick the model by evaluation.",
-      "Before software, I came through industry: a technical degree in Systems Development from SENAI, mechanical drafting, electromechanical maintenance, and roles at Panasonic, Hutchinson and in R&D at Soft Film. Outside work, I'm building Morada, and I'm part of the Ponto e Vírgula team, which is writing the spec for Studoo.",
+      "Before software, I came through industry: a technical degree in Systems Development from SENAI, mechanical drafting, electromechanical maintenance, and roles at Panasonic, Hutchinson and in R&D at Soft Film. I'm now studying Systems Analysis and Development at IFSP. Outside work, I'm building Morada, and I'm part of the Ponto e Vírgula team, which is writing the spec for Studoo.",
     ],
     stackLabel: "Stack",
     stack:
@@ -128,8 +128,7 @@ export const en: Messages = {
           ["problema", "Make a custom website preview for each business, fast enough to go with the first contact and without looking like a template."],
           ["restricao", "Nothing goes out without me: no preview goes live or reaches anyone without my approval. And nothing is made up: prices, ratings, testimonials, phone numbers and hours only with a source."],
           ["decisao", "Agents with separate roles, because whoever builds doesn't review. The reviewer scores each criterion and only approves with all of them at 8.5 or above; QA rejects on its own anything that fails 16 px text, 44 px targets, AA contrast and LCP under 2.5 s."],
-          ["erro", "The first original version of a preview came out looking like generic AI: editorial serif, off-white background, predictable cards. I rejected it. It became a rule: the original version starts from real references and the client's identity, with the direction approved before any code."],
-          ["resultado", "The rules live in a single file every agent reads before starting, and each rejection of mine becomes a new line. Previews go live with noindex, only for people who have the link."],
+          ["resultado", "12 previews so far (11/12/2026). The rules live in a single file every agent reads before starting, and each rejection of mine becomes a new line. Previews go live with noindex, only for people who have the link."],
         ],
         link: { href: "https://velldigital.vercel.app", label: "Vell website" },
       },
@@ -161,8 +160,10 @@ export const en: Messages = {
         intro:
           "OpenAI DevDay Exchange Community Hackathon, in São Paulo, run by the OpenAI Codex Ambassadors. Built in a pair with Julio Akamine.",
         body:
-          "The idea was a virtual pet that only grows when you actually talk to someone at the event. In one day and in a pair, we built real-time multiplayer over WebSocket, the pet created by multimodal AI with structured output, and a live big screen so the organizers could follow along. My role: development in a pair, from product to deploy.",
+          "A real-time multiplayer virtual pet, built in one day and in a pair. My role: development, from product to deploy.",
         arc: [
+          ["decisao", "The moment we decided the game could be about the event itself, not about just any situation. The rule became: the pet only grows when you actually talk to someone there."],
+          ["restricao", "One day, in a pair. The essentials fit: real-time multiplayer over WebSocket, the pet created by multimodal AI with structured output, and a live big screen so the organizers could follow along."],
           ["resultado", "1st place out of 25 teams. OpenAI prize: US$ 1,000 in Codex credits for the team and 12 months of ChatGPT Pro for each member."],
         ],
         link: { href: "https://quebra-gelo.julioakamine.com", label: "open Quebra-Gelo" },
@@ -207,11 +208,35 @@ export const en: Messages = {
           "Learn any subject fast, with AI, the way Duolingo teaches a language. You say what you want to learn and the AI proposes a plan; nothing generated goes into the plan without a tap to accept it. There's no app yet: there's the spec and the brand.",
         role: "Built with the Ponto e Vírgula team, which I'm part of.",
       },
+      "media-hub": {
+        status: "in production",
+        description:
+          "Internal system for a media company: display points, content library, scheduling, production, contracts and billing, with an AI assistant.",
+        role: "Full development for a client.",
+      },
       vellfinancing: {
         status: "open source",
         description:
           "Personal finance tracker: transactions, budget, goals, investments and OFX/CSV bank statement import.",
         role: "Built end to end, from scratch.",
+      },
+    },
+    olderHeading: "Earlier projects (web)",
+    showOlder: "see earlier projects",
+    older: {
+      cortex: {
+        description:
+          "Admin dashboard for a catering business to run day-to-day operations: orders, events and operational control in one place.",
+        role: "Front-end development and operational flow integration.",
+      },
+      modus: {
+        description: "Maintenance management system: work orders, assets and operations teams brought together in one place.",
+        role: "Front-end development and maintenance workflow modeling.",
+      },
+      elos: {
+        description:
+          "Management system with user, address and establishment records, an interactive Leaflet map and postal-code lookup via the ViaCEP API. Data stored in LocalStorage.",
+        role: "Complete front-end development, from scratch.",
       },
     },
     ai: {
@@ -295,6 +320,7 @@ export const en: Messages = {
     educationHeading: "Education",
     awardsHeading: "Awards",
     education: [
+      { title: "Systems Analysis and Development", org: "IFSP · in progress" },
       { title: "Technical degree in Systems Development", org: "SENAI" },
       { title: "Mechanical drafting and electromechanical maintenance", org: "industrial background" },
     ],
@@ -303,6 +329,14 @@ export const en: Messages = {
         year: "2026",
         title: "1st place at the OpenAI DevDay Exchange Community Hackathon (São Paulo)",
         desc: "Out of 25 teams, with Quebra-Gelo, built in a pair in one day.",
+      },
+      {
+        title: "SAGA SENAI Ambassador, Innovation Projects",
+        desc: "The only student selected on performance to represent the institution, present projects and mentor other students.",
+      },
+      {
+        title: "Brazilian Astronomy and Astronautics Olympiad",
+        desc: "A gold medal and a silver medal.",
       },
     ],
   },

@@ -37,7 +37,9 @@ export function Credentials() {
             <ul className="space-y-5">
               {t.credentials.awards.map((item) => (
                 <li key={item.title}>
-                  <p className="mb-0.5 font-mono text-[13px] tracking-widest text-brand uppercase">{item.year}</p>
+                  {item.year && (
+                    <p className="mb-0.5 font-mono text-[13px] tracking-widest text-brand uppercase">{item.year}</p>
+                  )}
                   <p className="text-base font-semibold text-foreground">{item.title}</p>
                   <p className="text-base leading-relaxed text-muted-foreground">{item.desc}</p>
                 </li>

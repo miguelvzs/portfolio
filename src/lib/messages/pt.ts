@@ -2,7 +2,9 @@
 // - linkedin-2026-11.md (Sobre, Experiência na Enviagora, base industrial, stack, hackathon, Morada);
 // - o próprio site de outubro (9383801): frase da capa, títulos, MV Financing, Radar, papel no Quebra-Gelo;
 // - README público de miguelvzs/validador-registros-tabulares (5 de 10 recuperados, menos de 1 s, 13 verificações);
-// - documentos do Morada, da Vell e do Studoo, já levantados em Shared/portfolio (conteúdo aprovado como fonte).
+// - documentos do Morada, da Vell e do Studoo, já levantados em Shared/portfolio (conteúdo aprovado como fonte);
+// - respostas do Miguel em 12/11/2026: decisão do Quebra-Gelo, "12 prévias" da Vell, cargos na indústria, Radar,
+//   e a volta de Cortex, Modus, ELOS, Media Ops Hub, IFSP, SAGA e OBA (sem datas, que só voltam com fonte).
 import type { AiProjectCopy, ArcKey, CaseCopy, ExperienceCopy, NoteCopy, ProductCopy } from "@/lib/copy-types"
 import type { ReasonCode } from "@/lib/validator"
 
@@ -58,7 +60,7 @@ export const pt = {
     paragraphs: [
       "Sou desenvolvedor full stack na Enviagora. Lá, uso o Google Cloud com Terraform em todos os projetos e faço parte do time que constrói o EnviaMind, a plataforma única que reúne RH, operação, portaria, financeiro e diretoria.",
       "Em IA, construo fluxos feitos para produção. O que o modelo extrai passa por validação, limiar de confiança ou aprovação de uma pessoa antes de virar ação. Não fico preso a um provedor (Claude, Gemini e GPT via Vertex AI e OpenRouter), meço o custo de cada chamada e escolho o modelo por avaliação.",
-      "Antes do software, passei pela indústria: técnico em Desenvolvimento de Sistemas pelo SENAI, desenho técnico mecânico, manutenção eletromecânica e passagens por Panasonic, Hutchinson e P&D na Soft Film. Fora do trabalho, construo o Morada e faço parte do time Ponto e Vírgula, que está especificando o Studoo.",
+      "Antes do software, passei pela indústria: técnico em Desenvolvimento de Sistemas pelo SENAI, desenho técnico mecânico, manutenção eletromecânica e passagens por Panasonic, Hutchinson e P&D na Soft Film. Hoje curso Análise e Desenvolvimento de Sistemas no IFSP. Fora do trabalho, construo o Morada e faço parte do time Ponto e Vírgula, que está especificando o Studoo.",
     ],
     stackLabel: "Stack",
     stack:
@@ -135,8 +137,7 @@ export const pt = {
           ["problema", "Fazer uma prévia de site sob medida para cada negócio, rápido o bastante para ir no primeiro contato e sem cara de template."],
           ["restricao", "Nada sai sem mim: nenhuma prévia vai ao ar nem chega a alguém sem a minha aprovação. E nada é inventado: preço, nota, depoimento, telefone e horário só com fonte."],
           ["decisao", "Agentes com papéis separados, porque quem constrói não revisa. O revisor dá nota por critério e só aprova com todos em 8,5 ou mais; o QA reprova sozinho o que não passa em texto de 16 px, alvos de 44 px, contraste AA e LCP abaixo de 2,5 s."],
-          ["erro", "A primeira versão autoral de uma prévia saiu com cara de IA genérica: serifa editorial, fundo off-white, cards previsíveis. Reprovei. Virou regra: a versão autoral nasce de referências reais e da identidade do cliente, com a direção aprovada antes do código."],
-          ["resultado", "As regras ficam num arquivo único que todos os agentes leem antes de começar, e cada reprovação minha vira uma linha nova. As prévias vão ao ar com noindex, só para quem tem o link."],
+          ["resultado", "12 prévias até agora (12/11/2026). As regras ficam num arquivo único que todos os agentes leem antes de começar, e cada reprovação minha vira uma linha nova. As prévias vão ao ar com noindex, só para quem tem o link."],
         ],
         link: { href: "https://velldigital.vercel.app", label: "site da Vell" },
       },
@@ -168,8 +169,10 @@ export const pt = {
         intro:
           "Hackathon OpenAI DevDay Exchange Community, em São Paulo, organizado pelos OpenAI Codex Ambassadors. Feito em dupla com Julio Akamine.",
         body:
-          "A proposta era um pet virtual que só evolui quando você conversa com alguém de verdade no evento. Em um dia e em dupla, fizemos o multiplayer em tempo real por WebSocket, o pet criado por IA multimodal com saída estruturada e um telão ao vivo para a organização acompanhar. Meu papel: desenvolvimento em dupla, do produto ao deploy.",
+          "Um pet virtual multiplayer em tempo real, feito em um dia e em dupla. Meu papel: desenvolvimento, do produto ao deploy.",
         arc: [
+          ["decisao", "O momento em que decidimos que o jogo podia ser sobre o evento, e não sobre uma situação qualquer. A regra ficou assim: o pet só evolui quando você conversa com alguém de verdade ali."],
+          ["restricao", "Um dia, em dupla. Coube o essencial: multiplayer em tempo real por WebSocket, o pet criado por IA multimodal com saída estruturada e um telão ao vivo para a organização acompanhar."],
           ["resultado", "1º lugar entre 25 equipes. Prêmio da OpenAI: US$ 1.000 em créditos Codex para a equipe e 12 meses de ChatGPT Pro para cada integrante."],
         ],
         link: { href: "https://quebra-gelo.julioakamine.com", label: "abrir o Quebra-Gelo" },
@@ -214,13 +217,38 @@ export const pt = {
           "Aprender qualquer assunto rápido, com IA, do jeito que o Duolingo ensina uma língua. A pessoa diz o que quer aprender e a IA propõe um plano; nada gerado entra no plano sem um toque de aceite. Ainda não há app: existe a especificação e a marca.",
         role: "Feito com o time Ponto e Vírgula, do qual faço parte.",
       },
+      "media-hub": {
+        status: "em produção",
+        description:
+          "Sistema interno para uma empresa de mídia: pontos de exibição, biblioteca, grade, produção, contratos e faturamento, com assistente de IA.",
+        role: "Desenvolvimento completo para cliente.",
+      },
       vellfinancing: {
         status: "código aberto",
         description:
           "Controle financeiro pessoal: lançamentos, orçamento, metas, investimentos e importação de extrato bancário OFX/CSV.",
         role: "Desenvolvimento completo, do zero.",
       },
-    } as Record<"studoo" | "vellfinancing", ProductCopy>,
+    } as Record<"studoo" | "media-hub" | "vellfinancing", ProductCopy>,
+    olderHeading: "Projetos anteriores (web)",
+    showOlder: "ver projetos anteriores",
+    older: {
+      cortex: {
+        description:
+          "Painel administrativo para um buffet tocar o dia a dia: pedidos, eventos e controle da operação em um só lugar.",
+        role: "Desenvolvimento front-end e integração dos fluxos operacionais.",
+      },
+      modus: {
+        description:
+          "Sistema de gestão de manutenção: ordens de serviço, ativos e equipes operacionais reunidos num lugar só.",
+        role: "Desenvolvimento front-end e modelagem dos fluxos de manutenção.",
+      },
+      elos: {
+        description:
+          "Sistema de gestão com cadastro de usuários, endereços e estabelecimentos, mapa interativo via Leaflet e busca de CEP pela API ViaCEP. Dados em LocalStorage.",
+        role: "Desenvolvimento front-end completo, do zero.",
+      },
+    } as Record<"cortex" | "modus" | "elos", ProductCopy>,
     ai: {
       "validador-registros-tabulares": {
         description:
@@ -302,6 +330,7 @@ export const pt = {
     educationHeading: "Formação",
     awardsHeading: "Prêmios",
     education: [
+      { title: "Análise e Desenvolvimento de Sistemas", org: "IFSP · cursando" },
       { title: "Técnico em Desenvolvimento de Sistemas", org: "SENAI" },
       { title: "Desenho técnico mecânico e manutenção eletromecânica", org: "base industrial" },
     ],
@@ -311,7 +340,15 @@ export const pt = {
         title: "1º lugar no Hackathon OpenAI DevDay Exchange Community (São Paulo)",
         desc: "Entre 25 equipes, com o Quebra-Gelo, feito em dupla em um dia.",
       },
-    ],
+      {
+        title: "Embaixador SAGA SENAI, Projetos de Inovação",
+        desc: "Único aluno selecionado por desempenho para representar a instituição, apresentar projetos e mentorar outros alunos.",
+      },
+      {
+        title: "Olimpíada Brasileira de Astronomia e Astronáutica",
+        desc: "Medalha de ouro e medalha de prata.",
+      },
+    ] as { year?: string; title: string; desc: string }[],
   },
   contact: {
     eyebrow: "Contato",

@@ -26,7 +26,7 @@ export type ExperienceCopy = {
 }
 
 export type ProductCopy = {
-  status: string
+  status?: string
   description: string
   role: string
 }

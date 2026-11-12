@@ -20,9 +20,9 @@ export const navItems: { id: NavId; href: string }[] = [
 ]
 
 export type ProductProject = {
-  slug: "studoo" | "vellfinancing"
+  slug: string
   name: string
-  status: string
+  status?: string
   description: string
   role: string
   href?: string
@@ -45,11 +45,21 @@ const productMeta: Omit<ProductProject, "status" | "description" | "role">[] = [
     name: "Studoo",
   },
   {
+    slug: "media-hub",
+    name: "Media Ops Hub",
+  },
+  {
     slug: "vellfinancing",
     name: "MV Financing",
     href: "https://github.com/miguelvzs/vellfinancing",
     displayUrl: "github.com/miguelvzs/vellfinancing",
   },
+]
+
+const olderMeta: Omit<ProductProject, "status" | "description" | "role">[] = [
+  { slug: "cortex", name: "Cortex", href: "https://cortex-demo-eight.vercel.app/", displayUrl: "cortex-demo-eight.vercel.app" },
+  { slug: "modus", name: "Modus", href: "https://plataformamodus.vercel.app/?demo", displayUrl: "plataformamodus.vercel.app" },
+  { slug: "elos", name: "ELOS", href: "https://elosgestao.netlify.app/", displayUrl: "elosgestao.netlify.app" },
 ]
 
 const aiMeta: Omit<AiProject, "description" | "role" | "highlights" | "diagramSteps">[] = [
@@ -69,6 +79,7 @@ export type LocalizedContent = {
   profile: typeof profile & { role: string }
   nav: { id: NavId; href: string; label: string }[]
   productProjects: ProductProject[]
+  olderProjects: ProductProject[]
   aiProjects: AiProject[]
   experience: ExperienceCopy[]
 }
@@ -77,7 +88,8 @@ export function buildContent(t: Messages): LocalizedContent {
   return {
     profile: { ...profile, role: t.profile.role },
     nav: navItems.map((item) => ({ ...item, label: t.nav[item.id] })),
-    productProjects: productMeta.map((p) => ({ ...p, ...t.projects.products[p.slug] })),
+    productProjects: productMeta.map((p) => ({ ...p, ...t.projects.products[p.slug as keyof typeof t.projects.products] })),
+    olderProjects: olderMeta.map((p) => ({ ...p, ...t.projects.older[p.slug as keyof typeof t.projects.older] })),
     aiProjects: aiMeta.map((p) => ({ ...p, ...t.projects.ai[p.slug] })),
     experience: t.experience.items,
   }

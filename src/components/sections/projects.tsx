@@ -1,3 +1,4 @@
+import { ChevronDown } from "lucide-react"
 import { SectionHeading } from "@/components/section-heading"
 import { Reveal } from "@/components/reveal"
 import { BackgroundGrid } from "@/components/background-grid"
@@ -40,11 +41,26 @@ export function Projects() {
             {t.projects.productsHeading}
           </h3>
         </Reveal>
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {content.productProjects.map((project, i) => (
             <ProjectCard key={project.slug} project={project} index={i} />
           ))}
         </div>
+
+        <details className="group mt-12">
+          <summary className="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-full border border-border px-4 font-mono text-[13px] tracking-widest text-muted-foreground uppercase transition-colors hover:border-brand hover:text-brand [&::-webkit-details-marker]:hidden">
+            <ChevronDown aria-hidden="true" className="size-4 transition-transform group-open:rotate-180" />
+            {t.projects.showOlder}
+          </summary>
+          <h3 className="mt-8 mb-5 font-mono text-[13px] tracking-widest text-muted-foreground uppercase">
+            {t.projects.olderHeading}
+          </h3>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {content.olderProjects.map((project, i) => (
+              <ProjectCard key={project.slug} project={project} index={i} />
+            ))}
+          </div>
+        </details>
       </div>
     </section>
   )
