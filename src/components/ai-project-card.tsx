@@ -8,7 +8,7 @@ import { useI18n } from "@/lib/i18n"
 export function AiProjectCard({ project, index }: { project: AiProject; index: number }) {
   const { t } = useI18n()
   return (
-    <Reveal delay={index * 0.08}>
+    <Reveal delay={index * 0.08} className="h-full">
       <Card className="h-full gap-3 p-5 ring-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10 hover:ring-brand/50">
         <h3 className="text-lg font-semibold text-foreground">{project.name}</h3>
         <p className="text-base leading-relaxed text-muted-foreground">{project.description}</p>

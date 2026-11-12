@@ -138,7 +138,7 @@ export function ValidatorDemo() {
               {applied.length === 0 ? (
                 <p className="text-base text-muted-foreground">{t.demo.noCorrections}</p>
               ) : (
-                <ul className="space-y-1 font-mono text-[15px] text-foreground">
+                <ul className="space-y-1 font-mono text-base text-foreground">
                   {applied.map((c) => (
                     <li key={`${c.linha}-${c.campo}`}>
                       {checked[c.linha]?.row.id_pedido} · {c.campo} → {String(c.valor)}
