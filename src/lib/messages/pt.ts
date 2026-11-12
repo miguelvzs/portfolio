@@ -350,7 +350,8 @@ export const pt = {
         desc: "Entre 25 equipes, com o Quebra-Gelo, feito em dupla em um dia.",
       },
       {
-        title: "Embaixador SAGA SENAI, Projetos de Inovação",
+        year: "2026",
+        title: "Embaixador SAGA SENAI",
         desc: "Único aluno selecionado por desempenho para representar a instituição, apresentar projetos e mentorar outros alunos.",
       },
       {

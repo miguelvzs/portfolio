@@ -340,7 +340,8 @@ export const en: Messages = {
         desc: "Out of 25 teams, with Quebra-Gelo, built in a pair in one day.",
       },
       {
-        title: "SAGA SENAI Ambassador, Innovation Projects",
+        year: "2026",
+        title: "SAGA SENAI Ambassador",
         desc: "The only student selected on performance to represent the institution, present projects and mentor other students.",
       },
       {
