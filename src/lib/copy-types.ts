@@ -41,5 +41,5 @@ export type AiProjectCopy = {
 export type NoteCopy = {
   title: string
   summary: string
-  href: string
+  href?: string
 }

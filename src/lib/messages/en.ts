@@ -209,7 +209,6 @@ export const en: Messages = {
         role: "Built with the Ponto e Vírgula team, which I'm part of.",
       },
       "media-hub": {
-        status: "in production",
         description:
           "Internal system for a media company: display points, content library, scheduling, production, contracts and billing, with an AI assistant.",
         role: "Full development for a client.",
@@ -311,6 +310,16 @@ export const en: Messages = {
         summary:
           "A full rehearsal in QA, row count and checksum validation and a cutover of about 45 minutes, with rollback ready.",
         href: "/artigos/migracao-cloud-run/",
+      },
+      {
+        title: "Model output only counts with its source excerpt",
+        summary:
+          "In the meeting recorder, the agent only proposes a commitment if it brings the transcript excerpt it came from, and only above a confidence threshold. Even then, a person is the one who turns it into a task. The anchor in the text is what lets you check in seconds whether the model made it up; without it, reviewing means rereading the whole meeting.",
+      },
+      {
+        title: "At a hackathon, the rule comes before the stack",
+        summary:
+          "In Quebra-Gelo, the turning point was the moment we decided the game could be about the event itself, not about just any situation. The rule became the center: the pet only grows when you actually talk to someone there. Real time over WebSocket and multimodal AI exist to serve that rule. That is what I take into short projects: first the rule people feel, then the stack.",
       },
     ],
   },

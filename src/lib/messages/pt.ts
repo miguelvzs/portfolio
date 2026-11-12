@@ -218,7 +218,6 @@ export const pt = {
         role: "Feito com o time Ponto e Vírgula, do qual faço parte.",
       },
       "media-hub": {
-        status: "em produção",
         description:
           "Sistema interno para uma empresa de mídia: pontos de exibição, biblioteca, grade, produção, contratos e faturamento, com assistente de IA.",
         role: "Desenvolvimento completo para cliente.",
@@ -321,6 +320,16 @@ export const pt = {
         summary:
           "Ensaio completo em QA, validação por contagem e checksum e um cutover de cerca de 45 minutos, com rollback pronto.",
         href: "/artigos/migracao-cloud-run/",
+      },
+      {
+        title: "Saída de modelo só vale com o trecho de origem",
+        summary:
+          "No gravador de reuniões, o agente só propõe um compromisso se trouxer junto o trecho da transcrição de onde ele saiu, e só acima de um limiar de confiança. Mesmo assim, quem transforma em tarefa é uma pessoa. A âncora no texto é o que deixa conferir em segundos se o modelo inventou; sem ela, revisar vira reler a reunião inteira.",
+      },
+      {
+        title: "Num hackathon, a regra vem antes da pilha",
+        summary:
+          "No Quebra-Gelo, a virada foi o momento em que decidimos que o jogo podia ser sobre o evento, e não sobre uma situação qualquer. A regra passou a ser o centro: o pet só cresce quando você conversa com alguém de verdade ali. O tempo real por WebSocket e a IA multimodal existem para servir a essa regra. É o que eu levo para projeto curto: primeiro a regra que a pessoa sente, depois a pilha.",
       },
     ] as NoteCopy[],
   },
