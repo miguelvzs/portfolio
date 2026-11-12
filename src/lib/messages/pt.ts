@@ -329,7 +329,7 @@ export const pt = {
       {
         title: "Num hackathon, a regra vem antes da pilha",
         summary:
-          "No Quebra-Gelo, a virada foi o momento em que decidimos que o jogo podia ser sobre o evento, e não sobre uma situação qualquer. A regra passou a ser o centro: o pet só cresce quando você conversa com alguém de verdade ali. O tempo real por WebSocket e a IA multimodal existem para servir a essa regra. É o que eu levo para projeto curto: primeiro a regra que a pessoa sente, depois a pilha.",
+          "No Quebra-Gelo, a decisão-chave foi o momento em que decidimos que o jogo podia ser sobre o evento, e não sobre uma situação qualquer. A regra passou a ser o centro: o pet só cresce quando você conversa com alguém de verdade ali. O tempo real por WebSocket e a IA multimodal existem para servir a essa regra. É o que eu levo para projeto curto: primeiro a regra que a pessoa sente, depois a pilha.",
       },
     ] as NoteCopy[],
   },

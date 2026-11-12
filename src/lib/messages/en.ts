@@ -319,7 +319,7 @@ export const en: Messages = {
       {
         title: "At a hackathon, the rule comes before the stack",
         summary:
-          "In Quebra-Gelo, the turning point was the moment we decided the game could be about the event itself, not about just any situation. The rule became the center: the pet only grows when you actually talk to someone there. Real time over WebSocket and multimodal AI exist to serve that rule. That is what I take into short projects: first the rule people feel, then the stack.",
+          "In Quebra-Gelo, the key decision was the moment we decided the game could be about the event itself, not about just any situation. The rule became the center: the pet only grows when you actually talk to someone there. Real time over WebSocket and multimodal AI exist to serve that rule. That is what I take into short projects: first the rule people feel, then the stack.",
       },
     ],
   },
