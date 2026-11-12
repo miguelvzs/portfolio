@@ -234,9 +234,9 @@ export const en: Messages = {
       },
       "pipeline-tendencia-conteudo": {
         description:
-          "A pipeline that ingests data from external APIs, filters it, classifies it with an LLM agent and runs the full flow with no human intervention, deployed in a container.",
+          "A pipeline that ingests data from external APIs, filters it, classifies it with an LLM agent and runs the full flow with no human intervention.",
         role: "Pipeline, agent integration and deploy.",
-        highlights: ["runs on its own, no human intervention", "deployed in a container on Fly.io"],
+        highlights: ["deployed in a container on Fly.io"],
         diagramSteps: ["External signal (API)", "Ingestion", "Agent classifies", "Flow runs", "Publishing"],
       },
     },

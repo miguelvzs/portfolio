@@ -241,9 +241,9 @@ export const pt = {
       },
       "pipeline-tendencia-conteudo": {
         description:
-          "Pipeline que ingere dados de APIs externas, filtra, classifica com um agente de LLM e executa o fluxo completo sem intervenção humana, publicado em contêiner.",
+          "Pipeline que ingere dados de APIs externas, filtra, classifica com um agente de LLM e executa o fluxo completo sem intervenção humana.",
         role: "Pipeline, integração com o agente e deploy.",
-        highlights: ["execução autônoma, sem intervenção humana", "publicado em contêiner na Fly.io"],
+        highlights: ["publicado em contêiner na Fly.io"],
         diagramSteps: ["Sinal externo (API)", "Ingestão", "Agente classifica", "Fluxo executado", "Publicação"],
       },
     } as Record<"validador-registros-tabulares" | "pipeline-tendencia-conteudo", AiProjectCopy>,

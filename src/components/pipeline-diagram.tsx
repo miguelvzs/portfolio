@@ -20,7 +20,7 @@ export function PipelineDiagram({
         <li key={step.label} className="flex items-center gap-2" style={{ ["--i" as string]: i }}>
           <span
             className={
-              "flow-step inline-block rounded-md px-2.5 py-1.5 font-mono text-[15px] leading-snug " +
+              "flow-step inline-block rounded-md px-2.5 py-1.5 font-mono text-base leading-snug " +
               (step.mine ? "bg-brand text-brand-foreground" : "bg-secondary text-foreground")
             }
           >
