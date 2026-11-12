@@ -37,7 +37,7 @@ export function Navbar() {
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
         <a
           href="#hero"
-          className="rounded-sm font-mono text-sm tracking-tight text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+          className="rounded-sm py-3 font-mono text-sm tracking-tight text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
         >
           miguelvzs
         </a>
@@ -47,7 +47,7 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              className="py-3 text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
             </a>
@@ -60,6 +60,7 @@ export function Navbar() {
           <Button
             variant="ghost"
             size="icon-sm"
+            className="size-11"
             onClick={toggleTheme}
             aria-label={theme === "dark" ? t.aria.themeLight : t.aria.themeDark}
           >
@@ -68,7 +69,7 @@ export function Navbar() {
 
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon-sm" className="md:hidden" aria-label={t.aria.openMenu}>
+              <Button variant="ghost" size="icon-sm" className="size-11 md:hidden" aria-label={t.aria.openMenu}>
                 <Menu className="size-4" />
               </Button>
             </SheetTrigger>

@@ -1,62 +1,37 @@
-import { ArrowUpRight, Lock } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { Reveal } from "@/components/reveal"
 import { Card } from "@/components/ui/card"
-import type { WebProject } from "@/lib/content"
+import type { ProductProject } from "@/lib/content"
 import { useI18n } from "@/lib/i18n"
 
-export function ProjectCard({ project, index }: { project: WebProject; index: number }) {
+export function ProjectCard({ project, index }: { project: ProductProject; index: number }) {
   const { t } = useI18n()
   return (
     <Reveal delay={(index % 2) * 0.08}>
-      <Card className="group h-full gap-0 py-0 ring-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10 hover:ring-brand/50">
-        <div className="border-b border-border bg-muted/40 px-3 py-2.5">
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
-            <div className="ml-2 flex flex-1 items-center gap-1.5 rounded-md border border-border bg-background px-2.5 py-1">
-              <Lock className="size-2.5 text-emerald-500" />
-              <span className="truncate font-mono text-[10px] text-muted-foreground">
-                {project.displayUrl ?? t.projects.private}
-              </span>
-            </div>
-          </div>
+      <Card className="h-full gap-3 p-5 ring-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10 hover:ring-brand/50">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+          <h3 className="text-lg font-semibold text-foreground">{project.name}</h3>
+          <p className="font-mono text-[13px] tracking-wide text-brand">{project.status}</p>
         </div>
 
-        <div className="flex flex-1 flex-col gap-2.5 p-5">
-          <div className="flex items-center justify-between gap-2">
-            <h3 className="text-base font-semibold text-foreground">{project.name}</h3>
-            {project.demoUrl ? (
-              <a
-                href={project.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-brand"
-              >
-                {t.projects.openSite}
-                <ArrowUpRight className="size-3.5" />
-              </a>
-            ) : (
-              <span className="text-xs text-muted-foreground">{t.projects.private}</span>
-            )}
-          </div>
+        <p className="text-base leading-relaxed text-muted-foreground">{project.description}</p>
+        <p className="text-base leading-relaxed text-foreground/85">{project.role}</p>
 
-          <p className="text-sm leading-relaxed text-muted-foreground">{project.description}</p>
+        <p className="mt-auto font-mono text-[13px] leading-relaxed text-muted-foreground">{project.stack}</p>
 
-          <ul
-            className="mt-1 flex flex-wrap gap-1.5"
-            aria-label={t.aria.stackUsedIn.replace("{name}", project.name)}
+        {project.href ? (
+          <a
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 w-fit items-center gap-1 text-base text-muted-foreground transition-colors hover:text-brand"
           >
-            {project.stack.map((tech) => (
-              <li
-                key={tech}
-                className="rounded-md bg-brand/10 px-2 py-0.5 font-mono text-[11px] text-brand"
-              >
-                {tech}
-              </li>
-            ))}
-          </ul>
-        </div>
+            {project.displayUrl ?? t.projects.openSite}
+            <ArrowUpRight className="size-4" aria-hidden="true" />
+          </a>
+        ) : (
+          <p className="min-h-11 pt-2.5 text-base text-muted-foreground">{t.projects.noLink}</p>
+        )}
       </Card>
     </Reveal>
   )

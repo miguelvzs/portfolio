@@ -21,7 +21,7 @@ export function LanguageSwitcher() {
             aria-label={meta.nativeName}
             aria-pressed={active}
             title={meta.nativeName}
-            className={cn(active && "bg-muted ring-1 ring-brand/70")}
+            className="size-11"
           >
             <img
               src={meta.flagSrc}
@@ -31,7 +31,7 @@ export function LanguageSwitcher() {
               draggable={false}
               className={cn(
                 "h-3.5 w-5 rounded-[3px] object-cover shadow-[0_0_0_1px_rgba(0,0,0,0.12)] transition-opacity dark:shadow-[0_0_0_1px_rgba(255,255,255,0.18)]",
-                active ? "opacity-100" : "opacity-55 group-hover/button:opacity-100"
+                active ? "opacity-100 outline-2 outline-offset-[5px] outline-brand/80" : "opacity-55 group-hover/button:opacity-100"
               )}
             />
           </Button>

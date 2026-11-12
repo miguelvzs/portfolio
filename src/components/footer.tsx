@@ -7,13 +7,13 @@ export function Footer() {
   return (
     <footer className="border-t border-border py-8">
       <div className="mx-auto max-w-5xl px-6 text-center">
-        <p className="font-mono text-xs text-muted-foreground">
+        <p className="font-mono text-sm text-muted-foreground">
           {profile.name} ·{" "}
           <a
             href={`${profile.github}/portfolio`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-brand underline underline-offset-4"
+            className="inline-block py-3 text-brand underline underline-offset-4"
           >
             {t.footer.source}
           </a>{" "}

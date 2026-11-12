@@ -51,16 +51,12 @@ export function Hero() {
             {t.hero.subtitle}
           </p>
 
-          <div
+          <p
             style={{ animationDelay: "0.45s" }}
-            className="rise mb-8 inline-flex items-center gap-2 font-mono text-xs text-muted-foreground"
+            className="rise mb-8 text-base text-foreground/85 md:text-lg"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75 motion-reduce:animate-none" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
             {t.hero.available}
-          </div>
+          </p>
 
           <div
             style={{ animationDelay: "0.5s" }}
@@ -106,7 +102,7 @@ export function Hero() {
       <a
         href="#about"
         aria-label={t.aria.scrollToAbout}
-        className="nudge absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground"
+        className="nudge absolute bottom-5 left-1/2 -translate-x-1/2 p-2.5 text-muted-foreground"
       >
         <ArrowDown className="h-6 w-6" />
       </a>

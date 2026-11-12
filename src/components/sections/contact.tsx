@@ -25,10 +25,10 @@ export function Contact() {
 
         <Reveal delay={0.1}>
           <Card className="gap-6 p-8 ring-border md:p-11">
-            <p className="max-w-lg text-sm leading-relaxed text-muted-foreground">{t.contact.body}</p>
+            <p className="max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">{t.contact.body}</p>
             <div className="flex flex-wrap gap-3">
               {links.map((link) => (
-                <Button key={link.label} variant="outline" className="h-10 gap-2 px-4" asChild>
+                <Button key={link.label} variant="outline" className="h-11 gap-2 px-4 text-base" asChild>
                   <a
                     href={link.href}
                     target={link.href.startsWith("http") ? "_blank" : undefined}

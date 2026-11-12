@@ -6,12 +6,11 @@ import { Footer } from "@/components/footer"
 import { Hero } from "@/components/sections/hero"
 import { About } from "@/components/sections/about"
 import { Experience } from "@/components/sections/experience"
-import { Stats } from "@/components/sections/stats"
 import { Cases } from "@/components/sections/cases"
 import { Process } from "@/components/sections/process"
-import { Skills } from "@/components/sections/skills"
 import { Credentials } from "@/components/sections/credentials"
 import { Projects } from "@/components/sections/projects"
+import { Notes } from "@/components/sections/notes"
 import { Contact } from "@/components/sections/contact"
 
 function AppShell() {
@@ -31,13 +30,12 @@ function AppShell() {
 
       <main id="main-content">
         <Hero />
-        <Stats />
         <About />
         <Experience />
         <Cases />
         <Process />
-        <Skills />
         <Projects />
+        <Notes />
         <Credentials />
         <Contact />
       </main>

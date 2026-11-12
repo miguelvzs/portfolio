@@ -11,7 +11,7 @@ export function SectionHeading({
 }) {
   return (
     <div className="mb-10 md:mb-14">
-      <p className="mb-2 font-mono text-xs tracking-[0.14em] text-brand uppercase">{eyebrow}</p>
+      <p className="mb-2 font-mono text-[13px] tracking-[0.14em] text-brand uppercase">{eyebrow}</p>
       <h2
         id={id}
         className={

@@ -5,10 +5,6 @@ import { PipelineDiagram } from "@/components/pipeline-diagram"
 import { Card } from "@/components/ui/card"
 import { useI18n } from "@/lib/i18n"
 
-const ARTICLES: Record<string, string> = {
-  cloud: "/artigos/migracao-cloud-run/",
-}
-
 export function Cases() {
   const { t } = useI18n()
 
@@ -17,57 +13,82 @@ export function Cases() {
       <div className="mx-auto max-w-5xl px-6">
         <Reveal>
           <SectionHeading eyebrow={t.cases.eyebrow} title={t.cases.title} id="cases-heading" size="lg" />
-          <p className="-mt-6 mb-10 max-w-2xl text-sm text-muted-foreground md:-mt-8">{t.cases.subtitle}</p>
+          <p className="-mt-6 mb-10 max-w-2xl text-base text-muted-foreground md:-mt-8">{t.cases.subtitle}</p>
         </Reveal>
 
         <div className="space-y-8">
-          {t.cases.items.map((item) => (
-            <Reveal key={item.slug}>
-              <Card className="gap-5 p-6 ring-border md:p-8">
-                <h3 className="text-lg font-semibold text-foreground md:text-xl">{item.title}</h3>
+          {t.cases.items.map((item) => {
+            const result = item.arc.find(([key]) => key === "resultado")
+            const story = item.arc.filter(([key]) => key !== "resultado")
+            return (
+              <Reveal key={item.slug}>
+                <Card id={item.slug} className="scroll-mt-20 gap-6 p-6 ring-border md:p-8">
+                  <div>
+                    <h3 className="text-xl font-semibold text-foreground md:text-2xl">{item.title}</h3>
+                    <p className="mt-2 max-w-3xl text-base leading-relaxed text-muted-foreground">{item.intro}</p>
+                  </div>
 
-                <div>
-                  <p className="mb-1 font-mono text-[11px] tracking-widest text-brand uppercase">{t.cases.context}</p>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{item.context}</p>
-                </div>
+                  {item.flow && (
+                    <div>
+                      {item.flowLabel && (
+                        <p className="mb-2 font-mono text-[13px] tracking-widest text-brand uppercase">
+                          {item.flowLabel}
+                        </p>
+                      )}
+                      <PipelineDiagram
+                        steps={item.flow}
+                        label={t.aria.flow.replace("{name}", item.title)}
+                        mineLabel={t.aria.mine}
+                      />
+                      {item.flow.some((s) => s.mine) && (
+                        <p className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+                          <span aria-hidden="true" className="inline-block h-3 w-3 rounded-sm bg-brand" />
+                          {t.aria.mine}
+                        </p>
+                      )}
+                    </div>
+                  )}
 
-                <PipelineDiagram steps={item.diagram} />
-
-                <div>
-                  <p className="mb-2 font-mono text-[11px] tracking-widest text-brand uppercase">{t.cases.did}</p>
-                  <ul className="list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-muted-foreground marker:text-brand">
-                    {item.points.map((point) => (
-                      <li key={point}>{point}</li>
+                  <dl className="grid gap-x-8 gap-y-2 md:grid-cols-[11rem_1fr] md:gap-y-5">
+                    {story.map(([key, text], i) => (
+                      <div key={key} className="contents">
+                        <dt
+                          className={
+                            "font-mono text-[13px] tracking-widest text-brand uppercase md:mt-0 md:pt-1 " +
+                            (i > 0 ? "mt-3" : "")
+                          }
+                        >
+                          {t.cases.arcLabels[key]}
+                        </dt>
+                        <dd className="text-base leading-relaxed text-muted-foreground">{text}</dd>
+                      </div>
                     ))}
-                  </ul>
-                </div>
+                  </dl>
 
-                <div className="rounded-lg border border-brand/30 bg-brand/5 p-4">
-                  <p className="mb-1 font-mono text-[11px] tracking-widest text-brand uppercase">{t.cases.result}</p>
-                  <p className="text-sm leading-relaxed text-foreground">{item.result}</p>
-                </div>
+                  {result && (
+                    <div className="rounded-lg border border-brand/30 bg-brand/5 p-4">
+                      <p className="mb-1 font-mono text-[13px] tracking-widest text-brand uppercase">
+                        {t.cases.arcLabels.resultado}
+                      </p>
+                      <p className="text-base leading-relaxed text-foreground">{result[1]}</p>
+                    </div>
+                  )}
 
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <ul className="flex flex-wrap gap-1.5" aria-label={t.aria.stackUsedIn.replace("{name}", item.title)}>
-                    {item.stack.map((tech) => (
-                      <li key={tech} className="rounded-md bg-brand/10 px-2 py-0.5 font-mono text-[11px] text-brand">
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                  {ARTICLES[item.slug] && (
+                  {item.link && (
                     <a
-                      href={ARTICLES[item.slug]}
-                      className="inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-brand"
+                      href={item.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex min-h-11 w-fit items-center gap-1 text-base text-muted-foreground underline-offset-4 transition-colors hover:text-brand hover:underline"
                     >
-                      {t.cases.readArticle}
-                      <ArrowUpRight className="size-3.5" aria-hidden="true" />
+                      {item.link.label}
+                      <ArrowUpRight className="size-4" aria-hidden="true" />
                     </a>
                   )}
-                </div>
-              </Card>
-            </Reveal>
-          ))}
+                </Card>
+              </Reveal>
+            )
+          })}
         </div>
       </div>
     </section>
