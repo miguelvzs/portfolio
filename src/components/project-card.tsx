@@ -11,7 +11,7 @@ export function ProjectCard({ project, index }: { project: ProductProject; index
       <Card className="h-full gap-3 p-5 ring-border transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/10 hover:ring-brand/50">
         <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
           <h3 className="text-lg font-semibold text-foreground">{project.name}</h3>
-          <p className="font-mono text-[13px] tracking-wide text-brand">{project.status}</p>
+          <p className="font-mono text-base text-brand">{project.status}</p>
         </div>
 
         <p className="text-base leading-relaxed text-muted-foreground">{project.description}</p>

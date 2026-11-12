@@ -50,7 +50,7 @@ export const en: Messages = {
     eyebrow: "About",
     title: "What I do now and where I come from",
     paragraphs: [
-      "I'm a full stack developer at Enviagora. There, I run every project on Google Cloud with Terraform, led the migration of the HR Hub to it, and I'm part of the team building EnviaMind, the single platform that brings together HR, operations, the gatehouse, finance and leadership.",
+      "I'm a full stack developer at Enviagora. There, I run every project on Google Cloud with Terraform, and I'm part of the team building EnviaMind, the single platform that brings together HR, operations, the gatehouse, finance and leadership.",
       "On AI, I build flows meant for production. What the model extracts goes through validation, a confidence threshold or a person's approval before it turns into an action. I don't lock into one provider (Claude, Gemini and GPT via Vertex AI and OpenRouter), I track the cost of every call and I pick the model by evaluation.",
       "Before software, I came through industry: a technical degree in Systems Development from SENAI, mechanical drafting, electromechanical maintenance, and roles at Panasonic, Hutchinson and in R&D at Soft Film. Outside work, I'm building Morada, and I'm part of the Ponto e Vírgula team, which is writing the spec for Studoo.",
     ],
@@ -151,7 +151,7 @@ export const en: Messages = {
           ["restricao", "Privacy and bad networks. The app never talks to the database or an external provider and carries no secrets; on a bad network it shows the last reading. And three languages from day one."],
           ["decisao", "Balance, totals and status are computed only on the server, so the home screen, finances, report and PDF always match. The balance shows only what is real: money to receive or to pay never goes into it. The same Zod schema validates the form in the app and again in the API."],
           ["fora", "A web version in v1, because only the native app can remind you with the app closed. Email-code-only login became a password, so people can sign in every day without opening their email. And on the day I signed up, the EU server was sold out: I chose Canada, with a backup copy in the EU, and accepted about 100 ms more per call."],
-          ["resultado", "First TestFlight build on 10/26/2026 and an open public beta. 345 tests on the API and internal security audits, with no critical findings and the medium ones already fixed. It hasn't been validated in real use yet: that's the next step."],
+          ["resultado", "First TestFlight build on 10/26/2026; the public beta is open at getmorada.app/beta. On 10/18 the API had 345 passing tests, and the internal security audits found nothing critical; the medium findings are already fixed. It hasn't been validated in real use yet: that's the next step."],
         ],
         link: { href: "https://getmorada.app", label: "getmorada.app" },
       },

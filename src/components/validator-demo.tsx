@@ -120,7 +120,7 @@ export function ValidatorDemo() {
         </div>
 
         <div aria-live="polite" className="space-y-4">
-          <p className="font-mono text-sm text-foreground">
+          <p className="font-mono text-base text-foreground">
             {checked.length - rejected.length} {t.demo.valid} · {rejected.length} {t.demo.rejected}
             {status === "done" && (
               <span className="text-brand">

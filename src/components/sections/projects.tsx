@@ -27,7 +27,7 @@ export function Projects() {
             {t.projects.aiHeading}
           </h3>
         </Reveal>
-        <div className="grid items-start gap-6 sm:grid-cols-2">
+        <div className="grid gap-6">
           {content.aiProjects.map((project, i) => (
             <AiProjectCard key={project.slug} project={project} index={i} />
           ))}

@@ -56,7 +56,7 @@ export const pt = {
     eyebrow: "Sobre",
     title: "O que faço hoje e de onde venho",
     paragraphs: [
-      "Sou desenvolvedor full stack na Enviagora. Lá, uso o Google Cloud com Terraform em todos os projetos, conduzi a migração do Hub de RH para ele e faço parte do time que constrói o EnviaMind, a plataforma única que reúne RH, operação, portaria, financeiro e diretoria.",
+      "Sou desenvolvedor full stack na Enviagora. Lá, uso o Google Cloud com Terraform em todos os projetos e faço parte do time que constrói o EnviaMind, a plataforma única que reúne RH, operação, portaria, financeiro e diretoria.",
       "Em IA, construo fluxos feitos para produção. O que o modelo extrai passa por validação, limiar de confiança ou aprovação de uma pessoa antes de virar ação. Não fico preso a um provedor (Claude, Gemini e GPT via Vertex AI e OpenRouter), meço o custo de cada chamada e escolho o modelo por avaliação.",
       "Antes do software, passei pela indústria: técnico em Desenvolvimento de Sistemas pelo SENAI, desenho técnico mecânico, manutenção eletromecânica e passagens por Panasonic, Hutchinson e P&D na Soft Film. Fora do trabalho, construo o Morada e faço parte do time Ponto e Vírgula, que está especificando o Studoo.",
     ],
@@ -158,7 +158,7 @@ export const pt = {
           ["restricao", "Privacidade e rede ruim. O app nunca fala com o banco nem com um provedor externo e não carrega segredo; com rede ruim, mostra a última leitura. E três idiomas desde o primeiro dia."],
           ["decisao", "Saldo, totais e status são calculados só no servidor, para a tela inicial, as finanças, o relatório e o PDF sempre baterem. O saldo mostra só o que é real: o que está a receber ou a pagar nunca entra nele. O mesmo schema Zod valida o formulário no app e de novo na API."],
           ["fora", "Uma versão web na v1, porque só o app nativo dá lembrete com o app fechado. O login só por código no e-mail virou senha, para entrar todo dia sem abrir o e-mail. E no dia da contratação o servidor da UE estava esgotado: escolhi o Canadá, com cópia de segurança na UE, e aceitei cerca de 100 ms a mais por chamada."],
-          ["resultado", "Primeiro build no TestFlight em 26/10/2026 e beta público aberto. 345 testes na API e auditorias de segurança internas, sem achado crítico e com os médios já corrigidos. Ainda não foi validado em uso real: esse é o próximo passo."],
+          ["resultado", "Primeiro build no TestFlight em 26/10/2026; o beta público está aberto em getmorada.app/beta. Em 18/10, a API tinha 345 testes passando, e as auditorias de segurança internas não acharam nada crítico; os achados médios já foram corrigidos. Ainda não foi validado em uso real: esse é o próximo passo."],
         ],
         link: { href: "https://getmorada.app", label: "getmorada.app" },
       },
