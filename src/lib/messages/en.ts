@@ -284,7 +284,7 @@ export const en: Messages = {
     noCorrections: "The AI found no safe correction for the remaining orders.",
     aiNote:
       "The AI only fixes what can be deduced from the order's other fields. Client, SKU, ID and deadline are never made up.",
-    unavailable: "The AI is unavailable right now. Validation still works.",
+    unavailable: "AI recovery is switched off on this site for now. Rule-based validation still works.",
     rateLimited: "Usage limit reached. Try again in a few minutes.",
     error: "Couldn't reach the AI right now.",
     reasons: {

@@ -294,7 +294,7 @@ export const pt = {
     noCorrections: "A IA não encontrou correção segura para os pedidos restantes.",
     aiNote:
       "A IA só corrige o que dá para deduzir dos outros campos do pedido. Cliente, SKU, ID e prazo nunca são inventados.",
-    unavailable: "A IA está indisponível agora. A validação continua funcionando.",
+    unavailable: "A recuperação com IA está desligada neste site por enquanto. A validação pelas regras continua funcionando.",
     rateLimited: "Limite de uso atingido. Tente de novo em alguns minutos.",
     error: "Não foi possível falar com a IA agora.",
     reasons: {
