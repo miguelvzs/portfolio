@@ -129,7 +129,7 @@ export const es: Messages = {
         arc: [
           ["problema", "Hacer una vista previa de sitio a medida para cada negocio, lo bastante rápido para enviarla en el primer contacto y sin cara de plantilla."],
           ["restricao", "Nada sale sin mí: ninguna vista previa se publica ni le llega a nadie sin mi aprobación. Y nada se inventa: precios, calificaciones, testimonios, teléfonos y horarios, solo con fuente."],
-          ["decisao", "Agentes con roles separados, porque quien construye no revisa. El revisor pone nota por criterio y solo aprueba con todos en 8,5 o más; el QA rechaza por sí solo lo que no cumpla texto de 16 px, áreas táctiles de 44 px, contraste AA y LCP por debajo de 2,5 s."],
+          ["decisao", "Agentes con roles separados, porque quien construye no revisa. El revisor califica por criterio y solo aprueba con todos en 8,5 o más; el QA rechaza por sí solo lo que no cumpla texto de 16 px, áreas táctiles de 44 px, contraste AA y LCP por debajo de 2,5 s."],
           ["resultado", "12 vistas previas hasta ahora (12/11/2026). Las reglas están en un único archivo que todos los agentes leen antes de empezar, y cada rechazo mío se convierte en una línea nueva. Las vistas previas se publican con noindex, solo para quien tiene el enlace."],
         ],
         link: { href: "https://velldigital.vercel.app", label: "sitio de Vell" },
