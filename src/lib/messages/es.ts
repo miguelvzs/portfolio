@@ -311,7 +311,7 @@ export const es: Messages = {
       {
         title: "Cómo migré la base de datos del Hub de RR. HH. a Google Cloud",
         summary:
-          "Ensayo completo en QA, validación por conteo y checksum y un cutover de unos 45 minutos, con rollback listo.",
+          "Ensayo general completo en QA, validación por conteo y checksum y un cutover de unos 45 minutos, con rollback listo.",
         href: "/artigos/migracao-cloud-run/",
       },
       {
