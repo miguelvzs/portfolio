@@ -161,6 +161,7 @@ export const pt = {
           ["fora", "Uma versão web na v1, porque só o app nativo dá lembrete com o app fechado. O login só por código no e-mail virou senha, para entrar todo dia sem abrir o e-mail. E no dia da contratação o servidor da UE estava esgotado: escolhi o Canadá, com cópia de segurança na UE, e aceitei cerca de 100 ms a mais por chamada."],
           ["resultado", "Primeiro build no TestFlight em 26/10/2026; o beta público está aberto em getmorada.app/beta. Em 18/10, a API tinha 345 testes passando, e as auditorias de segurança internas não acharam nada crítico; os achados médios já foram corrigidos. Ainda não foi validado em uso real: esse é o próximo passo."],
         ],
+        image: { alt: "Tela inicial do Morada: saudação para Ana em Valência, saldo de € 682,60 com o equivalente em reais e os botões Recebi e Gastei.", caption: "A tela inicial do app, com os dados fictícios usados nos prints da loja. O app está em português." },
         link: { href: "https://getmorada.app", label: "getmorada.app" },
       },
       {
@@ -324,12 +325,12 @@ export const pt = {
       {
         title: "Saída de modelo só vale com o trecho de origem",
         summary:
-          "No gravador de reuniões, o agente só propõe um compromisso se trouxer junto o trecho da transcrição de onde ele saiu, e só acima de um limiar de confiança. Mesmo assim, quem transforma em tarefa é uma pessoa. A âncora no texto é o que deixa conferir em segundos se o modelo inventou; sem ela, revisar vira reler a reunião inteira.",
+          "No gravador de reuniões, o agente só propõe um compromisso se trouxer junto o trecho da transcrição de onde ele saiu, e só acima de um limiar de confiança. Mesmo assim, quem transforma em tarefa é uma pessoa. A âncora no texto é o que deixa conferir se o modelo inventou.",
       },
       {
         title: "Num hackathon, a regra vem antes da pilha",
         summary:
-          "No Quebra-Gelo, a decisão-chave foi o momento em que decidimos que o jogo podia ser sobre o evento, e não sobre uma situação qualquer. A regra passou a ser o centro: o pet só cresce quando você conversa com alguém de verdade ali. O tempo real por WebSocket e a IA multimodal existem para servir a essa regra. É o que eu levo para projeto curto: primeiro a regra que a pessoa sente, depois a pilha.",
+          "No Quebra-Gelo, o ponto de partida foi o momento em que decidimos que o jogo podia ser sobre o evento, e não sobre uma situação qualquer. Dali saiu a regra do jogo: o pet só cresce quando você conversa com alguém de verdade ali.",
       },
     ] as NoteCopy[],
   },

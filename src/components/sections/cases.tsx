@@ -4,6 +4,12 @@ import { Reveal } from "@/components/reveal"
 import { PipelineDiagram } from "@/components/pipeline-diagram"
 import { Card } from "@/components/ui/card"
 import { useI18n } from "@/lib/i18n"
+import moradaSaldo from "@/assets/morada-saldo.webp"
+
+// Imagens reais dos produtos, com dados fictícios (nunca de cliente).
+const IMAGES: Record<string, string> = {
+  morada: moradaSaldo,
+}
 
 export function Cases() {
   const { t } = useI18n()
@@ -53,6 +59,7 @@ export function Cases() {
                     <p className="max-w-3xl text-base leading-relaxed text-muted-foreground md:text-[17px]">{item.body}</p>
                   )}
 
+                  <div className={item.image ? "grid gap-8 lg:grid-cols-[1fr_15rem] lg:items-start" : undefined}>
                   {story.length > 0 && (
                   <dl className="grid gap-x-8 gap-y-2 md:grid-cols-[11rem_1fr] md:gap-y-5">
                     {story.map(([key, text], i) => (
@@ -70,6 +77,23 @@ export function Cases() {
                     ))}
                   </dl>
                   )}
+                  {item.image && IMAGES[item.slug] && (
+                    <figure className="max-w-60 lg:max-w-none">
+                      <img
+                        src={IMAGES[item.slug]}
+                        alt={item.image.alt}
+                        width={640}
+                        height={858}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full rounded-2xl border border-border shadow-lg shadow-black/20"
+                      />
+                      <figcaption className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                        {item.image.caption}
+                      </figcaption>
+                    </figure>
+                  )}
+                  </div>
 
                   {result && (
                     <div className="rounded-lg border border-brand/30 bg-brand/5 p-4">

@@ -247,3 +247,12 @@
     transition-delay: 0s !important;
   }
 }
+
+/* Movimento reduzido: o conteúdo aparece pronto, sem esperar a rolagem. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal .flow-step {
+    opacity: 1;
+    transform: none;
+  }
+}

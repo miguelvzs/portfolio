@@ -152,6 +152,7 @@ export const en: Messages = {
           ["fora", "A web version in v1, because only the native app can remind you with the app closed. Email-code-only login became a password, so people can sign in every day without opening their email. And on the day I signed up, the EU server was sold out: I chose Canada, with a backup copy in the EU, and accepted about 100 ms more per call."],
           ["resultado", "First TestFlight build on 10/26/2026; the public beta is open at getmorada.app/beta. On 10/18 the API had 345 passing tests, and the internal security audits found nothing critical; the medium findings are already fixed. It hasn't been validated in real use yet: that's the next step."],
         ],
+        image: { alt: "Morada home screen: a greeting for Ana in Valencia, a balance of € 682.60 with the amount in reais, and the Received and Spent buttons.", caption: "The app's home screen, with the fictional data used in the store screenshots. The app is shown in Portuguese." },
         link: { href: "https://getmorada.app", label: "getmorada.app" },
       },
       {
@@ -314,12 +315,12 @@ export const en: Messages = {
       {
         title: "Model output only counts with its source excerpt",
         summary:
-          "In the meeting recorder, the agent only proposes a commitment if it brings the transcript excerpt it came from, and only above a confidence threshold. Even then, a person is the one who turns it into a task. The anchor in the text is what lets you check in seconds whether the model made it up; without it, reviewing means rereading the whole meeting.",
+          "In the meeting recorder, the agent only proposes a commitment if it brings the transcript excerpt it came from, and only above a confidence threshold. Even then, a person is the one who turns it into a task. The anchor in the text is what lets you check whether the model made it up.",
       },
       {
         title: "At a hackathon, the rule comes before the stack",
         summary:
-          "In Quebra-Gelo, the key decision was the moment we decided the game could be about the event itself, not about just any situation. The rule became the center: the pet only grows when you actually talk to someone there. Real time over WebSocket and multimodal AI exist to serve that rule. That is what I take into short projects: first the rule people feel, then the stack.",
+          "In Quebra-Gelo, the starting point was the moment we decided the game could be about the event itself, not about just any situation. That is where the rule came from: the pet only grows when you actually talk to someone there.",
       },
     ],
   },

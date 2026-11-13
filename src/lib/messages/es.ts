@@ -154,6 +154,7 @@ export const es: Messages = {
           ["fora", "Una versión web en la v1, porque solo la app nativa puede recordarte algo con la app cerrada. El inicio de sesión solo con código por correo pasó a ser con contraseña, para entrar todos los días sin abrir el correo. Y el día de la contratación, el servidor de la UE estaba agotado: elegí Canadá, con copia de seguridad en la UE, y acepté unos 100 ms más por llamada."],
           ["resultado", "Primer build en TestFlight el 26/10/2026; la beta pública está abierta en getmorada.app/beta. El 18/10 la API tenía 345 pruebas pasando, y las auditorías de seguridad internas no encontraron nada crítico; los hallazgos medios ya están corregidos. Todavía no se validó en uso real: ese es el próximo paso."],
         ],
+        image: { alt: "Pantalla de inicio de Morada: saludo para Ana en Valencia, saldo de € 682,60 con el equivalente en reales y los botones Recibí y Gasté.", caption: "La pantalla de inicio de la app, con los datos ficticios de las capturas de la tienda. La app aparece en portugués." },
         link: { href: "https://getmorada.app", label: "getmorada.app" },
       },
       {
@@ -316,12 +317,12 @@ export const es: Messages = {
       {
         title: "La salida de un modelo solo vale con el fragmento de origen",
         summary:
-          "En el grabador de reuniones, el agente solo propone un compromiso si trae consigo el fragmento de la transcripción del que salió, y solo por encima de un umbral de confianza. Aun así, quien lo convierte en tarea es una persona. El ancla en el texto es lo que permite verificar en segundos si el modelo inventó algo; sin ella, revisar es releer la reunión entera.",
+          "En el grabador de reuniones, el agente solo propone un compromiso si trae consigo el fragmento de la transcripción del que salió, y solo por encima de un umbral de confianza. Aun así, quien lo convierte en tarea es una persona. El ancla en el texto es lo que permite verificar si el modelo inventó algo.",
       },
       {
         title: "En un hackathon, la regla va antes que el stack",
         summary:
-          "En Quebra-Gelo, la decisión clave fue el momento en que decidimos que el juego podía tratarse del evento mismo, y no de una situación cualquiera. La regla pasó a ser el centro: la mascota solo crece cuando hablas de verdad con alguien ahí. El tiempo real por WebSocket y la IA multimodal existen para servir a esa regla. Es lo que me llevo a los proyectos cortos: primero la regla que la persona siente, después el stack.",
+          "En Quebra-Gelo, el punto de partida fue el momento en que decidimos que el juego podía tratarse del evento mismo, y no de una situación cualquiera. De ahí salió la regla del juego: la mascota solo crece cuando hablas de verdad con alguien ahí.",
       },
     ],
   },

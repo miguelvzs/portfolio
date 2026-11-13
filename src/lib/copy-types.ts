@@ -14,6 +14,7 @@ export type CaseCopy = {
   arc: [ArcKey, string][]
   stack?: string
   link?: { href: string; label: string }
+  image?: { alt: string; caption: string }
 }
 
 export type ExperienceCopy = {

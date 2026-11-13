@@ -34,10 +34,10 @@ export function Navbar() {
           : "border-transparent bg-transparent")
       }
     >
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
+      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6 md:grid md:grid-cols-[1fr_auto_1fr]">
         <a
           href="#hero"
-          className="rounded-sm py-3 font-mono text-sm tracking-tight text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+          className="justify-self-start rounded-sm py-3 font-mono text-sm tracking-tight text-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
         >
           miguelvzs
         </a>
@@ -54,7 +54,7 @@ export function Navbar() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-1 md:gap-2">
+        <div className="flex items-center gap-1 justify-self-end md:gap-2">
           <LanguageSwitcher />
 
           <Button
