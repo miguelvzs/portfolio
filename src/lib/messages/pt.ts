@@ -328,9 +328,9 @@ export const pt = {
           "No gravador de reuniões, o agente só propõe um compromisso se trouxer junto o trecho da transcrição de onde ele saiu, e só acima de um limiar de confiança. Mesmo assim, quem transforma em tarefa é uma pessoa. A âncora no texto é o que deixa conferir se o modelo inventou.",
       },
       {
-        title: "Num hackathon, a regra vem antes da pilha",
+        title: "O ponto de partida do Quebra-Gelo",
         summary:
-          "No Quebra-Gelo, o ponto de partida foi o momento em que decidimos que o jogo podia ser sobre o evento, e não sobre uma situação qualquer. Dali saiu a regra do jogo: o pet só cresce quando você conversa com alguém de verdade ali.",
+          "No Quebra-Gelo, o ponto de partida foi o momento em que decidimos que o jogo podia ser sobre o evento, e não sobre uma situação qualquer. A regra do jogo ficou assim: o pet só cresce quando você conversa com alguém de verdade ali.",
       },
     ] as NoteCopy[],
   },

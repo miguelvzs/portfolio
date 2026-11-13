@@ -78,7 +78,7 @@ export function Cases() {
                   </dl>
                   )}
                   {item.image && IMAGES[item.slug] && (
-                    <figure className="max-w-60 lg:max-w-none">
+                    <figure className="max-w-80 lg:max-w-none">
                       <img
                         src={IMAGES[item.slug]}
                         alt={item.image.alt}

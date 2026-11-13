@@ -320,9 +320,9 @@ export const es: Messages = {
           "En el grabador de reuniones, el agente solo propone un compromiso si trae consigo el fragmento de la transcripción del que salió, y solo por encima de un umbral de confianza. Aun así, quien lo convierte en tarea es una persona. El ancla en el texto es lo que permite verificar si el modelo inventó algo.",
       },
       {
-        title: "En un hackathon, la regla va antes que el stack",
+        title: "El punto de partida de Quebra-Gelo",
         summary:
-          "En Quebra-Gelo, el punto de partida fue el momento en que decidimos que el juego podía tratarse del evento mismo, y no de una situación cualquiera. De ahí salió la regla del juego: la mascota solo crece cuando hablas de verdad con alguien ahí.",
+          "En Quebra-Gelo, el punto de partida fue el momento en que decidimos que el juego podía tratarse del evento mismo, y no de una situación cualquiera. La regla del juego quedó así: la mascota solo crece cuando hablas de verdad con alguien ahí.",
       },
     ],
   },

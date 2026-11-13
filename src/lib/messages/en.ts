@@ -318,9 +318,9 @@ export const en: Messages = {
           "In the meeting recorder, the agent only proposes a commitment if it brings the transcript excerpt it came from, and only above a confidence threshold. Even then, a person is the one who turns it into a task. The anchor in the text is what lets you check whether the model made it up.",
       },
       {
-        title: "At a hackathon, the rule comes before the stack",
+        title: "Where Quebra-Gelo started",
         summary:
-          "In Quebra-Gelo, the starting point was the moment we decided the game could be about the event itself, not about just any situation. That is where the rule came from: the pet only grows when you actually talk to someone there.",
+          "In Quebra-Gelo, the starting point was the moment we decided the game could be about the event itself, not about just any situation. The rule of the game became: the pet only grows when you actually talk to someone there.",
       },
     ],
   },
