@@ -303,7 +303,7 @@ export const en: Messages = {
   notes: {
     eyebrow: "Notes",
     title: "What I write about the work",
-    read: "read the article",
+    read: "read the article (in Portuguese)",
     items: [
       {
         title: "How I migrated the HR Hub database to Google Cloud",

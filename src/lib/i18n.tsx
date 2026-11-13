@@ -23,13 +23,14 @@ type LocaleContextValue = {
 const LocaleContext = createContext<LocaleContextValue | null>(null)
 
 function isLocale(value: string | null): value is Locale {
-  return value === "pt" || value === "en"
+  return value === "pt" || value === "en" || value === "es"
 }
 
 function localeFromNavigator(): Locale {
   if (typeof navigator === "undefined") return "pt"
   const lang = (navigator.language || "").toLowerCase()
   if (lang.startsWith("en")) return "en"
+  if (lang.startsWith("es")) return "es"
   return "pt"
 }
 

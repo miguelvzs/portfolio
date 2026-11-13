@@ -1,6 +1,6 @@
 import type { pt } from "@/lib/messages/pt"
 
-export const LOCALES = ["pt", "en"] as const
+export const LOCALES = ["pt", "en", "es"] as const
 
 export type Locale = (typeof LOCALES)[number]
 
@@ -24,9 +24,15 @@ export const localeMeta: Record<Locale, LocaleMeta> = {
     flagSrc: "/assets/flags/us.svg",
     nativeName: "English",
   },
+  es: {
+    htmlLang: "es",
+    ogLocale: "es_ES",
+    flagSrc: "/assets/flags/es.svg",
+    nativeName: "Español",
+  },
 }
 
 export type NavId = "about" | "experience" | "cases" | "projects" | "notes" | "credentials" | "contact"
 
-/** O PT é a fonte da forma; o EN precisa ter exatamente as mesmas chaves. */
+/** O PT é a fonte da forma; EN e ES precisam ter exatamente as mesmas chaves (regra: sempre PT, EN e ES). */
 export type Messages = typeof pt

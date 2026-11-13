@@ -49,11 +49,11 @@
       } catch (e) {}
       try {
         var storedLocale = localStorage.getItem('locale')
-        var locale = storedLocale === 'en' || storedLocale === 'pt'
+        var locale = storedLocale === 'en' || storedLocale === 'es' || storedLocale === 'pt'
           ? storedLocale
           : ((navigator.language || '').toLowerCase().indexOf('en') === 0
               ? 'en'
-              : 'pt')
+              : ((navigator.language || '').toLowerCase().indexOf('es') === 0 ? 'es' : 'pt'))
         document.documentElement.lang = locale === 'pt' ? 'pt-BR' : locale
       } catch (e) {}
     </script>
